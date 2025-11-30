@@ -1,0 +1,31 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:mine_lab/data/controller/withdraw/withdraw_confirm_controller.dart';
+import 'package:mine_lab/data/model/kyc/kyc_response_model.dart';
+import 'package:mine_lab/views/screens/auth/kyc/widget/widget/choose_file_list_item.dart';
+
+class WithdrawFileItem extends StatefulWidget {
+  final int index;
+
+  const WithdrawFileItem({super.key, required this.index});
+
+  @override
+  State<WithdrawFileItem> createState() => _WithdrawFileItemState();
+}
+
+class _WithdrawFileItemState extends State<WithdrawFileItem> {
+  @override
+  Widget build(BuildContext context) {
+    final MyStrings = context != null ? AppLocalizations.of(context)! : null;
+
+    return GetBuilder<WithdrawConfirmController>(builder: (controller) {
+      GlobalFormModel? model = controller.formList[widget.index];
+      return InkWell(
+          onTap: () {
+            controller.pickFile(widget.index);
+          },
+          child: ChooseFileItem(fileName: model.selectedValue ?? MyStrings!.chooseFile));
+    });
+  }
+}
