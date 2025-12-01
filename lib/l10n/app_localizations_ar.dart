@@ -32,6 +32,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get walletAddress => 'عنوان المحفظة:';
 
   @override
+  String get withdrawAddress => 'عنوان السحب:';
+
+  @override
   String get depositWith => 'الإيداع باستخدام';
 
   @override

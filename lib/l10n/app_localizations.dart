@@ -140,6 +140,12 @@ abstract class AppLocalizations {
   /// **'Wallet Address:'**
   String get walletAddress;
 
+  /// No description provided for @withdrawAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Withdraw Address:'**
+  String get withdrawAddress;
+
   /// No description provided for @depositWith.
   ///
   /// In en, this message translates to:

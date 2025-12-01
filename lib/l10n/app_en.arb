@@ -10,10 +10,11 @@
       }
     }
   },
-  "pleaseEnterTransactionHash":"Please enter the transaction hash",
-  "pleaseEnterAmount":"Please enter the amount",
-  "amountMustBeNumeric":"Amount must be numeric",
+  "pleaseEnterTransactionHash": "Please enter the transaction hash",
+  "pleaseEnterAmount": "Please enter the amount",
+  "amountMustBeNumeric": "Amount must be numeric",
   "walletAddress": "Wallet Address:",
+  "withdrawAddress": "Withdraw Address:",
   "depositWith": "Deposit with",
   "depositInstructions": "Deposit Instructions",
   "youHaveSelected": "You have selected",

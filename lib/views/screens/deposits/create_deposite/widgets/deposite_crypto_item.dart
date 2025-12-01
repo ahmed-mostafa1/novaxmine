@@ -51,7 +51,7 @@ class DepositeCryptoItem extends StatelessWidget {
           DepositeItemBlueContainerWithText(text: coinSubtitle),
           const SizedBox(height: 16),
           Text(
-            strings?.walletAddress ?? 'Wallet Address:',
+            strings?.withdrawAddress ?? 'Withdraw Address:',
             style: interMediumLarge.copyWith(
               color: MyColor.bodyTextColor,
               fontSize: 18,

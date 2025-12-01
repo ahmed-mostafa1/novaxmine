@@ -32,6 +32,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get walletAddress => 'Wallet Address:';
 
   @override
+  String get withdrawAddress => 'Withdraw Address:';
+
+  @override
   String get depositWith => 'Deposit with';
 
   @override
