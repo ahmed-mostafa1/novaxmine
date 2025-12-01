@@ -20,6 +20,15 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String get pleaseEnterTransactionHash => 'Please enter the transaction hash';
+
+  @override
+  String get pleaseEnterAmount => 'Please enter the amount';
+
+  @override
+  String get amountMustBeNumeric => 'Amount must be numeric';
+
+  @override
   String get walletAddress => 'Wallet Address:';
 
   @override

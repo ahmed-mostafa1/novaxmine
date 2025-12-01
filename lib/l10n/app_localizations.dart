@@ -116,6 +116,24 @@ abstract class AppLocalizations {
   /// **'to your {appName} account'**
   String loginMsg(String appName);
 
+  /// No description provided for @pleaseEnterTransactionHash.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter the transaction hash'**
+  String get pleaseEnterTransactionHash;
+
+  /// No description provided for @pleaseEnterAmount.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter the amount'**
+  String get pleaseEnterAmount;
+
+  /// No description provided for @amountMustBeNumeric.
+  ///
+  /// In en, this message translates to:
+  /// **'Amount must be numeric'**
+  String get amountMustBeNumeric;
+
   /// No description provided for @walletAddress.
   ///
   /// In en, this message translates to:

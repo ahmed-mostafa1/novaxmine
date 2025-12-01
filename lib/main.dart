@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
       initialRoute: RouteHelper.splashScreen,
       navigatorKey: Get.key,
       getPages: RouteHelper.routes,
-    
+
       // ✅ Localization (gen-l10n)
       locale: Get.deviceLocale,
       fallbackLocale: const Locale('ar'),
