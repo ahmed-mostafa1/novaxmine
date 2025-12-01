@@ -25,6 +25,7 @@ import 'package:mine_lab/views/screens/bottom_nav_screens/mine/mining_track/mini
 import 'package:mine_lab/views/screens/bottom_nav_screens/mine/plan_payment_method/plan_payment_method_screen.dart';
 import 'package:mine_lab/views/screens/bottom_nav_screens/mine/start_mining_screen/mining_plan_screen.dart';
 import 'package:mine_lab/views/screens/bottom_nav_screens/wallet/wallet_screen.dart';
+import 'package:mine_lab/views/screens/deposits/create_deposite/create_deposite_screen.dart';
 import 'package:mine_lab/views/screens/deposits/deposit_webview/deposit_webview_screen.dart';
 import 'package:mine_lab/views/screens/deposits/deposit_history_screen.dart';
 import 'package:mine_lab/views/screens/deposits/new_deposit/new_deposit_screen.dart';
@@ -93,6 +94,7 @@ class RouteHelper {
   static const String depositsScreen = "/deposits";
   static const String depositsDetailsScreen = "/deposits_details";
   static const String newDepositScreenScreen = "/deposits_money";
+  static const String createDepositScreen = "/create_deposit_screen";
   static const String depositWebViewScreen = '/deposit_webView';
   static const String depositHistoryScreen = '/deposit_history_screen';
 
@@ -156,6 +158,7 @@ class RouteHelper {
     GetPage(name: depositWebViewScreen, page: () => DepositWebViewScreen(depositInsertData: Get.arguments as DepositInsertData)),
     GetPage(name: depositsScreen, page: () => const DepositHistoryScreen()),
     GetPage(name: newDepositScreenScreen, page: () => const NewDepositScreen()),
+    GetPage(name: createDepositScreen, page: () => const CreateDepositeScreen()),
     GetPage(name: depositHistoryScreen, page: () => const DepositHistoryScreen()),
     GetPage(name: orderHistoryScreen, page: () => OrderHistoryScreen()),
   ];

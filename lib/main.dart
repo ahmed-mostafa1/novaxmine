@@ -42,10 +42,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       defaultTransition: Transition.noTransition,
       transitionDuration: const Duration(milliseconds: 200),
-      initialRoute: RouteHelper.splashScreen,
+      initialRoute: RouteHelper.createDepositScreen,
       navigatorKey: Get.key,
       getPages: RouteHelper.routes,
-
+    
       // ✅ Localization (gen-l10n)
       locale: Get.deviceLocale,
       fallbackLocale: const Locale('ar'),
