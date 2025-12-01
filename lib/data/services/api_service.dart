@@ -22,6 +22,7 @@ class ApiClient extends GetxService {
     Map<String, dynamic>? params, {
     bool passHeader = false,
     bool isOnlyAcceptType = false,
+    bool isJsonRequest = false,
   }) async {
     Uri url = Uri.parse(uri);
     http.Response response;
@@ -30,26 +31,33 @@ class ApiClient extends GetxService {
       initToken();
       if (method == Method.postMethod) {
         if (passHeader) {
-          if (isOnlyAcceptType) {
-            response = await http.post(url,
-                body: params, headers: {"Accept": "application/json"});
-          } else {
-            response = await http.post(url, body: params, headers: {
-              "Accept": "application/json",
-              "Authorization": "$tokenType $token"
-            });
-          }
+          final headers = {
+            "Accept": "application/json",
+            if (!isOnlyAcceptType) "Authorization": "$tokenType $token",
+            if (isJsonRequest) "Content-Type": "application/json",
+          };
+          final body = isJsonRequest ? jsonEncode(params ?? {}) : params;
+          response = await http.post(url, body: body, headers: headers);
         } else {
-          response = await http.post(url, body: params);
+          response = await http.post(url,
+              body: isJsonRequest ? jsonEncode(params ?? {}) : params,
+              headers:
+                  isJsonRequest ? {"Content-Type": "application/json"} : null);
         }
       } else if (method == Method.postMethod) {
         if (passHeader) {
-          response = await http.post(url, body: params, headers: {
-            "Accept": "application/json",
-            "Authorization": "$tokenType $token"
-          });
+          response = await http.post(url,
+              body: isJsonRequest ? jsonEncode(params ?? {}) : params,
+              headers: {
+                "Accept": "application/json",
+                "Authorization": "$tokenType $token",
+                if (isJsonRequest) "Content-Type": "application/json",
+              });
         } else {
-          response = await http.post(url, body: params);
+          response = await http.post(url,
+              body: isJsonRequest ? jsonEncode(params ?? {}) : params,
+              headers:
+                  isJsonRequest ? {"Content-Type": "application/json"} : null);
         }
       } else if (method == Method.deleteMethod) {
         response = await http.delete(url);
@@ -290,4 +298,3 @@ class ApiClient extends GetxService {
     }
   }
 }
-

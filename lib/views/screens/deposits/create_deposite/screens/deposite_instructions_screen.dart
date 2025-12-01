@@ -11,12 +11,14 @@ class DepositeInstructionsScreen extends StatelessWidget {
   final String defaultCoinTitle;
   final String defaultCoinSubtitle;
   final String defaultWithdrawAddress;
+  final int? defaultCoinWalletId;
 
   const DepositeInstructionsScreen({
     super.key,
     this.defaultCoinTitle = 'BSC',
     this.defaultCoinSubtitle = 'BEP20',
     this.defaultWithdrawAddress = '0xd4fd873d88b20155064ab799027baeb16e1a3f',
+    this.defaultCoinWalletId,
   });
 
   @override
@@ -26,6 +28,7 @@ class DepositeInstructionsScreen extends StatelessWidget {
     final coinSubtitle = arguments?['coinSubtitle'] ?? defaultCoinSubtitle;
     final withdrawAddress =
         arguments?['withdrawAddress'] ?? defaultWithdrawAddress;
+    final walletId = arguments?['walletId'] as int? ?? defaultCoinWalletId;
     final networkLabel = '$coinTitle ($coinSubtitle)';
 
     return Scaffold(
@@ -119,6 +122,7 @@ class DepositeInstructionsScreen extends StatelessWidget {
                         arguments: {
                           'network': networkLabel,
                           'walletAddress': withdrawAddress,
+                          'walletId': walletId,
                         },
                       );
                     },

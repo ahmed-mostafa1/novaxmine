@@ -4,8 +4,13 @@ import 'package:mine_lab/core/utils/styles.dart';
 
 class DepositeConfirmButton extends StatelessWidget {
   final VoidCallback? onPressed;
+  final bool isLoading;
 
-  const DepositeConfirmButton({super.key, this.onPressed});
+  const DepositeConfirmButton({
+    super.key,
+    this.onPressed,
+    this.isLoading = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -19,14 +24,23 @@ class DepositeConfirmButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(8),
           ),
         ),
-        onPressed: onPressed,
-        child: Text(
-          'I Have Transferred',
-          style: interMediumLarge.copyWith(
-            color: MyColor.colorWhite,
-            fontSize: 16,
-          ),
-        ),
+        onPressed: isLoading ? null : onPressed,
+        child: isLoading
+            ? const SizedBox(
+                height: 20,
+                width: 20,
+                child: CircularProgressIndicator(
+                  strokeWidth: 2,
+                  valueColor: AlwaysStoppedAnimation(MyColor.colorWhite),
+                ),
+              )
+            : Text(
+                'I Have Transferred',
+                style: interMediumLarge.copyWith(
+                  color: MyColor.colorWhite,
+                  fontSize: 16,
+                ),
+              ),
       ),
     );
   }

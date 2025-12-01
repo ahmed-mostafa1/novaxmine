@@ -57,7 +57,8 @@ class _CreateDepositeScreenState extends State<CreateDepositeScreen> {
             elevation: 0,
             backgroundColor: const Color(0xff212121),
             title: Text(
-              MyStrings?.deposit ?? 'Deposit via Crypto Coins',
+              MyStrings?.createDepositScreenAppBarText ??
+                  'Deposit via Crypto Coins',
               style: interBoldMediumLarge.copyWith(
                 color: MyColor.colorWhite,
               ),
@@ -117,6 +118,7 @@ class _CreateDepositeScreenState extends State<CreateDepositeScreen> {
         final title = wallet.network ?? 'N/A';
         final subtitle = wallet.standard ?? '';
         final address = wallet.walletAddress ?? '';
+        final walletId = wallet.id;
 
         return DepositeCryptoItem(
           coinTitle: title,
@@ -129,6 +131,7 @@ class _CreateDepositeScreenState extends State<CreateDepositeScreen> {
                 'coinTitle': title,
                 'coinSubtitle': subtitle,
                 'withdrawAddress': address,
+                'walletId': walletId,
               },
             );
           },

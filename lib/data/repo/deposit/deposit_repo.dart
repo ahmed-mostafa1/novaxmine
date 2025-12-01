@@ -31,10 +31,33 @@ class DepositRepo {
     return apiClient.request(url, Method.getMethod, null, passHeader: true);
   }
 
-  Future<ResponseModel> insertDeposit(
-      {required String amount,
-      required String methodCode,
-      required String currency}) async {
+  Future<ResponseModel> submitCoinWalletDeposit({
+    required int coinWalletId,
+    required String txHash,
+    required String amount,
+  }) async {
+    final String url =
+        '${UrlContainer.baseUrl}${UrlContainer.depositInsertEndPoint}';
+    final Map<String, dynamic> body = {
+      'coin_wallet_id': coinWalletId,
+      'tx_hash': txHash,
+      'amount': amount,
+    };
+
+    return apiClient.request(
+      url,
+      Method.postMethod,
+      body,
+      passHeader: true,
+      isJsonRequest: true,
+    );
+  }
+
+  Future<ResponseModel> insertDeposit({
+    required String amount,
+    required String methodCode,
+    required String currency,
+  }) async {
     String url = "${UrlContainer.baseUrl}${UrlContainer.depositInsertEndPoint}";
     Map<String, String> map = {
       "amount": amount,
