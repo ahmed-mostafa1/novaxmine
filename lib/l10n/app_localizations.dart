@@ -158,6 +158,18 @@ abstract class AppLocalizations {
   /// **'You have selected'**
   String get youHaveSelected;
 
+  /// No description provided for @coinSelection.
+  ///
+  /// In en, this message translates to:
+  /// **'{coinTitle}'**
+  String coinSelection(Object coinTitle);
+
+  /// No description provided for @coinSubtitleTemplate.
+  ///
+  /// In en, this message translates to:
+  /// **' ({coinSubtitle}).'**
+  String coinSubtitleTemplate(Object coinSubtitle);
+
   /// No description provided for @sendAmountMsg.
   ///
   /// In en, this message translates to:
@@ -175,6 +187,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'I Have Transferred'**
   String get iHaveTransferred;
+
+  /// No description provided for @copy.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy'**
+  String get copy;
+
+  /// No description provided for @copied.
+  ///
+  /// In en, this message translates to:
+  /// **'Copied'**
+  String get copied;
 
   /// No description provided for @confirmYourDeposit.
   ///
@@ -194,11 +218,23 @@ abstract class AppLocalizations {
   /// **'Transaction ID / Hash'**
   String get transactionIdHash;
 
+  /// No description provided for @enterTransactionHash.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your transaction hash'**
+  String get enterTransactionHash;
+
   /// No description provided for @amountTransferred.
   ///
   /// In en, this message translates to:
   /// **'Amount Transferred'**
   String get amountTransferred;
+
+  /// No description provided for @enterTransferredAmount.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter transferred amount'**
+  String get enterTransferredAmount;
 
   /// No description provided for @enterSameNetworkAmount.
   ///
@@ -211,6 +247,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Submit For Review'**
   String get submitForReview;
+
+  /// No description provided for @walletInfoMissing.
+  ///
+  /// In en, this message translates to:
+  /// **'Wallet information missing'**
+  String get walletInfoMissing;
 
   /// No description provided for @signUp.
   ///

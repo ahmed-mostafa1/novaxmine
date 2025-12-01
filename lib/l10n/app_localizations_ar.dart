@@ -41,6 +41,16 @@ class AppLocalizationsAr extends AppLocalizations {
   String get youHaveSelected => 'لقد قمت باختيار';
 
   @override
+  String coinSelection(Object coinTitle) {
+    return '$coinTitle';
+  }
+
+  @override
+  String coinSubtitleTemplate(Object coinSubtitle) {
+    return ' ($coinSubtitle).';
+  }
+
+  @override
   String get sendAmountMsg =>
       'يرجى إرسال المبلغ المطلوب إلى عنوان المحفظة أدناه، ثم الضغط على \"لقد قمت بالتحويل\".';
 
@@ -52,23 +62,38 @@ class AppLocalizationsAr extends AppLocalizations {
   String get iHaveTransferred => 'لقد قمت بالتحويل';
 
   @override
+  String get copy => 'نسخ';
+
+  @override
+  String get copied => 'تم النسخ';
+
+  @override
   String get confirmYourDeposit => 'تأكيد الإيداع';
 
   @override
   String get selectedNetwork => 'الشبكة المختارة';
 
   @override
-  String get transactionIdHash => 'معرّف/هاش المعاملة';
+  String get transactionIdHash => 'معرّف / هاش المعاملة';
 
   @override
-  String get amountTransferred => 'المبلغ المُحوّل';
+  String get enterTransactionHash => 'أدخل هاش المعاملة';
+
+  @override
+  String get amountTransferred => 'المبلغ المحول';
+
+  @override
+  String get enterTransferredAmount => 'أدخل المبلغ المحول';
 
   @override
   String get enterSameNetworkAmount =>
-      'أدخل المبلغ بنفس العملة/الشبكة التي قمت بالتحويل عبرها.';
+      'أدخل المبلغ بنفس العملة / الشبكة التي قمت بالتحويل من خلالها.';
 
   @override
   String get submitForReview => 'إرسال للمراجعة';
+
+  @override
+  String get walletInfoMissing => 'معلومات المحفظة مفقودة';
 
   @override
   String get signUp => 'إنشاء حساب';

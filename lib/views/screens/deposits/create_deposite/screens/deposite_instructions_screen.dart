@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mine_lab/core/route/route.dart';
 import 'package:mine_lab/core/utils/styles.dart';
+import 'package:mine_lab/l10n/app_localizations.dart';
 import 'package:mine_lab/views/screens/deposits/create_deposite/widgets/copy_wallet_address_button.dart';
 import 'package:mine_lab/views/screens/deposits/create_deposite/widgets/deposite_cancel_button.dart';
 import 'package:mine_lab/views/screens/deposits/create_deposite/widgets/deposite_confirm_button.dart';
@@ -30,6 +31,7 @@ class DepositeInstructionsScreen extends StatelessWidget {
         arguments?['withdrawAddress'] ?? defaultWithdrawAddress;
     final walletId = arguments?['walletId'] as int? ?? defaultCoinWalletId;
     final networkLabel = '$coinTitle ($coinSubtitle)';
+    final strings = AppLocalizations.of(context);
 
     return Scaffold(
       body: SafeArea(
@@ -44,7 +46,7 @@ class DepositeInstructionsScreen extends StatelessWidget {
               ),
               SliverToBoxAdapter(
                 child: Text(
-                  'Deposit Instructions',
+                  strings?.depositInstructions ?? 'Deposit Instructions',
                   style: interSemiBoldDefault.copyWith(
                     fontSize: 20,
                   ),
@@ -58,7 +60,7 @@ class DepositeInstructionsScreen extends StatelessWidget {
               SliverToBoxAdapter(
                 child: RichText(
                   text: TextSpan(
-                    text: 'You have selected ',
+                    text: '${strings?.youHaveSelected ?? 'You have selected'} ',
                     style: interMediumDefault.copyWith(
                       fontSize: 18,
                     ),
@@ -70,7 +72,7 @@ class DepositeInstructionsScreen extends StatelessWidget {
                         ),
                       ),
                       TextSpan(
-                        text: ' (${coinSubtitle}).',
+                        text: ' ($coinSubtitle).',
                       ),
                     ],
                   ),
@@ -81,7 +83,8 @@ class DepositeInstructionsScreen extends StatelessWidget {
               ),
               SliverToBoxAdapter(
                 child: Text(
-                  'Please send the desired amount to the wallet address below, then click "I Have Transferred".',
+                  strings?.sendAmountMsg ??
+                      'Please send the desired amount to the wallet address below, then click "I Have Transferred".',
                   style: interMediumDefault.copyWith(
                     fontSize: 16,
                   ),
@@ -96,7 +99,8 @@ class DepositeInstructionsScreen extends StatelessWidget {
               ),
               SliverToBoxAdapter(
                 child: Text(
-                  'Make sure to double-check the address and network before sending. Transactions cannot be reversed.',
+                  strings?.doubleCheckMsg ??
+                      'Make sure to double-check the address and network before sending. Transactions cannot be reversed.',
                   style: interMediumDefault.copyWith(
                     fontSize: 15,
                     color: Colors.grey[600],
@@ -116,6 +120,8 @@ class DepositeInstructionsScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 12),
                   DepositeConfirmButton(
+                    title: AppLocalizations.of(context)?.iHaveTransferred ??
+                        'I Have Transferred',
                     onPressed: () {
                       Get.offNamed(
                         RouteHelper.confirmDepositScreen,

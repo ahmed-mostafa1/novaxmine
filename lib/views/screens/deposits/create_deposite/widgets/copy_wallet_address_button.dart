@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:mine_lab/core/utils/styles.dart';
+import 'package:mine_lab/l10n/app_localizations.dart';
 
 class CopyWalletAddressButton extends StatelessWidget {
   final String address;
@@ -10,10 +11,11 @@ class CopyWalletAddressButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final strings = AppLocalizations.of(context);
     return SliverToBoxAdapter(
       child: Container(
         height: 65,
-        padding: const EdgeInsets.only(left: 16),
+        padding: const EdgeInsetsDirectional.only(start: 16),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
           border: Border.all(
@@ -45,9 +47,9 @@ class CopyWalletAddressButton extends StatelessWidget {
                     color: Colors.black.withOpacity(.5),
                     width: 1,
                   ),
-                  borderRadius: const BorderRadius.only(
-                    topRight: Radius.circular(8),
-                    bottomRight: Radius.circular(8),
+                  borderRadius: const BorderRadiusDirectional.only(
+                    topEnd: Radius.circular(8),
+                    bottomEnd: Radius.circular(8),
                   ),
                 ),
                 child: InkWell(
@@ -58,8 +60,9 @@ class CopyWalletAddressButton extends StatelessWidget {
                       ),
                     );
                     Get.snackbar(
-                      'Copied',
-                      'Wallet Address copied to clipboard',
+                      strings?.copied ?? 'Copied',
+                      strings?.copiedToClipBoard ??
+                          'Wallet Address copied to clipboard',
                       snackPosition: SnackPosition.BOTTOM,
                       duration: const Duration(seconds: 2),
                       margin: EdgeInsets.only(
@@ -77,7 +80,7 @@ class CopyWalletAddressButton extends StatelessWidget {
                     ),
                     alignment: Alignment.center,
                     child: Text(
-                      'Copy',
+                      strings?.copy ?? 'Copy',
                       style: interMediumDefault.copyWith(
                         fontSize: 14,
                         color: Colors.black,

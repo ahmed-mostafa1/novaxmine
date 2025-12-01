@@ -5,11 +5,12 @@ import 'package:mine_lab/core/utils/styles.dart';
 class DepositeConfirmButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final bool isLoading;
-
+  final String title;
   const DepositeConfirmButton({
     super.key,
     this.onPressed,
     this.isLoading = false,
+    required this.title,
   });
 
   @override
@@ -35,7 +36,7 @@ class DepositeConfirmButton extends StatelessWidget {
                 ),
               )
             : Text(
-                'I Have Transferred',
+              title,
                 style: interMediumLarge.copyWith(
                   color: MyColor.colorWhite,
                   fontSize: 16,

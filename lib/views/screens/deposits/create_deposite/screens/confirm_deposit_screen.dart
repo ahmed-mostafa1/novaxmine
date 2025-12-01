@@ -4,6 +4,7 @@ import 'package:mine_lab/core/utils/styles.dart';
 import 'package:mine_lab/data/controller/deposit/confirm_coin_wallet_controller.dart';
 import 'package:mine_lab/data/repo/deposit/deposit_repo.dart';
 import 'package:mine_lab/data/services/api_service.dart';
+import 'package:mine_lab/l10n/app_localizations.dart';
 import 'package:mine_lab/views/components/snackbar/show_custom_snackbar.dart';
 import 'package:mine_lab/views/screens/deposits/create_deposite/widgets/confirm_deposit_field.dart';
 import 'package:mine_lab/views/screens/deposits/create_deposite/widgets/deposite_cancel_button.dart';
@@ -91,7 +92,7 @@ class _ConfirmDepositScreenState extends State<ConfirmDepositScreen> {
     final walletAddress =
         args?['walletAddress'] as String? ?? widget.walletAddress;
     _walletId = args?['walletId'] as int? ?? _walletId;
-
+    final strings = AppLocalizations.of(context);
     return GetBuilder<ConfirmCoinWalletController>(
       init: _confirmController,
       builder: (controller) {
@@ -108,7 +109,7 @@ class _ConfirmDepositScreenState extends State<ConfirmDepositScreen> {
                   ),
                   SliverToBoxAdapter(
                     child: Text(
-                      'Confirm Your Deposit',
+                      strings?.confirmYourDeposit ?? 'Confirm Your Deposit',
                       style: interSemiBoldDefault.copyWith(
                         fontSize: 20,
                       ),
@@ -123,52 +124,61 @@ class _ConfirmDepositScreenState extends State<ConfirmDepositScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           ConfirmDepositField(
-                            label: 'Selected Network',
+                            label:
+                                strings?.selectedNetwork ?? 'Selected Network',
                             initialValue: selectedNetwork,
                             enabled: false,
                           ),
                           const SizedBox(height: 16),
                           ConfirmDepositField(
-                            label: 'Wallet Address',
+                            label: strings?.walletAddress ?? 'Wallet Address',
                             initialValue: walletAddress,
                             enabled: false,
                             maxLines: null,
                           ),
                           const SizedBox(height: 16),
                           ConfirmDepositField(
-                            label: 'Transaction ID / Hash',
+                            label: strings?.transactionIdHash ??
+                                'Transaction ID / Hash',
                             controller: _transactionIdController,
-                            hintText: 'Enter your transaction hash',
+                            hintText: strings?.enterTransactionHash ??
+                                'Enter your transaction hash',
                             isRequired: true,
                             validator: (value) {
                               if (value == null || value.trim().isEmpty) {
-                                return 'Please enter the transaction hash';
+                                return strings?.enterTransactionHash ??
+                                    'Please enter the transaction hash';
                               }
                               return null;
                             },
                           ),
                           const SizedBox(height: 16),
                           ConfirmDepositField(
-                            label: 'Amount Transferred',
+                            label: strings?.amountTransferred ??
+                                'Amount Transferred',
                             controller: _amountController,
-                            hintText: 'Enter transferred amount',
+                            hintText: strings?.enterTransferredAmount ??
+                                'Enter transferred amount',
                             isRequired: true,
                             keyboardType: const TextInputType.numberWithOptions(
-                              decimal: true,
+                              decimal: false,
                             ),
                             validator: (value) {
                               if (value == null || value.trim().isEmpty) {
-                                return 'Please enter the amount';
+                                return strings?.enterTransferredAmount ??
+                                    'Please enter the amount';
                               }
-                              if (double.tryParse(value) == null) {
-                                return 'Amount must be numeric';
+                              if (int.tryParse(value) == null) {
+                                return strings?.amountMustBeNumeric ??
+                                    'Amount must be numeric without decimal point';
                               }
                               return null;
                             },
                           ),
                           const SizedBox(height: 20),
                           Text(
-                            'Enter the amount in the same coin / network you transferred.',
+                            strings?.enterSameNetworkAmount ??
+                                'Enter the amount in the same coin / network you transferred.',
                             style: interMediumDefault.copyWith(
                               fontSize: 15,
                               color: Colors.grey[600],
@@ -187,6 +197,9 @@ class _ConfirmDepositScreenState extends State<ConfirmDepositScreen> {
                       ),
                       const SizedBox(height: 12),
                       DepositeConfirmButton(
+                        title:
+                            AppLocalizations.of(context)?.confirmYourDeposit ??
+                                'Confirm Your Deposit',
                         onPressed: _submitConfirmation,
                         isLoading: controller.isSubmitting,
                       ),

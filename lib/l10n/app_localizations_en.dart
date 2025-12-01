@@ -41,6 +41,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get youHaveSelected => 'You have selected';
 
   @override
+  String coinSelection(Object coinTitle) {
+    return '$coinTitle';
+  }
+
+  @override
+  String coinSubtitleTemplate(Object coinSubtitle) {
+    return ' ($coinSubtitle).';
+  }
+
+  @override
   String get sendAmountMsg =>
       'Please send the desired amount to the wallet address below, then click \"I Have Transferred\".';
 
@@ -52,6 +62,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get iHaveTransferred => 'I Have Transferred';
 
   @override
+  String get copy => 'Copy';
+
+  @override
+  String get copied => 'Copied';
+
+  @override
   String get confirmYourDeposit => 'Confirm Your Deposit';
 
   @override
@@ -61,7 +77,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get transactionIdHash => 'Transaction ID / Hash';
 
   @override
+  String get enterTransactionHash => 'Enter your transaction hash';
+
+  @override
   String get amountTransferred => 'Amount Transferred';
+
+  @override
+  String get enterTransferredAmount => 'Enter transferred amount';
 
   @override
   String get enterSameNetworkAmount =>
@@ -69,6 +91,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get submitForReview => 'Submit For Review';
+
+  @override
+  String get walletInfoMissing => 'Wallet information missing';
 
   @override
   String get signUp => 'Sign Up';

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mine_lab/core/utils/my_color.dart';
 import 'package:mine_lab/core/utils/styles.dart';
+import 'package:mine_lab/l10n/app_localizations.dart';
 
 import 'deposite_item_blue_container_with_text.dart';
 import 'deposite_item_green_button.dart';
@@ -21,6 +22,8 @@ class DepositeCryptoItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final strings = AppLocalizations.of(context);
+
     return Container(
       constraints: const BoxConstraints(minHeight: 250),
       padding: const EdgeInsets.all(16),
@@ -48,7 +51,7 @@ class DepositeCryptoItem extends StatelessWidget {
           DepositeItemBlueContainerWithText(text: coinSubtitle),
           const SizedBox(height: 16),
           Text(
-            'Withdraw Address: ',
+            strings?.walletAddress ?? 'Wallet Address:',
             style: interMediumLarge.copyWith(
               color: MyColor.bodyTextColor,
               fontSize: 18,
@@ -64,7 +67,8 @@ class DepositeCryptoItem extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           DepositeItemGreenButton(
-            label: 'Deposit with $coinTitle',
+            label:
+                '${strings?.depositWith ?? 'Deposit with'} ${coinTitle.toUpperCase()}',
             onPressed: onDepositPressed,
           ),
         ],
