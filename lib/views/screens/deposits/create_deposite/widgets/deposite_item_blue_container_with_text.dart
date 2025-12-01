@@ -3,7 +3,9 @@ import 'package:mine_lab/core/utils/dimensions.dart';
 import 'package:mine_lab/core/utils/styles.dart';
 
 class DepositeItemBlueContainerWithText extends StatelessWidget {
-  const DepositeItemBlueContainerWithText({super.key});
+  final String text;
+
+  const DepositeItemBlueContainerWithText({super.key, required this.text});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,7 @@ class DepositeItemBlueContainerWithText extends StatelessWidget {
       ),
       child: Center(
         child: Text(
-          'BEP20',
+          text,
           style: interBoldDefault.copyWith(color: Colors.white),
         ),
       ),

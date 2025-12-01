@@ -3,7 +3,14 @@ import 'package:mine_lab/core/utils/my_color.dart';
 import 'package:mine_lab/core/utils/styles.dart';
 
 class DepositeItemGreenButton extends StatelessWidget {
-  const DepositeItemGreenButton({super.key});
+  final String label;
+  final VoidCallback? onPressed;
+
+  const DepositeItemGreenButton({
+    super.key,
+    this.label = 'Deposite with BSC',
+    this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +24,9 @@ class DepositeItemGreenButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(8),
           ),
         ),
-        onPressed: () {},
+        onPressed: onPressed,
         child: Text(
-          'Deposite with BSC',
+          label,
           style: interMediumLarge.copyWith(
             color: MyColor.colorWhite,
             fontSize: 16,

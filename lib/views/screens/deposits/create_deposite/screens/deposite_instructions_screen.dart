@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mine_lab/core/route/route.dart';
 import 'package:mine_lab/core/utils/styles.dart';
 import 'package:mine_lab/views/screens/deposits/create_deposite/widgets/copy_wallet_address_button.dart';
 import 'package:mine_lab/views/screens/deposits/create_deposite/widgets/deposite_cancel_button.dart';
@@ -7,10 +8,26 @@ import 'package:mine_lab/views/screens/deposits/create_deposite/widgets/deposite
 import 'package:mine_lab/views/screens/deposits/create_deposite/widgets/sliver_sticky_footer.dart';
 
 class DepositeInstructionsScreen extends StatelessWidget {
-  const DepositeInstructionsScreen({super.key});
+  final String defaultCoinTitle;
+  final String defaultCoinSubtitle;
+  final String defaultWithdrawAddress;
+
+  const DepositeInstructionsScreen({
+    super.key,
+    this.defaultCoinTitle = 'BSC',
+    this.defaultCoinSubtitle = 'BEP20',
+    this.defaultWithdrawAddress = '0xd4fd873d88b20155064ab799027baeb16e1a3f',
+  });
 
   @override
   Widget build(BuildContext context) {
+    final arguments = Get.arguments as Map<String, dynamic>?;
+    final coinTitle = arguments?['coinTitle'] ?? defaultCoinTitle;
+    final coinSubtitle = arguments?['coinSubtitle'] ?? defaultCoinSubtitle;
+    final withdrawAddress =
+        arguments?['withdrawAddress'] ?? defaultWithdrawAddress;
+    final networkLabel = '$coinTitle ($coinSubtitle)';
+
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -44,25 +61,21 @@ class DepositeInstructionsScreen extends StatelessWidget {
                     ),
                     children: [
                       TextSpan(
-                        text: 'BSC',
+                        text: coinTitle,
                         style: interBoldDefault.copyWith(
                           fontSize: 18,
                         ),
                       ),
                       TextSpan(
-                        text: ' (BEP20).',
+                        text: ' (${coinSubtitle}).',
                       ),
                     ],
                   ),
                 ),
               ),
-
-// 24dp spacing
               SliverToBoxAdapter(
                 child: SizedBox(height: 24),
               ),
-
-// Instruction text
               SliverToBoxAdapter(
                 child: Text(
                   'Please send the desired amount to the wallet address below, then click "I Have Transferred".',
@@ -71,21 +84,13 @@ class DepositeInstructionsScreen extends StatelessWidget {
                   ),
                 ),
               ),
-
-// 24dp spacing
               SliverToBoxAdapter(
                 child: SizedBox(height: 16),
               ),
-
-// Wallet address container with copy button
-              const CopyWalletAddressButton(),
-
-// 24dp spacing
+              CopyWalletAddressButton(address: withdrawAddress),
               SliverToBoxAdapter(
                 child: SizedBox(height: 24),
               ),
-
-// Warning text (faded)
               SliverToBoxAdapter(
                 child: Text(
                   'Make sure to double-check the address and network before sending. Transactions cannot be reversed.',
@@ -95,11 +100,9 @@ class DepositeInstructionsScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              // 24dp spacing
               SliverToBoxAdapter(
                 child: SizedBox(height: 32),
               ),
-
               SliverStickyFooter(
                 bottomPadding: 24,
                 children: [
@@ -111,12 +114,12 @@ class DepositeInstructionsScreen extends StatelessWidget {
                   SizedBox(height: 12),
                   DepositeConfirmButton(
                     onPressed: () {
-                      // Handle confirmation
-                      Get.defaultDialog(
-                        title: "Success",
-                        middleText: "Transfer confirmed successfully!",
-                        textConfirm: "OK",
-                        onConfirm: () => Get.back(),
+                      Get.offNamed(
+                        RouteHelper.confirmDepositScreen,
+                        arguments: {
+                          'network': networkLabel,
+                          'walletAddress': withdrawAddress,
+                        },
                       );
                     },
                   ),

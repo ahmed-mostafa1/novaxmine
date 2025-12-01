@@ -4,7 +4,9 @@ import 'package:get/get.dart';
 import 'package:mine_lab/core/utils/styles.dart';
 
 class CopyWalletAddressButton extends StatelessWidget {
-  const CopyWalletAddressButton({super.key});
+  final String address;
+
+  const CopyWalletAddressButton({super.key, required this.address});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,7 @@ class CopyWalletAddressButton extends StatelessWidget {
               child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Text(
-                  '0xd4fd873d88b20155064ab799027baeb16e1a3f',
+                  address,
                   style: interMediumDefault.copyWith(
                     fontSize: 14,
                     fontFamily: 'monospace',
@@ -51,8 +53,8 @@ class CopyWalletAddressButton extends StatelessWidget {
                 child: InkWell(
                   onTap: () {
                     Clipboard.setData(
-                      const ClipboardData(
-                        text: '0xd4fd873d88b20155064ab799027baeb16e1a3f',
+                      ClipboardData(
+                        text: address,
                       ),
                     );
                     Get.snackbar(

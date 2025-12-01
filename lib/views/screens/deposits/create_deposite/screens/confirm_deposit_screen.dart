@@ -51,6 +51,11 @@ class _ConfirmDepositScreenState extends State<ConfirmDepositScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final args = Get.arguments as Map<String, dynamic>?;
+    final selectedNetwork = args?['network'] as String? ?? widget.network;
+    final walletAddress =
+        args?['walletAddress'] as String? ?? widget.walletAddress;
+
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -79,13 +84,13 @@ class _ConfirmDepositScreenState extends State<ConfirmDepositScreen> {
                     children: [
                       ConfirmDepositField(
                         label: 'Selected Network',
-                        initialValue: widget.network,
+                        initialValue: selectedNetwork,
                         enabled: false,
                       ),
                       const SizedBox(height: 16),
                       ConfirmDepositField(
                         label: 'Wallet Address',
-                        initialValue: widget.walletAddress,
+                        initialValue: walletAddress,
                         enabled: false,
                         maxLines: null,
                       ),
