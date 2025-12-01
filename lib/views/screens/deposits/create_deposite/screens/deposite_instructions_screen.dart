@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/src/extension_navigation.dart';
-import 'package:get/get_navigation/src/snackbar/snackbar.dart';
-import 'package:mine_lab/core/utils/my_color.dart';
+import 'package:get/get.dart';
 import 'package:mine_lab/core/utils/styles.dart';
+import 'package:mine_lab/views/screens/deposits/create_deposite/widgets/copy_wallet_address_button.dart';
+import 'package:mine_lab/views/screens/deposits/create_deposite/widgets/deposite_cancel_button.dart';
+import 'package:mine_lab/views/screens/deposits/create_deposite/widgets/deposite_confirm_button.dart';
 import 'package:mine_lab/views/screens/deposits/create_deposite/widgets/sliver_sticky_footer.dart';
 
 class DepositeInstructionsScreen extends StatelessWidget {
@@ -79,84 +78,7 @@ class DepositeInstructionsScreen extends StatelessWidget {
               ),
 
 // Wallet address container with copy button
-              SliverToBoxAdapter(
-                child: Container(
-                  height: 65,
-                  padding: EdgeInsets.only(
-                    left: 16,
-                  ),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    border: Border.all(
-                      color: Colors.grey[300]!,
-                      width: 1,
-                    ),
-                  ),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        flex: 7,
-                        child: SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: Text(
-                            '0xd4fd873d88b20155064ab799027baeb16e1a3f',
-                            style: interMediumDefault.copyWith(
-                              fontSize: 14,
-                              fontFamily: 'monospace',
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(width: 12),
-                      Expanded(
-                        flex: 2,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Colors.black.withOpacity(.5),
-                              width: 1,
-                            ),
-                            borderRadius: BorderRadius.only(
-                                topRight: Radius.circular(8),
-                                bottomRight: Radius.circular(8)),
-                          ),
-                          child: InkWell(
-                            onTap: () {
-                              Clipboard.setData(
-                                ClipboardData(
-                                    text:
-                                        '0xd4fd873d88b20155064ab799027baeb16e1a3f'),
-                              );
-                              Get.snackbar(
-                                'Copied',
-                                'Wallet Address copied to clipboard',
-                                snackPosition: SnackPosition.BOTTOM,
-                                duration: Duration(seconds: 3),
-                                padding: EdgeInsets.only(bottom: 20),
-                              );
-                            },
-                            borderRadius: BorderRadius.circular(8),
-                            child: Container(
-                              padding: EdgeInsets.symmetric(
-                                horizontal: 16,
-                                vertical: 12,
-                              ),
-                              alignment: Alignment.center,
-                              child: Text(
-                                'Copy',
-                                style: interMediumDefault.copyWith(
-                                  fontSize: 14,
-                                  color: Colors.black,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+              const CopyWalletAddressButton(),
 
 // 24dp spacing
               SliverToBoxAdapter(
@@ -201,74 +123,6 @@ class DepositeInstructionsScreen extends StatelessWidget {
                 ],
               ),
             ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-// deposite_cancel_button.dart
-class DepositeCancelButton extends StatelessWidget {
-  final VoidCallback? onPressed;
-
-  const DepositeCancelButton({
-    super.key,
-    this.onPressed,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      child: TextButton(
-        style: TextButton.styleFrom(
-          padding: const EdgeInsets.symmetric(vertical: 12),
-          backgroundColor: Colors.black87,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
-          ),
-        ),
-        onPressed: onPressed ?? () => Get.back(),
-        child: Text(
-          'Cancel',
-          style: interMediumLarge.copyWith(
-            color: MyColor.colorWhite,
-            fontSize: 16,
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-// deposite_confirm_button.dart
-class DepositeConfirmButton extends StatelessWidget {
-  final VoidCallback? onPressed;
-
-  const DepositeConfirmButton({
-    super.key,
-    this.onPressed,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      child: TextButton(
-        style: TextButton.styleFrom(
-          padding: const EdgeInsets.symmetric(vertical: 12),
-          backgroundColor: MyColor.primaryColor,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
-          ),
-        ),
-        onPressed: onPressed,
-        child: Text(
-          'I Have Transferred',
-          style: interMediumLarge.copyWith(
-            color: MyColor.colorWhite,
-            fontSize: 16,
           ),
         ),
       ),
