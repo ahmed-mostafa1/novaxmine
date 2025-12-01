@@ -1,30 +1,38 @@
 {
   "@@locale": "en",
-
   "appName": "Novaxmine",
   "signIn": "Sign In",
   "loginMsg": "to your {appName} account",
   "@loginMsg": {
     "placeholders": {
-     "appName": {
-           "type": "String"
-         }
+      "appName": {
+        "type": "String"
+      }
     }
   },
+  "walletAddress": "Wallet Address:",
+  "depositWith": "Deposit with",
+  "depositInstructions": "Deposit Instructions",
+  "youHaveSelected": "You have selected",
+  "sendAmountMsg": "Please send the desired amount to the wallet address below, then click \"I Have Transferred\".",
+  "doubleCheckMsg": "Make sure to double-check the address and network before sending. Transactions cannot be reversed.",
+  "iHaveTransferred": "I Have Transferred",
+  "confirmYourDeposit": "Confirm Your Deposit",
+  "selectedNetwork": "Selected Network",
+  "transactionIdHash": "Transaction ID / Hash",
+  "amountTransferred": "Amount Transferred",
+  "enterSameNetworkAmount": "Enter the amount in the same coin / network you transferred.",
+  "submitForReview": "Submit For Review",
   "signUp": "Sign Up",
   "signUpMSG": "Start mining and achieve the highest level of Hashrate.",
-
   "skip": "Skip",
   "hashRate": "Hashrate",
   "currency": "Currency",
   "walletType": "Wallet Type",
-
   "totalReturned": "Total Returned",
   "refCommission": "Total Ref. Commission",
-
   "usernameOrEmail": "Username or Email",
   "usernameOrEmailHint": "Enter your username or email",
-
   "withdrawInformation": "Withdraw Information",
   "withdrawLimit": "Withdraw Limit",
   "withdrawConfirm": "Withdraw Confirm",
@@ -35,17 +43,15 @@
   "discountOnPlanPrice": "Plan Purchase Discount",
   "increaseEarningBoost": "Increase Earning Boost",
   "enhanceReferralBonus": "Enhance Referral Bonus",
-
   "deposit": "Deposit",
+  "createDepositScreenAppBarText": "Deposit via Crypto Coins",
   "depositInfo": "Deposit Info",
   "transactions": "Transactions",
   "recentTransactions": "Recent Transactions",
   "depositHistory": "Deposit History",
   "depositCharge": "Deposit Charge",
-
   "kycRejectedMsg": "KYC document rejected",
   "kycUnderReviewMsg": "Your KYC data is under review",
-
   "exitTitle": "Do you want to exit\nthe app?",
   "no": "No",
   "ticketDetails": "Ticket Details",
@@ -103,10 +109,8 @@
   "deleteAccount": "Delete Account",
   "searchCountry": "Search Country",
   "language": "Language",
-
   "enter": "Enter",
   "noWithdrawFound": "No withdraw found",
-
   "createNewPassword": "Create new password",
   "makeWithdraw": "Make withdraw",
   "attachment": "Attachment",
@@ -120,7 +124,6 @@
   "addWithdraw": "Add Withdraw",
   "receivable": "Receivable",
   "authorizationMethod": "Authorization Method",
-
   "kyc": "KYC",
   "kycVerification": "KYC Verification",
   "please": "Please",
@@ -135,19 +138,16 @@
   "retry": "Retry",
   "chooseFile": "Choose File",
   "kycAlreadyVerifiedMsg": "You are already verified",
-
   "kycVerificationRequired": "KYC Verification Required",
   "kycRejectSubtitleMsg": "Your KYC document has been rejected. Please resubmit the document for further review.",
   "kycVerificationMsg": "Please submit the required KYC information to verify yourself. Otherwise, you couldn't make any withdrawal request.",
   "kycPendingMsg": "Thank you for submitting your KYC documents. Our team is currently reviewing the information.",
-
   "passwordResetEmailSentTo": "Password reset email sent to",
   "yourEmail": "your email",
   "plsSelectOne": "Please Select One",
   "signInWithGoogle": "Sign In with Google",
   "signInWithFacebook": "Sign In with Facebook",
   "signInWithLinkedin": "Sign In with Linkedin",
-
   "loginTitle": "Login To Your Account",
   "phoneNo": "Phone No.",
   "otpFieldEmptyMsg": "Otp field can't be empty",
@@ -181,33 +181,25 @@
   "useQRCODETips": "Use the QR code or setup key on your Google Authenticator app to add your account.",
   "useQRCODETips2": "Google Authenticator is a multifactor app for mobile devices. It generates timed codes used during the 2-step verification process. To use Google Authenticator, install the Google Authenticator application on your mobile device.",
   "addYourAccount": "Add Your Account",
-
   "enable2Fa": "Enable 2FA Security",
-
   "resetYourPassword": "Reset Your Password",
   "send": "Send",
   "passwordVerification": "Password Verification",
-
   "enterOtp": "Enter OTP",
   "otpEmptyMsg": "OTP field can't be empty",
   "verifyPasswordSubText": "A 6 digits verification code sent to your\nemail address",
   "viaEmailVerify": "We've sent you six-digit verification code via email for email verification",
   "smsVerificationMsg": "We've sent you an access code to your phone number for SMS verification",
-
   "submit": "Submit",
   "twoFactorAuth": "Two Factor Authentication",
   "twoFactorMsg": "Enter 6-digit code from your two factor authenticator APP.",
-
   "badResponseMsg": "Bad Response Format!",
   "serverError": "Server Error",
   "unAuthorized": "Unauthorized",
-
   "noInternet": "No internet connection",
-
   "orderNo": "Order No.",
   "orderAmount": "Order Amount",
   "time": "Time",
-
   "referralLink": "Referral Link",
   "withdraw": "Withdraw",
   "plan": "Mining Plan",
@@ -224,7 +216,6 @@
   "depositWallet": "Deposit Wallet",
   "earningWallet": "Earning Wallet",
   "referralBonus": "Referral Bonus",
-
   "miningDetails": "Mining Details",
   "miningTrackDetails": "Mining Tracks Details",
   "orderedAt": "Ordered At",
@@ -237,13 +228,10 @@
   "totalDays": "Total Days",
   "remainingDays": "Remaining Days",
   "enterYourEmail": "Enter your email",
-
   "dLogout": "Logout",
-
   "approved": "Approved",
   "pending": "Pending",
   "rejected": "Rejected",
-
   "charge": "Charge",
   "payable": "Payable",
   "conversionRate": "Conversion Rate",
@@ -256,27 +244,22 @@
   "gateway": "Gateway",
   "initiated": "initiated",
   "withdrawPreview": "Withdraw Preview",
-
   "withdrawHistory": "Withdraw History",
   "withdrawNow": "Withdraw Now",
   "withdrawMoney": "Withdraw Money",
   "withdrawDetails": "Withdraw Details",
   "withdrawRequestSuccess": "Withdrawal request successfully submitted",
-
   "startMining": "Start Mining",
   "achievements": "Achievements",
-
   "planPrice": "Plan Price",
   "fromBalance": "From Balance",
   "fromProfitWallet": "From Profit Wallet",
   "directPayment": "Direct Payment",
-
   "referralBonusLogs": "Referral Bonus Logs",
   "inviteFriends": "Invite Friends",
   "level": "Level",
   "joinOn": "Join On",
   "yourReferees": "Your Referees",
-
   "changeYourPassword": "Change Your Password",
   "welcome": "Welcome to MineLab",
   "currentPassword": "Current Password",
@@ -290,14 +273,12 @@
   "passNoMatchMsg": "Password not match",
   "createNewPassDescription": "Your new password must be different\nfrom previous used password",
   "logoutSuccessMsg": "Logout Successfully",
-
   "notification": "Notification",
   "confirmEmailAddress": "Confirm Your E-mail Address",
   "newPlanReady": "New plan is ready for you",
   "planUpdateRequest": "Plan update request",
   "resetPassword": "Reset Your Password",
   "privacyPolicy": "Privacy & Policies",
-
   "amountError": "Amount must be less than or equal to",
   "toEarningWallet": "to Earning Wallet",
   "totalEarning": "Total Earning",
@@ -308,7 +289,6 @@
   "minerWallets": "Miner Wallets",
   "updateWallet": "Update Wallet",
   "walletAddressEmptyMsg": "Wallet address can't be empty",
-
   "email": "Email",
   "phone": "Phone",
   "country": "Country",
@@ -317,7 +297,6 @@
   "zipCode": "Zip Code",
   "city": "City",
   "editProfile": "Edit Profile",
-
   "updateProfile": "Update Profile",
   "firstName": "First Name",
   "enterFirstName": "Enter first Name",
@@ -329,19 +308,16 @@
   "enterYourState": "Enter your state",
   "enterYourZipcode": "Enter your zip code",
   "enterYourCity": "Enter your city",
-
   "minLimit": "Min Limit",
   "maxLimit": "Max Limit",
   "withdrawMethod": "Withdraw Method",
   "profileComplete": "Profile Complete",
-
   "success": "success",
   "somethingWentWrong": "Something went wrong",
   "resendCodeFail": "Resend code fail",
   "successfullyCodeResend": "Resend code successfully",
   "emailVerify": "Email Verification",
   "smsVerify": "Sms Verification",
-
   "kMatchPassError": "Password doesn't match",
   "kFirstNameNullError": "Please enter first name",
   "kLastNameNullError": "Please enter last name",
@@ -379,24 +355,19 @@
   "paymentMethod": "Payment Method",
   "cancel": "Cancel",
   "deleteYourAccount": "Delete your Account",
-
   "deleteBottomSheetSubtitle": "You will lose all of your data by deleting your account. This action cannot be undone.",
-
   "pleaseEnterUsername": "Please enter username",
   "enterUsername": "Enter username",
   "pleaseEnterPassword": "Please enter password",
   "enterValidEmail": "Enter valid email",
   "enterPhoneNo": "Enter phone number",
   "iAgree": "I agree with",
-
   "trxType": "Trx type",
   "any": "Any",
   "enterTransactionNo": "Enter transaction no.",
-
   "days": "Days",
   "months": "Months",
   "years": "Years",
-
   "sms": "SMS",
   "verificationSuccess": "Verification Success",
   "verificationFailed": "Verification Failed",
@@ -405,7 +376,6 @@
   "enterYourPhoneNumber": "Enter your phone number",
   "enterYourPassword_": "Enter your password",
   "invalidPassMsg": "Password must be contain 1 special character and number",
-
   "hasUpperLetter": "Has uppercase letter",
   "hasLowerLetter": "Has lowercase letter",
   "hasDigit": "Has digit",

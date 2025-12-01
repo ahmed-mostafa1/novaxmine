@@ -20,6 +20,48 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
+  String get walletAddress => 'عنوان المحفظة:';
+
+  @override
+  String get depositWith => 'الإيداع باستخدام';
+
+  @override
+  String get depositInstructions => 'تعليمات الإيداع';
+
+  @override
+  String get youHaveSelected => 'لقد قمت باختيار';
+
+  @override
+  String get sendAmountMsg =>
+      'يرجى إرسال المبلغ المطلوب إلى عنوان المحفظة أدناه، ثم الضغط على \"لقد قمت بالتحويل\".';
+
+  @override
+  String get doubleCheckMsg =>
+      'تأكد من مطابقة العنوان والشبكة قبل الإرسال. المعاملات لا يمكن عكسها.';
+
+  @override
+  String get iHaveTransferred => 'لقد قمت بالتحويل';
+
+  @override
+  String get confirmYourDeposit => 'تأكيد الإيداع';
+
+  @override
+  String get selectedNetwork => 'الشبكة المختارة';
+
+  @override
+  String get transactionIdHash => 'معرّف/هاش المعاملة';
+
+  @override
+  String get amountTransferred => 'المبلغ المُحوّل';
+
+  @override
+  String get enterSameNetworkAmount =>
+      'أدخل المبلغ بنفس العملة/الشبكة التي قمت بالتحويل عبرها.';
+
+  @override
+  String get submitForReview => 'إرسال للمراجعة';
+
+  @override
   String get signUp => 'إنشاء حساب';
 
   @override
@@ -81,6 +123,9 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get deposit => 'إيداع';
+
+  @override
+  String get createDepositScreenAppBarText => 'الإيداع عبر العملات المشفرة';
 
   @override
   String get depositInfo => 'معلومات الإيداع';

@@ -20,6 +20,48 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String get walletAddress => 'Wallet Address:';
+
+  @override
+  String get depositWith => 'Deposit with';
+
+  @override
+  String get depositInstructions => 'Deposit Instructions';
+
+  @override
+  String get youHaveSelected => 'You have selected';
+
+  @override
+  String get sendAmountMsg =>
+      'Please send the desired amount to the wallet address below, then click \"I Have Transferred\".';
+
+  @override
+  String get doubleCheckMsg =>
+      'Make sure to double-check the address and network before sending. Transactions cannot be reversed.';
+
+  @override
+  String get iHaveTransferred => 'I Have Transferred';
+
+  @override
+  String get confirmYourDeposit => 'Confirm Your Deposit';
+
+  @override
+  String get selectedNetwork => 'Selected Network';
+
+  @override
+  String get transactionIdHash => 'Transaction ID / Hash';
+
+  @override
+  String get amountTransferred => 'Amount Transferred';
+
+  @override
+  String get enterSameNetworkAmount =>
+      'Enter the amount in the same coin / network you transferred.';
+
+  @override
+  String get submitForReview => 'Submit For Review';
+
+  @override
   String get signUp => 'Sign Up';
 
   @override
@@ -82,6 +124,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get deposit => 'Deposit';
+
+  @override
+  String get createDepositScreenAppBarText => 'Deposit via Crypto Coins';
 
   @override
   String get depositInfo => 'Deposit Info';

@@ -1,30 +1,38 @@
 {
   "@@locale": "ar",
-
   "appName": "Novaxmine ",
   "signIn": "تسجيل الدخول",
   "loginMsg": "إلى حساب {appName}",
   "@loginMsg": {
     "placeholders": {
       "appName": {
-                 "type": "String"
-               }
+        "type": "String"
+      }
     }
   },
   "signUp": "إنشاء حساب",
   "signUpMSG": "ابدأ التعدين وحقق أعلى مستوى من معدل الهاش.",
-
+  "walletAddress": "عنوان المحفظة:",
+  "depositWith": "الإيداع باستخدام",
+  "depositInstructions": "تعليمات الإيداع",
+  "youHaveSelected": "لقد قمت باختيار",
+  "sendAmountMsg": "يرجى إرسال المبلغ المطلوب إلى عنوان المحفظة أدناه، ثم الضغط على \"لقد قمت بالتحويل\".",
+  "doubleCheckMsg": "تأكد من مطابقة العنوان والشبكة قبل الإرسال. المعاملات لا يمكن عكسها.",
+  "iHaveTransferred": "لقد قمت بالتحويل",
+  "confirmYourDeposit": "تأكيد الإيداع",
+  "selectedNetwork": "الشبكة المختارة",
+  "transactionIdHash": "معرّف/هاش المعاملة",
+  "amountTransferred": "المبلغ المُحوّل",
+  "enterSameNetworkAmount": "أدخل المبلغ بنفس العملة/الشبكة التي قمت بالتحويل عبرها.",
+  "submitForReview": "إرسال للمراجعة",
   "skip": "تخطي",
   "hashRate": "معدل الهاش",
   "currency": "العملة",
   "walletType": "نوع المحفظة",
-
   "totalReturned": "إجمالي العائد",
   "refCommission": "إجمالي عمولة الإحالة",
-
   "usernameOrEmail": "اسم المستخدم أو البريد الإلكتروني",
   "usernameOrEmailHint": "أدخل اسم المستخدم أو البريد الإلكتروني",
-
   "withdrawInformation": "معلومات السحب",
   "withdrawLimit": "حد السحب",
   "withdrawConfirm": "تأكيد السحب",
@@ -35,17 +43,15 @@
   "discountOnPlanPrice": "خصم شراء الخطة",
   "increaseEarningBoost": "زيادة تعزيز الأرباح",
   "enhanceReferralBonus": "تعزيز مكافأة الإحالة",
-
   "deposit": "إيداع",
+  "createDepositScreenAppBarText": "الإيداع عبر العملات المشفرة",
   "depositInfo": "معلومات الإيداع",
   "transactions": "المعاملات",
   "recentTransactions": "أحدث المعاملات",
   "depositHistory": "سجل الإيداع",
   "depositCharge": "رسوم الإيداع",
-
   "kycRejectedMsg": "تم رفض مستندات KYC",
   "kycUnderReviewMsg": "بيانات KYC قيد المراجعة",
-
   "exitTitle": "هل تريد الخروج\nمن التطبيق؟",
   "no": "لا",
   "ticketDetails": "تفاصيل التذكرة",
@@ -103,10 +109,8 @@
   "deleteAccount": "حذف الحساب",
   "searchCountry": "ابحث عن دولة",
   "language": "اللغة",
-
   "enter": "إدخال",
   "noWithdrawFound": "لا توجد عمليات سحب",
-
   "createNewPassword": "إنشاء كلمة مرور جديدة",
   "makeWithdraw": "إجراء سحب",
   "attachment": "مرفق",
@@ -120,7 +124,6 @@
   "addWithdraw": "إضافة سحب",
   "receivable": "المستلم",
   "authorizationMethod": "طريقة التفويض",
-
   "kyc": "KYC",
   "kycVerification": "التحقق من KYC",
   "please": "من فضلك",
@@ -135,19 +138,16 @@
   "retry": "إعادة المحاولة",
   "chooseFile": "اختر ملفًا",
   "kycAlreadyVerifiedMsg": "تم التحقق مسبقًا",
-
   "kycVerificationRequired": "مطلوب التحقق من KYC",
   "kycRejectSubtitleMsg": "تم رفض مستندات KYC. يرجى إعادة رفع المستند للمراجعة مرة أخرى.",
   "kycVerificationMsg": "يرجى تقديم بيانات KYC المطلوبة للتحقق. بدون ذلك لن تتمكن من تقديم طلب سحب.",
   "kycPendingMsg": "شكرًا لتقديم مستندات KYC. فريقنا يراجع البيانات حاليًا.",
-
   "passwordResetEmailSentTo": "تم إرسال رابط إعادة تعيين كلمة المرور إلى",
   "yourEmail": "بريدك الإلكتروني",
   "plsSelectOne": "يرجى اختيار واحد",
   "signInWithGoogle": "تسجيل الدخول عبر Google",
   "signInWithFacebook": "تسجيل الدخول عبر Facebook",
   "signInWithLinkedin": "تسجيل الدخول عبر LinkedIn",
-
   "loginTitle": "تسجيل الدخول إلى حسابك",
   "phoneNo": "رقم الهاتف",
   "otpFieldEmptyMsg": "لا يمكن ترك خانة OTP فارغة",
@@ -181,33 +181,25 @@
   "useQRCODETips": "استخدم رمز QR أو مفتاح الإعداد في تطبيق Google Authenticator لإضافة حسابك.",
   "useQRCODETips2": "Google Authenticator تطبيق مصادقة متعددة العوامل للأجهزة المحمولة، يولد رموزًا زمنية تُستخدم أثناء التحقق بخطوتين. لاستخدامه قم بتثبيت التطبيق على جهازك.",
   "addYourAccount": "أضف حسابك",
-
   "enable2Fa": "تفعيل حماية 2FA",
-
   "resetYourPassword": "إعادة تعيين كلمة المرور",
   "send": "إرسال",
   "passwordVerification": "التحقق من كلمة المرور",
-
   "enterOtp": "أدخل OTP",
   "otpEmptyMsg": "لا يمكن ترك خانة OTP فارغة",
   "verifyPasswordSubText": "تم إرسال كود تحقق مكوّن من 6 أرقام إلى\nبريدك الإلكتروني",
   "viaEmailVerify": "أرسلنا كود تحقق من 6 أرقام عبر البريد الإلكتروني للتحقق",
   "smsVerificationMsg": "أرسلنا كود وصول إلى رقم هاتفك للتحقق عبر SMS",
-
   "submit": "إرسال",
   "twoFactorAuth": "المصادقة الثنائية",
   "twoFactorMsg": "أدخل كود 6 أرقام من تطبيق المصادقة الثنائية.",
-
   "badResponseMsg": "تنسيق استجابة غير صحيح!",
   "serverError": "خطأ في الخادم",
   "unAuthorized": "غير مصرح",
-
   "noInternet": "لا يوجد اتصال بالإنترنت",
-
   "orderNo": "رقم الطلب",
   "orderAmount": "قيمة الطلب",
   "time": "الوقت",
-
   "referralLink": "رابط الإحالة",
   "withdraw": "سحب",
   "plan": "خطة التعدين",
@@ -224,7 +216,6 @@
   "depositWallet": "محفظة الإيداع",
   "earningWallet": "محفظة الأرباح",
   "referralBonus": "مكافأة الإحالة",
-
   "miningDetails": "تفاصيل التعدين",
   "miningTrackDetails": "تفاصيل مسارات التعدين",
   "orderedAt": "تاريخ الطلب",
@@ -237,13 +228,10 @@
   "totalDays": "إجمالي الأيام",
   "remainingDays": "الأيام المتبقية",
   "enterYourEmail": "أدخل بريدك الإلكتروني",
-
   "dLogout": "تسجيل الخروج",
-
   "approved": "مقبول",
   "pending": "قيد الانتظار",
   "rejected": "مرفوض",
-
   "charge": "رسوم",
   "payable": "مستحق",
   "conversionRate": "سعر التحويل",
@@ -256,27 +244,22 @@
   "gateway": "البوابة",
   "initiated": "تم البدء",
   "withdrawPreview": "معاينة السحب",
-
   "withdrawHistory": "سجل السحب",
   "withdrawNow": "اسحب الآن",
   "withdrawMoney": "سحب الأموال",
   "withdrawDetails": "تفاصيل السحب",
   "withdrawRequestSuccess": "تم إرسال طلب السحب بنجاح",
-
   "startMining": "ابدأ التعدين",
   "achievements": "الإنجازات",
-
   "planPrice": "سعر الخطة",
   "fromBalance": "من الرصيد",
   "fromProfitWallet": "من محفظة الأرباح",
   "directPayment": "دفع مباشر",
-
   "referralBonusLogs": "سجل مكافآت الإحالة",
   "inviteFriends": "ادعُ أصدقاءك",
   "level": "المستوى",
   "joinOn": "تاريخ الانضمام",
   "yourReferees": "المحالون",
-
   "changeYourPassword": "تغيير كلمة المرور",
   "welcome": "مرحبًا بك في MineLab",
   "currentPassword": "كلمة المرور الحالية",
@@ -290,14 +273,12 @@
   "passNoMatchMsg": "كلمتا المرور غير متطابقتين",
   "createNewPassDescription": "يجب أن تكون كلمة المرور الجديدة مختلفة\nعن كلمات المرور المستخدمة سابقًا",
   "logoutSuccessMsg": "تم تسجيل الخروج بنجاح",
-
   "notification": "الإشعارات",
   "confirmEmailAddress": "تأكيد البريد الإلكتروني",
   "newPlanReady": "خطة جديدة جاهزة لك",
   "planUpdateRequest": "طلب تحديث الخطة",
   "resetPassword": "إعادة تعيين كلمة المرور",
   "privacyPolicy": "الخصوصية والسياسات",
-
   "amountError": "يجب أن يكون المبلغ أقل من أو يساوي",
   "toEarningWallet": "إلى محفظة الأرباح",
   "totalEarning": "إجمالي الأرباح",
@@ -308,7 +289,6 @@
   "minerWallets": "محافظ المُعدّن",
   "updateWallet": "تحديث المحفظة",
   "walletAddressEmptyMsg": "عنوان المحفظة لا يمكن أن يكون فارغًا",
-
   "email": "البريد الإلكتروني",
   "phone": "الهاتف",
   "country": "الدولة",
@@ -317,7 +297,6 @@
   "zipCode": "الرمز البريدي",
   "city": "المدينة",
   "editProfile": "تعديل الملف الشخصي",
-
   "updateProfile": "تحديث الملف الشخصي",
   "firstName": "الاسم الأول",
   "enterFirstName": "أدخل الاسم الأول",
@@ -329,19 +308,16 @@
   "enterYourState": "أدخل محافظتك/ولايتك",
   "enterYourZipcode": "أدخل الرمز البريدي",
   "enterYourCity": "أدخل مدينتك",
-
   "minLimit": "الحد الأدنى",
   "maxLimit": "الحد الأقصى",
   "withdrawMethod": "طريقة السحب",
   "profileComplete": "اكتمال الملف الشخصي",
-
   "success": "نجاح",
   "somethingWentWrong": "حدث خطأ ما",
   "resendCodeFail": "فشل إعادة الإرسال",
   "successfullyCodeResend": "تمت إعادة الإرسال بنجاح",
   "emailVerify": "التحقق من البريد الإلكتروني",
   "smsVerify": "التحقق عبر SMS",
-
   "kMatchPassError": "كلمة المرور غير متطابقة",
   "kFirstNameNullError": "يرجى إدخال الاسم الأول",
   "kLastNameNullError": "يرجى إدخال اسم العائلة",
@@ -379,24 +355,19 @@
   "paymentMethod": "طريقة الدفع",
   "cancel": "إلغاء",
   "deleteYourAccount": "حذف حسابك",
-
   "deleteBottomSheetSubtitle": "ستفقد جميع بياناتك عند حذف الحساب. هذا الإجراء لا يمكن التراجع عنه.",
-
   "pleaseEnterUsername": "يرجى إدخال اسم المستخدم",
   "enterUsername": "أدخل اسم المستخدم",
   "pleaseEnterPassword": "يرجى إدخال كلمة المرور",
   "enterValidEmail": "أدخل بريدًا إلكترونيًا صحيحًا",
   "enterPhoneNo": "أدخل رقم الهاتف",
   "iAgree": "أوافق على",
-
   "trxType": "نوع TRX",
   "any": "أي",
   "enterTransactionNo": "أدخل رقم المعاملة.",
-
   "days": "أيام",
   "months": "شهور",
   "years": "سنوات",
-
   "sms": "SMS",
   "verificationSuccess": "تم التحقق بنجاح",
   "verificationFailed": "فشل التحقق",
@@ -405,7 +376,6 @@
   "enterYourPhoneNumber": "أدخل رقم هاتفك",
   "enterYourPassword_": "أدخل كلمة المرور",
   "invalidPassMsg": "يجب أن تحتوي كلمة المرور على رقم ورمز خاص واحد على الأقل",
-
   "hasUpperLetter": "يحتوي على حرف كبير",
   "hasLowerLetter": "يحتوي على حرف صغير",
   "hasDigit": "يحتوي على رقم",

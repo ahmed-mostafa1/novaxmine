@@ -116,6 +116,84 @@ abstract class AppLocalizations {
   /// **'to your {appName} account'**
   String loginMsg(String appName);
 
+  /// No description provided for @walletAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Wallet Address:'**
+  String get walletAddress;
+
+  /// No description provided for @depositWith.
+  ///
+  /// In en, this message translates to:
+  /// **'Deposit with'**
+  String get depositWith;
+
+  /// No description provided for @depositInstructions.
+  ///
+  /// In en, this message translates to:
+  /// **'Deposit Instructions'**
+  String get depositInstructions;
+
+  /// No description provided for @youHaveSelected.
+  ///
+  /// In en, this message translates to:
+  /// **'You have selected'**
+  String get youHaveSelected;
+
+  /// No description provided for @sendAmountMsg.
+  ///
+  /// In en, this message translates to:
+  /// **'Please send the desired amount to the wallet address below, then click \"I Have Transferred\".'**
+  String get sendAmountMsg;
+
+  /// No description provided for @doubleCheckMsg.
+  ///
+  /// In en, this message translates to:
+  /// **'Make sure to double-check the address and network before sending. Transactions cannot be reversed.'**
+  String get doubleCheckMsg;
+
+  /// No description provided for @iHaveTransferred.
+  ///
+  /// In en, this message translates to:
+  /// **'I Have Transferred'**
+  String get iHaveTransferred;
+
+  /// No description provided for @confirmYourDeposit.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Your Deposit'**
+  String get confirmYourDeposit;
+
+  /// No description provided for @selectedNetwork.
+  ///
+  /// In en, this message translates to:
+  /// **'Selected Network'**
+  String get selectedNetwork;
+
+  /// No description provided for @transactionIdHash.
+  ///
+  /// In en, this message translates to:
+  /// **'Transaction ID / Hash'**
+  String get transactionIdHash;
+
+  /// No description provided for @amountTransferred.
+  ///
+  /// In en, this message translates to:
+  /// **'Amount Transferred'**
+  String get amountTransferred;
+
+  /// No description provided for @enterSameNetworkAmount.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter the amount in the same coin / network you transferred.'**
+  String get enterSameNetworkAmount;
+
+  /// No description provided for @submitForReview.
+  ///
+  /// In en, this message translates to:
+  /// **'Submit For Review'**
+  String get submitForReview;
+
   /// No description provided for @signUp.
   ///
   /// In en, this message translates to:
@@ -241,6 +319,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Deposit'**
   String get deposit;
+
+  /// No description provided for @createDepositScreenAppBarText.
+  ///
+  /// In en, this message translates to:
+  /// **'Deposit via Crypto Coins'**
+  String get createDepositScreenAppBarText;
 
   /// No description provided for @depositInfo.
   ///
