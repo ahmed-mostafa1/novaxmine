@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       defaultTransition: Transition.noTransition,
       transitionDuration: const Duration(milliseconds: 200),
-      initialRoute: RouteHelper.createDepositScreen,
+      initialRoute: RouteHelper.depositeInstructionsScreen,
       navigatorKey: Get.key,
       getPages: RouteHelper.routes,
     
