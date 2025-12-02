@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:mine_lab/core/route/route.dart';
 import 'package:mine_lab/core/utils/styles.dart';
 import 'package:mine_lab/l10n/app_localizations.dart';
+import 'package:mine_lab/views/screens/deposits/create_deposite/theme/deposit_theme_extension.dart';
 import 'package:mine_lab/views/screens/deposits/create_deposite/widgets/copy_wallet_address_button.dart';
 import 'package:mine_lab/views/screens/deposits/create_deposite/widgets/deposite_cancel_button.dart';
 import 'package:mine_lab/views/screens/deposits/create_deposite/widgets/deposite_confirm_button.dart';
@@ -34,9 +35,10 @@ class DepositeInstructionsScreen extends StatelessWidget {
     final strings = AppLocalizations.of(context);
 
     return Scaffold(
+      backgroundColor: context.depositScaffoldBackgroundColor,
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 24),
+          padding: const EdgeInsets.symmetric(horizontal: 24),
           child: CustomScrollView(
             slivers: [
               SliverToBoxAdapter(
@@ -49,11 +51,12 @@ class DepositeInstructionsScreen extends StatelessWidget {
                   strings?.depositInstructions ?? 'Deposit Instructions',
                   style: interSemiBoldDefault.copyWith(
                     fontSize: 20,
+                    color: context.depositPrimaryTextColor,
                   ),
                 ),
               ),
               SliverToBoxAdapter(
-                child: SizedBox(
+                child: const SizedBox(
                   height: 20,
                 ),
               ),
@@ -63,23 +66,29 @@ class DepositeInstructionsScreen extends StatelessWidget {
                     text: '${strings?.youHaveSelected ?? 'You have selected'} ',
                     style: interMediumDefault.copyWith(
                       fontSize: 18,
+                      color: context.depositSecondaryTextColor,
                     ),
                     children: [
                       TextSpan(
                         text: coinTitle,
                         style: interBoldDefault.copyWith(
                           fontSize: 18,
+                          color: context.depositPrimaryTextColor,
                         ),
                       ),
                       TextSpan(
                         text: ' ($coinSubtitle).',
+                        style: interMediumDefault.copyWith(
+                          fontSize: 18,
+                          color: context.depositSecondaryTextColor,
+                        ),
                       ),
                     ],
                   ),
                 ),
               ),
               SliverToBoxAdapter(
-                child: SizedBox(height: 24),
+                child: const SizedBox(height: 24),
               ),
               SliverToBoxAdapter(
                 child: Text(
@@ -87,15 +96,16 @@ class DepositeInstructionsScreen extends StatelessWidget {
                       'Please send the desired amount to the wallet address below, then click "I Have Transferred".',
                   style: interMediumDefault.copyWith(
                     fontSize: 16,
+                    color: context.depositPrimaryTextColor,
                   ),
                 ),
               ),
               SliverToBoxAdapter(
-                child: SizedBox(height: 16),
+                child: const SizedBox(height: 16),
               ),
               CopyWalletAddressButton(address: withdrawAddress),
               SliverToBoxAdapter(
-                child: SizedBox(height: 24),
+                child: const SizedBox(height: 24),
               ),
               SliverToBoxAdapter(
                 child: Text(
@@ -103,12 +113,12 @@ class DepositeInstructionsScreen extends StatelessWidget {
                       'Make sure to double-check the address and network before sending. Transactions cannot be reversed.',
                   style: interMediumDefault.copyWith(
                     fontSize: 15,
-                    color: Colors.grey[600],
+                    color: context.depositSecondaryTextColor,
                   ),
                 ),
               ),
               SliverToBoxAdapter(
-                child: SizedBox(height: 32),
+                child: const SizedBox(height: 32),
               ),
               SliverStickyFooter(
                 bottomPadding: 24,
@@ -118,7 +128,7 @@ class DepositeInstructionsScreen extends StatelessWidget {
                       Get.back();
                     },
                   ),
-                  SizedBox(height: 12),
+                  const SizedBox(height: 12),
                   DepositeConfirmButton(
                     title: AppLocalizations.of(context)?.iHaveTransferred ??
                         'I Have Transferred',

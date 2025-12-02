@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mine_lab/core/utils/my_color.dart';
 import 'package:mine_lab/core/utils/styles.dart';
+import 'package:mine_lab/views/screens/deposits/create_deposite/theme/deposit_theme_extension.dart';
 
 class ConfirmDepositField extends StatelessWidget {
   final String label;
@@ -41,7 +41,7 @@ class ConfirmDepositField extends StatelessWidget {
               label,
               style: interMediumDefault.copyWith(
                 fontSize: 14,
-                color: MyColor.colorBlack,
+                color: context.depositPrimaryTextColor,
               ),
             ),
             if (isRequired) ...[
@@ -65,20 +65,24 @@ class ConfirmDepositField extends StatelessWidget {
           enabled: enabled,
           keyboardType: keyboardType,
           validator: validator,
-          style: interMediumDefault.copyWith(fontSize: 16),
+          style: interMediumDefault.copyWith(
+            fontSize: 16,
+            color: context.depositPrimaryTextColor,
+          ),
           decoration: InputDecoration(
             hintText: hintText,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
-              borderSide: BorderSide(color: Colors.grey.shade400),
+              borderSide: BorderSide(color: context.depositBorderColor),
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
-              borderSide: BorderSide(color: Colors.grey.shade400),
+              borderSide: BorderSide(color: context.depositBorderColor),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
-              borderSide: const BorderSide(color: MyColor.primaryColor),
+              borderSide:
+                  BorderSide(color: context.depositPrimaryButtonBackground),
             ),
           ),
         ),

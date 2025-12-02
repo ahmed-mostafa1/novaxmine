@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mine_lab/core/route/route.dart';
-import 'package:mine_lab/core/utils/my_color.dart';
 import 'package:mine_lab/core/utils/styles.dart';
 import 'package:mine_lab/data/controller/deposit/coin_wallet_controller.dart';
 import 'package:mine_lab/data/repo/deposit/deposit_repo.dart';
 import 'package:mine_lab/data/services/api_service.dart';
 import 'package:mine_lab/l10n/app_localizations.dart';
 import 'package:mine_lab/views/components/custom_loader.dart';
+import 'package:mine_lab/views/screens/deposits/create_deposite/theme/deposit_theme_extension.dart';
 import 'package:mine_lab/views/screens/deposits/create_deposite/widgets/deposite_crypto_item.dart';
 
 class DepositOptionsScreen extends StatefulWidget {
-  const 
-  DepositOptionsScreen({super.key});
+  const DepositOptionsScreen({super.key});
 
   @override
   State<DepositOptionsScreen> createState() => _DepositOptionsScreenState();
@@ -45,23 +44,23 @@ class _DepositOptionsScreenState extends State<DepositOptionsScreen> {
       init: _controller,
       builder: (controller) {
         return Scaffold(
-          backgroundColor: MyColor.screenBgColor,
+          backgroundColor: context.depositScaffoldBackgroundColor,
           appBar: AppBar(
             leading: IconButton(
-              icon: const Icon(
+              icon: Icon(
                 Icons.arrow_back,
-                color: Colors.white,
+                color: context.depositAppBarForeground,
               ),
               onPressed: () => Get.back(),
             ),
             surfaceTintColor: Colors.transparent,
             elevation: 0,
-            backgroundColor: const Color(0xff212121),
+            backgroundColor: context.depositAppBarBackground,
             title: Text(
               MyStrings?.createDepositScreenAppBarText ??
                   'Deposit via Crypto Coins',
               style: interBoldMediumLarge.copyWith(
-                color: MyColor.colorWhite,
+                color: context.depositAppBarForeground,
               ),
             ),
           ),

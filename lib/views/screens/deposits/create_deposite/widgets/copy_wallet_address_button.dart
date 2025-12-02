@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:mine_lab/core/utils/styles.dart';
 import 'package:mine_lab/l10n/app_localizations.dart';
+import 'package:mine_lab/views/screens/deposits/create_deposite/theme/deposit_theme_extension.dart';
 
 class CopyWalletAddressButton extends StatelessWidget {
   final String address;
@@ -19,7 +20,7 @@ class CopyWalletAddressButton extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
           border: Border.all(
-            color: Colors.grey[300]!,
+            color: context.depositBorderColor,
             width: 1,
           ),
         ),
@@ -34,6 +35,7 @@ class CopyWalletAddressButton extends StatelessWidget {
                   style: interMediumDefault.copyWith(
                     fontSize: 14,
                     fontFamily: 'monospace',
+                    color: context.depositPrimaryTextColor,
                   ),
                 ),
               ),
@@ -44,7 +46,7 @@ class CopyWalletAddressButton extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: Colors.black.withOpacity(.5),
+                    color: context.depositCopyButtonBorderColor,
                     width: 1,
                   ),
                   borderRadius: const BorderRadiusDirectional.only(
@@ -83,7 +85,7 @@ class CopyWalletAddressButton extends StatelessWidget {
                       strings?.copy ?? 'Copy',
                       style: interMediumDefault.copyWith(
                         fontSize: 14,
-                        color: Colors.black,
+                        color: context.depositCopyButtonTextColor,
                       ),
                     ),
                   ),

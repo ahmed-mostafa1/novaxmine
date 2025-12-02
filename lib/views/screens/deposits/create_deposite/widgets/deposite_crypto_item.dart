@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mine_lab/core/utils/my_color.dart';
 import 'package:mine_lab/core/utils/styles.dart';
 import 'package:mine_lab/l10n/app_localizations.dart';
+import 'package:mine_lab/views/screens/deposits/create_deposite/theme/deposit_theme_extension.dart';
 
 import 'deposite_item_blue_container_with_text.dart';
 import 'deposite_item_green_button.dart';
@@ -29,15 +29,15 @@ class DepositeCryptoItem extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       width: MediaQuery.sizeOf(context).width * .7,
       decoration: BoxDecoration(
-        border: Border.all(color: MyColor.borderColor),
+        border: Border.all(color: context.depositBorderColor),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(.1),
+            color: context.depositShadowColor,
             blurRadius: 10,
             offset: const Offset(0, 5),
           ),
         ],
-        color: MyColor.colorWhite,
+        color: context.depositCardColor,
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
@@ -45,7 +45,9 @@ class DepositeCryptoItem extends StatelessWidget {
         children: [
           Text(
             coinTitle,
-            style: interMediumOverLarge,
+            style: interMediumOverLarge.copyWith(
+              color: context.depositPrimaryTextColor,
+            ),
           ),
           const SizedBox(height: 8),
           DepositeItemBlueContainerWithText(text: coinSubtitle),
@@ -53,7 +55,7 @@ class DepositeCryptoItem extends StatelessWidget {
           Text(
             strings?.withdrawAddress ?? 'Withdraw Address:',
             style: interMediumLarge.copyWith(
-              color: MyColor.bodyTextColor,
+              color: context.depositSecondaryTextColor,
               fontSize: 18,
             ),
           ),
@@ -61,7 +63,7 @@ class DepositeCryptoItem extends StatelessWidget {
           Text(
             withdrawAddress,
             style: interMediumLarge.copyWith(
-              color: MyColor.bodyTextColor,
+              color: context.depositPrimaryTextColor,
               fontSize: 16,
             ),
           ),

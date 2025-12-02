@@ -4,12 +4,14 @@ import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:mine_lab/core/helper/share_preference_helper.dart';
 import 'package:mine_lab/core/route/route.dart';
+import 'package:mine_lab/core/theme/dark.dart';
 import 'package:mine_lab/data/services/push_notification_service.dart';
 import 'package:mine_lab/firebase_options.dart';
 import 'package:mine_lab/l10n/app_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'core/di_service/di_services.dart' as di_service;
+import 'core/theme/light/light.dart';
 
 Future<void> _messageHandler(RemoteMessage message) async {
   await Firebase.initializeApp(
@@ -45,7 +47,9 @@ class MyApp extends StatelessWidget {
       initialRoute: RouteHelper.splashScreen,
       navigatorKey: Get.key,
       getPages: RouteHelper.routes,
-    
+      theme: lightThemeData,
+      darkTheme: darkThemeData,
+      themeMode: ThemeMode.light,
       // ✅ Localization (gen-l10n)
       locale: Get.deviceLocale,
       fallbackLocale: const Locale('ar'),

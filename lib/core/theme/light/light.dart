@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mine_lab/views/screens/deposits/create_deposite/theme/deposit_app_colors.dart';
+import 'package:mine_lab/views/screens/deposits/create_deposite/theme/deposit_custom_colors.dart';
 // import 'package:flutter_prime/core/theme/light/theme_component/my_appbar_theme.dart';
 import '../../utils/my_color.dart';
 
@@ -64,4 +66,25 @@ ThemeData lightThemeData = ThemeData.light().copyWith(
   timePickerTheme: TimePickerThemeData(dialTextStyle: TextStyle(fontFamily: 'Inter', fontSize: 14, fontWeight: FontWeight.w400, color: MyColor.dSecondaryTextColor), helpTextStyle: TextStyle(fontFamily: 'Inter', fontSize: 16, fontWeight: FontWeight.w400, color: MyColor.primaryColor)),
   //Text Filed
   inputDecorationTheme: const InputDecorationTheme(),
+  extensions: const <ThemeExtension<dynamic>>[
+      DepositCustomColors(
+        primaryTextColor: DepositAppColors.lightMainTextColor,
+        secondaryTextColor: DepositAppColors.lightSecondaryTextColor,
+        cardColor: DepositAppColors.lightCardColor,
+        borderColor: DepositAppColors.lightBorderColor,
+        primaryButtonBackground: DepositAppColors.lightPrimaryButtonBackground,
+        primaryButtonTextColor: DepositAppColors.lightPrimaryButtonTextColor,
+        secondaryButtonBackground:
+            DepositAppColors.lightSecondaryButtonBackground,
+        secondaryButtonTextColor:
+            DepositAppColors.lightSecondaryButtonTextColor,
+        chipBackgroundColor: DepositAppColors.lightChipBackgroundColor,
+        chipTextColor: DepositAppColors.lightChipTextColor,
+        copyButtonBackground: DepositAppColors.lightCopyButtonBackground,
+        copyButtonBorderColor: DepositAppColors.lightCopyButtonBorderColor,
+        copyButtonTextColor: DepositAppColors.lightCopyButtonTextColor,
+        appBarBackground: DepositAppColors.lightAppBarBackground,
+        appBarForeground: DepositAppColors.lightAppBarForeground,
+        shadowColor: DepositAppColors.lightShadowColor,
+      ),],
 );

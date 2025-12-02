@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mine_lab/core/utils/my_color.dart';
 import 'package:mine_lab/core/utils/styles.dart';
+import 'package:mine_lab/views/screens/deposits/create_deposite/theme/deposit_theme_extension.dart';
 
 class DepositeConfirmButton extends StatelessWidget {
   final VoidCallback? onPressed;
@@ -20,25 +20,27 @@ class DepositeConfirmButton extends StatelessWidget {
       child: TextButton(
         style: TextButton.styleFrom(
           padding: const EdgeInsets.symmetric(vertical: 12),
-          backgroundColor: MyColor.primaryColor,
+          backgroundColor: context.depositPrimaryButtonBackground,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
           ),
         ),
         onPressed: isLoading ? null : onPressed,
         child: isLoading
-            ? const SizedBox(
+            ? SizedBox(
                 height: 20,
                 width: 20,
                 child: CircularProgressIndicator(
                   strokeWidth: 2,
-                  valueColor: AlwaysStoppedAnimation(MyColor.colorWhite),
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    context.depositPrimaryButtonTextColor,
+                  ),
                 ),
               )
             : Text(
-              title,
+                title,
                 style: interMediumLarge.copyWith(
-                  color: MyColor.colorWhite,
+                  color: context.depositPrimaryButtonTextColor,
                   fontSize: 16,
                 ),
               ),

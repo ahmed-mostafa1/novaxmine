@@ -7,6 +7,7 @@ import 'package:mine_lab/data/repo/deposit/deposit_repo.dart';
 import 'package:mine_lab/data/services/api_service.dart';
 import 'package:mine_lab/l10n/app_localizations.dart';
 import 'package:mine_lab/views/components/snackbar/show_custom_snackbar.dart';
+import 'package:mine_lab/views/screens/deposits/create_deposite/theme/deposit_theme_extension.dart';
 import 'package:mine_lab/views/screens/deposits/create_deposite/widgets/confirm_deposit_field.dart';
 import 'package:mine_lab/views/screens/deposits/create_deposite/widgets/deposite_cancel_button.dart';
 import 'package:mine_lab/views/screens/deposits/create_deposite/widgets/deposite_confirm_button.dart';
@@ -98,6 +99,7 @@ class _ConfirmDepositScreenState extends State<ConfirmDepositScreen> {
       init: _confirmController,
       builder: (controller) {
         return Scaffold(
+          backgroundColor: context.depositScaffoldBackgroundColor,
           body: SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -113,6 +115,7 @@ class _ConfirmDepositScreenState extends State<ConfirmDepositScreen> {
                       strings?.confirmYourDeposit ?? 'Confirm Your Deposit',
                       style: interSemiBoldDefault.copyWith(
                         fontSize: 20,
+                        color: context.depositPrimaryTextColor,
                       ),
                     ),
                   ),
@@ -182,7 +185,7 @@ class _ConfirmDepositScreenState extends State<ConfirmDepositScreen> {
                                 'Enter the amount in the same coin / network you transferred.',
                             style: interMediumDefault.copyWith(
                               fontSize: 15,
-                              color: Colors.grey[600],
+                              color: context.depositSecondaryTextColor,
                             ),
                           ),
                         ],
