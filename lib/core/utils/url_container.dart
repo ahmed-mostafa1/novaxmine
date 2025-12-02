@@ -58,7 +58,7 @@ class UrlContainer {
   // deposit
   static const String depositHistoryEndPoint = 'api/deposit/history';
   static const String depositMethodEndPoint = 'api/deposit/methods';
-  static const String depositInsertEndPoint = 'api/deposit/submit';
+  static const String depositInsertEndPoint = 'api/coin-deposit';
   static const String coinWalletsEndPoint = 'api/coin-wallets';
 
   static const String authorizationCodeEndPoint = 'api/authorization';
