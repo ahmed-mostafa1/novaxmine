@@ -6,9 +6,11 @@ import 'dart:convert';
 
 import 'package:mine_lab/data/model/global/meassage_model.dart';
 
-AchievementResponseModel achievementResponseModelFromJson(String str) => AchievementResponseModel.fromJson(json.decode(str));
+AchievementResponseModel achievementResponseModelFromJson(String str) =>
+    AchievementResponseModel.fromJson(json.decode(str));
 
-String achievementResponseModelToJson(AchievementResponseModel data) => json.encode(data.toJson());
+String achievementResponseModelToJson(AchievementResponseModel data) =>
+    json.encode(data.toJson());
 
 class AchievementResponseModel {
   final String? remark;
@@ -23,10 +25,12 @@ class AchievementResponseModel {
     this.data,
   });
 
-  factory AchievementResponseModel.fromJson(Map<String, dynamic> json) => AchievementResponseModel(
+  factory AchievementResponseModel.fromJson(Map<String, dynamic> json) =>
+      AchievementResponseModel(
         remark: json["remark"],
         status: json["status"],
-        message: json["message"] == null ? null : Message.fromJson(json["message"]),
+        message:
+            json["message"] == null ? null : Message.fromJson(json["message"]),
         data: json["data"] == null ? null : Data.fromJson(json["data"]),
       );
 
@@ -50,14 +54,24 @@ class Data {
   });
 
   factory Data.fromJson(Map<String, dynamic> json) => Data(
-        unlockBadges: json["userBadges"] == null ? [] : List<UnLockBadge>.from(json["userBadges"]!.map((x) => UnLockBadge.fromJson(x))),
-        lockBadges: json["badges"] == null ? [] : List<LockBadge>.from(json["badges"]!.map((x) => LockBadge.fromJson(x))),
+        unlockBadges: json["userBadges"] == null
+            ? []
+            : List<UnLockBadge>.from(
+                json["userBadges"]!.map((x) => UnLockBadge.fromJson(x))),
+        lockBadges: json["badges"] == null
+            ? []
+            : List<LockBadge>.from(
+                json["badges"]!.map((x) => LockBadge.fromJson(x))),
         badgePath: json["badge_path"],
       );
 
   Map<String, dynamic> toJson() => {
-        "unlockBadges": unlockBadges == null ? [] : List<dynamic>.from(unlockBadges!.map((x) => x)),
-        "lockBadges": lockBadges == null ? [] : List<dynamic>.from(lockBadges!.map((x) => x.toJson())),
+        "unlockBadges": unlockBadges == null
+            ? []
+            : List<dynamic>.from(unlockBadges!.map((x) => x)),
+        "lockBadges": lockBadges == null
+            ? []
+            : List<dynamic>.from(lockBadges!.map((x) => x.toJson())),
         "badge_path": badgePath,
       };
 }

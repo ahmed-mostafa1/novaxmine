@@ -16,10 +16,12 @@ class CustomCircleAnimatedButton extends StatefulWidget {
   });
 
   @override
-  State<CustomCircleAnimatedButton> createState() => _CustomCircleAnimatedButtonState();
+  State<CustomCircleAnimatedButton> createState() =>
+      _CustomCircleAnimatedButtonState();
 }
 
-class _CustomCircleAnimatedButtonState extends State<CustomCircleAnimatedButton> with SingleTickerProviderStateMixin {
+class _CustomCircleAnimatedButtonState extends State<CustomCircleAnimatedButton>
+    with SingleTickerProviderStateMixin {
   late double _scale;
   late AnimationController _controller;
 
@@ -62,7 +64,13 @@ class _CustomCircleAnimatedButtonState extends State<CustomCircleAnimatedButton>
   }
 
   Widget _animatedButton() {
-    return Container(height: widget.height, width: widget.width, alignment: Alignment.center, decoration: BoxDecoration(color: widget.backgroundColor, shape: BoxShape.circle), child: widget.child);
+    return Container(
+        height: widget.height,
+        width: widget.width,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+            color: widget.backgroundColor, shape: BoxShape.circle),
+        child: widget.child);
   }
 
   void _tapDown(TapDownDetails details) {

@@ -8,7 +8,8 @@ import 'package:mine_lab/views/components/text/bottom_sheet_header_text.dart';
 class BottomSheetHeaderRow extends StatelessWidget {
   final String header;
   final double bottomSpace;
-  const BottomSheetHeaderRow({super.key, this.header = '', this.bottomSpace = Dimensions.space10});
+  const BottomSheetHeaderRow(
+      {super.key, this.header = '', this.bottomSpace = Dimensions.space10});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +32,10 @@ class BottomSheetHeaderRow extends StatelessWidget {
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [Expanded(child: BottomSheetHeaderText(text: header.tr)), const BottomSheetCloseButton()],
+          children: [
+            Expanded(child: BottomSheetHeaderText(text: header.tr)),
+            const BottomSheetCloseButton()
+          ],
         ),
         SizedBox(height: bottomSpace),
       ],

@@ -1,7 +1,8 @@
 import 'dart:convert';
 
 import '../../signin_with_linkedin.dart';
-import 'http_client/http_client_factory.dart' if (dart.library.js_interop) 'http_client/http_client_factory_web.dart';
+import 'http_client/http_client_factory.dart'
+    if (dart.library.js_interop) 'http_client/http_client_factory_web.dart';
 
 /// Manages all the API calls and response handling.
 final class LinkedInApiClient {

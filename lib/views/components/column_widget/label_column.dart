@@ -12,25 +12,45 @@ class LabelColumn extends StatelessWidget {
   final bool lastTextRed;
   final bool isSmallFont;
 
-  const LabelColumn({super.key, this.isSmallFont = false, this.lastTextRed = false, this.alignmentEnd = false, required this.header, required this.body});
+  const LabelColumn(
+      {super.key,
+      this.isSmallFont = false,
+      this.lastTextRed = false,
+      this.alignmentEnd = false,
+      required this.header,
+      required this.body});
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: alignmentEnd ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+      crossAxisAlignment:
+          alignmentEnd ? CrossAxisAlignment.end : CrossAxisAlignment.start,
       children: [
-        Text(header.tr, style: interRegularDefault.copyWith(fontSize: isSmallFont ? Dimensions.fontSmall : Dimensions.fontDefault, color: MyColor.colorBlack, fontWeight: FontWeight.w600), overflow: TextOverflow.ellipsis),
+        Text(header.tr,
+            style: interRegularDefault.copyWith(
+                fontSize:
+                    isSmallFont ? Dimensions.fontSmall : Dimensions.fontDefault,
+                color: MyColor.colorBlack,
+                fontWeight: FontWeight.w600),
+            overflow: TextOverflow.ellipsis),
         const SizedBox(
           height: 5,
         ),
         Text(
           body.tr,
           style: lastTextRed
-              ? interRegularDefault.copyWith(fontFamily: "Inter", fontSize: isSmallFont ? Dimensions.fontSmall : Dimensions.fontDefault, color: MyColor.redCancelTextColor)
+              ? interRegularDefault.copyWith(
+                  fontFamily: "Inter",
+                  fontSize: isSmallFont
+                      ? Dimensions.fontSmall
+                      : Dimensions.fontDefault,
+                  color: MyColor.redCancelTextColor)
               : interRegularDefault.copyWith(
                   fontFamily: "Inter",
                   color: MyColor.colorBlack,
-                  fontSize: isSmallFont ? Dimensions.fontSmall : Dimensions.fontDefault,
+                  fontSize: isSmallFont
+                      ? Dimensions.fontSmall
+                      : Dimensions.fontDefault,
                 ),
           overflow: TextOverflow.ellipsis,
         )

@@ -9,7 +9,8 @@ class LoginResponseModel {
 
   LoginResponseModel.fromJson(dynamic json) {
     _status = json['status'].toString();
-    _message = json['message'] != null ? Message.fromJson(json['message']) : null;
+    _message =
+        json['message'] != null ? Message.fromJson(json['message']) : null;
     _data = json['data'] != null ? Data.fromJson(json['data']) : null;
   }
   String? _status;

@@ -30,14 +30,16 @@ class CategoryButton extends StatelessWidget {
           onTap: press,
           borderRadius: BorderRadius.circular(4),
           child: Container(
-            padding: EdgeInsets.symmetric(horizontal: horizontalPadding, vertical: verticalPadding),
+            padding: EdgeInsets.symmetric(
+                horizontal: horizontalPadding, vertical: verticalPadding),
             decoration: BoxDecoration(
               color: MyColor.transparentColor,
               borderRadius: BorderRadius.circular(4),
             ),
             child: Text(
               text,
-              style: interRegularDefault.copyWith(color: textColor, fontSize: textSize),
+              style: interRegularDefault.copyWith(
+                  color: textColor, fontSize: textSize),
             ),
           ),
         ));

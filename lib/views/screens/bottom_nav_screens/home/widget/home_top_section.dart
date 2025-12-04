@@ -24,7 +24,8 @@ class HomeTopSection extends StatelessWidget {
             child: Container(
               height: 130,
               width: MediaQuery.of(context).size.width,
-              padding: const EdgeInsets.symmetric(vertical: Dimensions.space20, horizontal: Dimensions.space15),
+              padding: const EdgeInsets.symmetric(
+                  vertical: Dimensions.space20, horizontal: Dimensions.space15),
               color: MyColor.primaryColor,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,7 +41,13 @@ class HomeTopSection extends StatelessWidget {
                             height: 40,
                             width: 40,
                             alignment: Alignment.center,
-                            decoration: BoxDecoration(color: MyColor.colorWhite.withValues(alpha: 0.1), shape: BoxShape.circle, image: const DecorationImage(image: AssetImage(MyImages.avatar), fit: BoxFit.fill)),
+                            decoration: BoxDecoration(
+                                color:
+                                    MyColor.colorWhite.withValues(alpha: 0.1),
+                                shape: BoxShape.circle,
+                                image: const DecorationImage(
+                                    image: AssetImage(MyImages.avatar),
+                                    fit: BoxFit.fill)),
                           ),
                           const SizedBox(width: Dimensions.space20),
                           Column(
@@ -48,11 +55,14 @@ class HomeTopSection extends StatelessWidget {
                             children: [
                               Text(
                                 userController.user?.username ?? '',
-                                style: interRegularLarge.copyWith(color: MyColor.colorWhite, fontWeight: FontWeight.w600),
+                                style: interRegularLarge.copyWith(
+                                    color: MyColor.colorWhite,
+                                    fontWeight: FontWeight.w600),
                               ),
                               Text(
                                 userController.user?.email ?? '',
-                                style: interRegularDefault.copyWith(color: MyColor.screenBgColor),
+                                style: interRegularDefault.copyWith(
+                                    color: MyColor.screenBgColor),
                               ),
                             ],
                           )
@@ -66,7 +76,9 @@ class HomeTopSection extends StatelessWidget {
           ),
           const Align(
             alignment: Alignment.bottomCenter,
-            child: Padding(padding: EdgeInsets.only(top: Dimensions.space50 * 1.6), child: HomeCardSection()),
+            child: Padding(
+                padding: EdgeInsets.only(top: Dimensions.space50 * 1.6),
+                child: HomeCardSection()),
           ),
         ],
       ),

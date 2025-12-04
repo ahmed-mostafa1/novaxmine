@@ -16,7 +16,8 @@ class PurchasedPlanResponseModel {
   PurchasedPlanResponseModel.fromJson(dynamic json) {
     _remark = json['remark'];
     _status = json['status'];
-    _message = json['message'] != null ? Message.fromJson(json['message']) : null;
+    _message =
+        json['message'] != null ? Message.fromJson(json['message']) : null;
     _data = json['data'] != null ? Data.fromJson(json['data']) : null;
   }
   String? _remark;
@@ -143,7 +144,9 @@ class PurchasedPlanData {
     _trx = json['trx'].toString();
     _userId = json['user_id'].toString();
     _minerId = json['miner_id'].toString();
-    _planDetails = json['plan_details'] != null ? PlanDetails.fromJson(json['plan_details']) : null;
+    _planDetails = json['plan_details'] != null
+        ? PlanDetails.fromJson(json['plan_details'])
+        : null;
     _amount = json['amount'].toString();
     _minReturnPerDay = json['min_return_per_day'].toString();
     _maxReturnPerDay = json['max_return_per_day'].toString();

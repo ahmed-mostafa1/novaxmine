@@ -15,7 +15,20 @@ class UserPostModel {
   final String? zip;
   final String? city;
 
-  UserPostModel({required this.firstname, required this.lastName, required this.mobile, required this.email, required this.username, required this.countryCode, required this.country, required this.mobileCode, required this.image, required this.address, required this.state, required this.zip, required this.city});
+  UserPostModel(
+      {required this.firstname,
+      required this.lastName,
+      required this.mobile,
+      required this.email,
+      required this.username,
+      required this.countryCode,
+      required this.country,
+      required this.mobileCode,
+      required this.image,
+      required this.address,
+      required this.state,
+      required this.zip,
+      required this.city});
 
   factory UserPostModel.fromMap(Map<String, dynamic> map) {
     return UserPostModel(

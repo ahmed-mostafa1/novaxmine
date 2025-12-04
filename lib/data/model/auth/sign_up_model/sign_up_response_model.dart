@@ -14,7 +14,8 @@ class SignupResponseModel {
   SignupResponseModel.fromJson(dynamic json) {
     _remark = json['remark'].toString();
     _status = json['status'].toString();
-    _message = json['message'] != null ? Message.fromJson(json['message']) : null;
+    _message =
+        json['message'] != null ? Message.fromJson(json['message']) : null;
     _data = json['data'] != null ? Data.fromJson(json['data']) : null;
   }
   String? _remark;
@@ -125,7 +126,8 @@ class User {
     _refBy = json['ref_by'].toString();
     _countryCode = json['country_code'].toString();
     _mobile = json['mobile'].toString();
-    _address = json['address'] != null ? Address.fromJson(json['address']) : null;
+    _address =
+        json['address'] != null ? Address.fromJson(json['address']) : null;
     _status = json['status'].toString();
     _kv = json['kv'].toString();
     _ev = json['ev'].toString();

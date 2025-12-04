@@ -38,7 +38,9 @@ class CustomRow extends StatelessWidget {
                   Flexible(
                       child: Text(
                     firstText.tr,
-                    style: first ?? interRegularDefault.copyWith(color: MyColor.getTextColor()),
+                    style: first ??
+                        interRegularDefault.copyWith(
+                            color: MyColor.getTextColor()),
                     overflow: TextOverflow.ellipsis,
                     maxLines: 1,
                   )),
@@ -46,7 +48,9 @@ class CustomRow extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 5),
-              showDivider ? const Divider(color: MyColor.colorGrey) : const SizedBox(),
+              showDivider
+                  ? const Divider(color: MyColor.colorGrey)
+                  : const SizedBox(),
               showDivider ? const SizedBox(height: 5) : const SizedBox(),
             ],
           )
@@ -54,11 +58,19 @@ class CustomRow extends StatelessWidget {
             ? Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(firstText.tr, style: first ?? interRegularDefault.copyWith(color: MyColor.colorBlack)),
+                  Text(firstText.tr,
+                      style: first ??
+                          interRegularDefault.copyWith(
+                              color: MyColor.colorBlack)),
                   const SizedBox(height: 4),
                   Text(
                     lastText.tr,
-                    style: last ?? interRegularDefault.copyWith(fontFamily: "Inter", color: isStatus ? statusTextColor : MyColor.bodyTextColor),
+                    style: last ??
+                        interRegularDefault.copyWith(
+                            fontFamily: "Inter",
+                            color: isStatus
+                                ? statusTextColor
+                                : MyColor.bodyTextColor),
                   ),
                   const SizedBox(
                     height: 5,
@@ -70,13 +82,22 @@ class CustomRow extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Flexible(child: Text(firstText.tr, style: first ?? interRegularDefault.copyWith(color: MyColor.colorBlack), overflow: TextOverflow.ellipsis, maxLines: 1)),
+                      Flexible(
+                          child: Text(firstText.tr,
+                              style: first ??
+                                  interRegularDefault.copyWith(
+                                      color: MyColor.colorBlack),
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 1)),
                       //  isStatus ? StatusWidget(status: lastText, color: MyColor.greenP,) :
                       Flexible(
                           child: Text(
                         lastText.tr,
                         maxLines: 2,
-                        style: interRegularDefault.copyWith(color: isStatus ? MyColor.greenSuccessColor : MyColor.bodyTextColor),
+                        style: interRegularDefault.copyWith(
+                            color: isStatus
+                                ? MyColor.greenSuccessColor
+                                : MyColor.bodyTextColor),
                         overflow: TextOverflow.ellipsis,
                         textAlign: TextAlign.end,
                       ))

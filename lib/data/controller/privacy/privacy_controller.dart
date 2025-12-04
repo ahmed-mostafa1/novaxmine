@@ -19,15 +19,19 @@ class PrivacyController extends GetxController {
   void loadData() async {
     ResponseModel model = await repo.loadAboutData();
     if (model.statusCode == 200) {
-      PrivacyResponseModel responseModel = PrivacyResponseModel.fromJson(jsonDecode(model.responseJson));
-      if (responseModel.data?.policies != null && responseModel.data!.policies != null && responseModel.data!.policies!.isNotEmpty) {
+      PrivacyResponseModel responseModel =
+          PrivacyResponseModel.fromJson(jsonDecode(model.responseJson));
+      if (responseModel.data?.policies != null &&
+          responseModel.data!.policies != null &&
+          responseModel.data!.policies!.isNotEmpty) {
         list.clear();
         list.addAll(responseModel.data!.policies!);
         changeIndex(0);
         updateLoading(false);
       }
     } else {
-      CustomSnackBar.showCustomSnackBar(errorList: [model.message], msg: [], isError: false);
+      CustomSnackBar.showCustomSnackBar(
+          errorList: [model.message], msg: [], isError: false);
       updateLoading(false);
     }
   }

@@ -36,7 +36,21 @@ class CardColumn extends StatelessWidget {
 
   double? space = 5;
 
-  CardColumn({super.key, this.bodyMaxLine = 1, this.alignmentEnd = false, this.alignmentCenter = false, required this.header, this.isDate = false, this.textColor, this.headerTextDecoration, this.bodyTextDecoration, required this.body, this.subBody, this.isOnlyHeader = false, this.isonlyBody = false, this.space});
+  CardColumn(
+      {super.key,
+      this.bodyMaxLine = 1,
+      this.alignmentEnd = false,
+      this.alignmentCenter = false,
+      required this.header,
+      this.isDate = false,
+      this.textColor,
+      this.headerTextDecoration,
+      this.bodyTextDecoration,
+      required this.body,
+      this.subBody,
+      this.isOnlyHeader = false,
+      this.isonlyBody = false,
+      this.space});
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +64,10 @@ class CardColumn extends StatelessWidget {
             children: [
               Text(
                 header.tr,
-                style: headerTextDecoration ?? interRegularSmall.copyWith(color: Theme.of(context).textTheme.titleLarge!.color, fontWeight: FontWeight.w600),
+                style: headerTextDecoration ??
+                    interRegularSmall.copyWith(
+                        color: Theme.of(context).textTheme.titleLarge!.color,
+                        fontWeight: FontWeight.w600),
                 overflow: TextOverflow.ellipsis,
               ),
               SizedBox(
@@ -67,7 +84,13 @@ class CardColumn extends StatelessWidget {
             children: [
               Text(
                 header.tr,
-                style: headerTextDecoration ?? interRegularSmall.copyWith(color: Theme.of(context).textTheme.titleLarge!.color?.withValues(alpha: 0.6)),
+                style: headerTextDecoration ??
+                    interRegularSmall.copyWith(
+                        color: Theme.of(context)
+                            .textTheme
+                            .titleLarge!
+                            .color
+                            ?.withValues(alpha: 0.6)),
                 overflow: TextOverflow.ellipsis,
               ),
               SizedBox(
@@ -76,13 +99,38 @@ class CardColumn extends StatelessWidget {
               Text(
                 body.tr,
                 maxLines: bodyMaxLine,
-                style: isDate ? interRegularDefault.copyWith(fontStyle: FontStyle.italic, color: textColor ?? Theme.of(context).textTheme.titleLarge!.color, fontSize: Dimensions.fontSmall) : bodyTextDecoration ?? interRegularSmall.copyWith(color: textColor ?? Theme.of(context).textTheme.titleLarge!.color, fontWeight: FontWeight.w500),
+                style: isDate
+                    ? interRegularDefault.copyWith(
+                        fontStyle: FontStyle.italic,
+                        color: textColor ??
+                            Theme.of(context).textTheme.titleLarge!.color,
+                        fontSize: Dimensions.fontSmall)
+                    : bodyTextDecoration ??
+                        interRegularSmall.copyWith(
+                            color: textColor ??
+                                Theme.of(context).textTheme.titleLarge!.color,
+                            fontWeight: FontWeight.w500),
                 overflow: TextOverflow.ellipsis,
               ),
               SizedBox(
                 height: space,
               ),
-              subBody != null ? Text(subBody!.tr, maxLines: bodyMaxLine, style: isDate ? interRegularDefault.copyWith(fontStyle: FontStyle.italic, color: textColor ?? MyColor.getTextColor(), fontSize: Dimensions.fontSmall) : subBodyTextDecoration ?? interRegularSmall.copyWith(color: textColor ?? MyColor.getTextColor().withValues(alpha: 0.5), fontWeight: FontWeight.w500), overflow: TextOverflow.ellipsis) : const SizedBox.shrink()
+              subBody != null
+                  ? Text(subBody!.tr,
+                      maxLines: bodyMaxLine,
+                      style: isDate
+                          ? interRegularDefault.copyWith(
+                              fontStyle: FontStyle.italic,
+                              color: textColor ?? MyColor.getTextColor(),
+                              fontSize: Dimensions.fontSmall)
+                          : subBodyTextDecoration ??
+                              interRegularSmall.copyWith(
+                                  color: textColor ??
+                                      MyColor.getTextColor()
+                                          .withValues(alpha: 0.5),
+                                  fontWeight: FontWeight.w500),
+                      overflow: TextOverflow.ellipsis)
+                  : const SizedBox.shrink()
             ],
           );
   }

@@ -47,7 +47,6 @@ class _EmailVerifyScreenState extends State<EmailVerifyScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     final MyStrings = context != null ? AppLocalizations.of(context)! : null;
     return WillPopWidget(
       nextRoute: RouteHelper.loginScreen,
@@ -70,37 +69,67 @@ class _EmailVerifyScreenState extends State<EmailVerifyScreen> {
                     height: 120,
                     width: 120,
                     alignment: Alignment.center,
-                    decoration: BoxDecoration(color: MyColor.primaryColor.withValues(alpha: .075), shape: BoxShape.circle),
+                    decoration: BoxDecoration(
+                        color: MyColor.primaryColor.withValues(alpha: .075),
+                        shape: BoxShape.circle),
                     // child: CustomSvgPicture(image: MyImages.emailVerifyImage, height: 50, width: 50, color: MyColor.getPrimaryColor()),
-                    child: Lottie.asset(MyAnimation.email, height: 120, width: 120),
+                    child: Lottie.asset(MyAnimation.email,
+                        height: 120, width: 120),
                   ),
                   Container(
                     padding: Dimensions.screenPadding,
                     margin: EdgeInsets.all(16),
-                    decoration: BoxDecoration(color: MyColor.colorWhite, borderRadius: BorderRadius.circular(Dimensions.mediumRadius)),
+                    decoration: BoxDecoration(
+                        color: MyColor.colorWhite,
+                        borderRadius:
+                            BorderRadius.circular(Dimensions.mediumRadius)),
                     child: controller.isLoading
-                        ? CustomLoader(isCustom: true, loaderColor: MyColor.primaryColor.withValues(alpha: 0.5))
+                        ? CustomLoader(
+                            isCustom: true,
+                            loaderColor:
+                                MyColor.primaryColor.withValues(alpha: 0.5))
                         : Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               const SizedBox(height: Dimensions.space20),
-                              Text(MyStrings.viaEmailVerify, textAlign: TextAlign.center, style: interRegularDefault.copyWith(color: MyColor.primarySubTitleColor)),
+                              Text(MyStrings.viaEmailVerify,
+                                  textAlign: TextAlign.center,
+                                  style: interRegularDefault.copyWith(
+                                      color: MyColor.primarySubTitleColor)),
                               const SizedBox(height: Dimensions.space10),
-                              DefaultText(text: "${MyStrings.email.tr}: ${MyUtils.getMaskedMail(controller.userEmail)}", textAlign: TextAlign.center, textColor: MyColor.bodyTextColor),
+                              DefaultText(
+                                  text:
+                                      "${MyStrings.email.tr}: ${MyUtils.getMaskedMail(controller.userEmail)}",
+                                  textAlign: TextAlign.center,
+                                  textColor: MyColor.bodyTextColor),
                               const SizedBox(height: Dimensions.space20),
                               PinCodeTextField(
                                 appContext: context,
-                                pastedTextStyle: interRegularDefault.copyWith(color: MyColor.primaryColor),
+                                pastedTextStyle: interRegularDefault.copyWith(
+                                    color: MyColor.primaryColor),
                                 length: 6,
-                                textStyle: interRegularDefault.copyWith(color: MyColor.colorBlack),
+                                textStyle: interRegularDefault.copyWith(
+                                    color: MyColor.colorBlack),
                                 obscureText: false,
                                 obscuringCharacter: '*',
                                 blinkWhenObscuring: false,
                                 animationType: AnimationType.fade,
-                                pinTheme: PinTheme(shape: PinCodeFieldShape.box, borderWidth: 1, borderRadius: BorderRadius.circular(5), fieldHeight: 40, fieldWidth: 40, inactiveColor: MyColor.colorGrey, inactiveFillColor: MyColor.transparentColor, activeFillColor: MyColor.transparentColor, activeColor: MyColor.primaryColor, selectedFillColor: MyColor.transparentColor, selectedColor: MyColor.primaryColor),
+                                pinTheme: PinTheme(
+                                    shape: PinCodeFieldShape.box,
+                                    borderWidth: 1,
+                                    borderRadius: BorderRadius.circular(5),
+                                    fieldHeight: 40,
+                                    fieldWidth: 40,
+                                    inactiveColor: MyColor.colorGrey,
+                                    inactiveFillColor: MyColor.transparentColor,
+                                    activeFillColor: MyColor.transparentColor,
+                                    activeColor: MyColor.primaryColor,
+                                    selectedFillColor: MyColor.transparentColor,
+                                    selectedColor: MyColor.primaryColor),
                                 cursorColor: MyColor.colorBlack,
-                                animationDuration: const Duration(milliseconds: 100),
+                                animationDuration:
+                                    const Duration(milliseconds: 100),
                                 enableActiveFill: true,
                                 keyboardType: TextInputType.number,
                                 beforeTextPaste: (text) {
@@ -117,27 +146,41 @@ class _EmailVerifyScreenState extends State<EmailVerifyScreen> {
                                 textColor: MyColor.colorWhite,
                                 color: MyColor.primaryColor,
                                 press: () {
-                                  controller.verifyEmail(controller.currentText);
+                                  controller
+                                      .verifyEmail(controller.currentText);
                                 },
                               ),
                               const SizedBox(height: Dimensions.space20),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Text(MyStrings.didNotReceiveCode.tr, style: interRegularDefault.copyWith(color: MyColor.labelTextColor)),
+                                  Text(MyStrings.didNotReceiveCode.tr,
+                                      style: interRegularDefault.copyWith(
+                                          color: MyColor.labelTextColor)),
                                   const SizedBox(width: Dimensions.space10),
                                   controller.resendLoading
                                       ? Container(
-                                          margin: const EdgeInsetsDirectional.only(start: 5, top: 5),
+                                          margin:
+                                              const EdgeInsetsDirectional.only(
+                                                  start: 5, top: 5),
                                           height: 20,
                                           width: 20,
-                                          child: CircularProgressIndicator(color: MyColor.primaryColor),
+                                          child: CircularProgressIndicator(
+                                              color: MyColor.primaryColor),
                                         )
                                       : GestureDetector(
                                           onTap: () {
                                             controller.sendCodeAgain(context);
                                           },
-                                          child: Text(MyStrings.resend.tr, style: interRegularDefault.copyWith(color: MyColor.primaryColor, decoration: TextDecoration.underline, decorationColor: MyColor.primaryColor)),
+                                          child: Text(MyStrings.resend.tr,
+                                              style:
+                                                  interRegularDefault.copyWith(
+                                                      color:
+                                                          MyColor.primaryColor,
+                                                      decoration: TextDecoration
+                                                          .underline,
+                                                      decorationColor: MyColor
+                                                          .primaryColor)),
                                         )
                                 ],
                               )

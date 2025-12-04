@@ -1,13 +1,13 @@
 class CoinWalletResponseModel {
-  final bool? success;
+  final String? status;
   final String? message;
   final List<CoinWalletModel>? data;
 
-  CoinWalletResponseModel({this.success, this.message, this.data});
+  CoinWalletResponseModel({this.status, this.message, this.data});
 
   factory CoinWalletResponseModel.fromJson(Map<String, dynamic> json) {
     return CoinWalletResponseModel(
-      success: json['success'] as bool?,
+      status: json['status'] as String?,
       message: json['message'] as String?,
       data: (json['data'] as List<dynamic>?)
           ?.map((item) => CoinWalletModel.fromJson(item))

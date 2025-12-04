@@ -42,11 +42,11 @@ class CoinWalletController extends GetxController {
       return;
     }
 
-    if (responseModel.statusCode == 200) {
+    if (responseModel.statusCode == 200 || responseModel.statusCode == 201) {
       try {
         final decoded = jsonDecode(responseModel.responseJson);
         final data = CoinWalletResponseModel.fromJson(decoded);
-        if (data.success == true && data.data != null) {
+        if (data.status == 'success' && data.data != null) {
           wallets = data.data!;
           errorMessage = null;
         } else {

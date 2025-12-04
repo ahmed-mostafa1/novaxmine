@@ -47,7 +47,10 @@ class _MinerCardItemState extends State<MinerCardItem> {
                 if (widget.image != "-1") ...[
                   Container(
                     padding: EdgeInsets.all(Dimensions.space15),
-                    decoration: BoxDecoration(shape: BoxShape.circle, image: DecorationImage(image: AssetImage(widget.image), fit: BoxFit.fill)),
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                            image: AssetImage(widget.image), fit: BoxFit.fill)),
                   ),
                   const SizedBox(width: Dimensions.space10),
                 ],
@@ -56,9 +59,14 @@ class _MinerCardItemState extends State<MinerCardItem> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(widget.title, style: interRegularDefault.copyWith(fontWeight: FontWeight.w500)),
+                      Text(widget.title,
+                          style: interRegularDefault.copyWith(
+                              fontWeight: FontWeight.w500)),
                       const SizedBox(height: Dimensions.space5),
-                      Text(widget.data, style: interRegularLarge.copyWith(fontWeight: FontWeight.w600), maxLines: 2),
+                      Text(widget.data,
+                          style: interRegularLarge.copyWith(
+                              fontWeight: FontWeight.w600),
+                          maxLines: 2),
                     ],
                   ),
                 ),
@@ -68,7 +76,9 @@ class _MinerCardItemState extends State<MinerCardItem> {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Text(widget.bottomTitle, style: interRegularDefault.copyWith(fontWeight: FontWeight.w600)),
+                Text(widget.bottomTitle,
+                    style: interRegularDefault.copyWith(
+                        fontWeight: FontWeight.w600)),
                 SizedBox(width: Dimensions.space10),
                 Container(
                   alignment: Alignment.bottomRight,
@@ -77,7 +87,8 @@ class _MinerCardItemState extends State<MinerCardItem> {
                     shape: BoxShape.circle,
                     color: MyColor.primaryColor,
                   ),
-                  child: Icon(Icons.arrow_forward_ios, size: 14, color: MyColor.colorWhite),
+                  child: Icon(Icons.arrow_forward_ios,
+                      size: 14, color: MyColor.colorWhite),
                 )
               ],
             )

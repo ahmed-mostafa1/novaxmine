@@ -1,4 +1,4 @@
-﻿import 'dart:convert';
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -142,4 +142,3 @@ class ProfileController extends GetxController {
     update();
   }
 }
-

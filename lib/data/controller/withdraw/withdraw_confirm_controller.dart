@@ -1,4 +1,4 @@
-﻿import 'dart:convert';
+import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -320,4 +320,3 @@ class WithdrawConfirmController extends GetxController {
     update();
   }
 }
-

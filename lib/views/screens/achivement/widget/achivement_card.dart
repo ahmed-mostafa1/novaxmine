@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mine_lab/core/helper/string_format_helper.dart';
 import 'package:mine_lab/core/utils/my_color.dart';
@@ -193,4 +193,3 @@ class _AchievementCardState extends State<AchievementCard> {
     );
   }
 }
-

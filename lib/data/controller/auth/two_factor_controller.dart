@@ -1,4 +1,4 @@
-﻿import 'dart:convert';
+import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:mine_lab/core/route/route.dart';
 import 'package:mine_lab/data/model/authorization/authorization_response_model.dart';
@@ -205,4 +205,3 @@ class TwoFactorController extends GetxController {
     update();
   }
 }
-

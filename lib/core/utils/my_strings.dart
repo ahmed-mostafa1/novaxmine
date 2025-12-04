@@ -5,7 +5,8 @@ class MyStrings {
   static const String signIn = "Sign In";
   static const String loginMsg = "to your $appName account";
   static const String signUp = "Sign Up";
-  static const String signUpMSG = "Start mining and achieve the highest level of Hashrate.";
+  static const String signUpMSG =
+      "Start mining and achieve the highest level of Hashrate.";
 
   static const String skip = "Skip";
   static const String hashRate = "Hashrate";
@@ -61,11 +62,13 @@ class MyStrings {
   static const String you = "You";
   static const String contactUs = 'Contact Us';
   static const String admin = "Admin";
-  static const String supportedFileHint = "Supported file type:.jpg, .jpeg, .png, .pdf, .doc, .docx";
+  static const String supportedFileHint =
+      "Supported file type:.jpg, .jpeg, .png, .pdf, .doc, .docx";
   static const String repliedSuccessfully = "Replied successfully";
   static const String fileNotFound = 'file Not Found';
   static const String customerReply = "Customer Reply";
-  static const String accountDeletedSuccessfully = 'Account deleted successfully';
+  static const String accountDeletedSuccessfully =
+      'Account deleted successfully';
   static const String yes = "Yes";
   static const String yourReply = 'Your Reply';
   static const String reply = 'Reply';
@@ -87,7 +90,8 @@ class MyStrings {
   static const String low = 'Low';
   static const String replyTicketEmptyMsg = "Reply ticket can't be empty";
   static const String ticketCreateSuccessfully = 'Ticket created successfully';
-  static const String cancelTicketMessage = 'Are you sure you want to close the ticket';
+  static const String cancelTicketMessage =
+      'Are you sure you want to close the ticket';
   static const String noTicketFound = "No Ticket Found";
   static const String noMSgFound = "No Message Found";
   static const String supportTicket = 'Support Ticket';
@@ -114,7 +118,8 @@ class MyStrings {
   static const String payableAmount = "Payable Amount";
   static const String finalAmount = "Final Amount";
   static const String selectPaymentMethod = "Select PaymentMethod";
-  static const String createPasswordSubText = "To secure your account pls provide a strong password";
+  static const String createPasswordSubText =
+      "To secure your account pls provide a strong password";
   static const String fileDownloadedSuccess = "File downloaded successfully";
   static const String downloading = "Downloading";
   static const String addWithdraw = "Add Withdraw";
@@ -138,11 +143,14 @@ class MyStrings {
 
   static const String kycVerificationRequired = "KYC Verification Required";
 
-  static const String kycRejectSubtitleMsg = "Your KYC document has been rejected. Please resubmit the document for further review.";
+  static const String kycRejectSubtitleMsg =
+      "Your KYC document has been rejected. Please resubmit the document for further review.";
 
-  static const String kycVerificationMsg = "Please submit the required KYC information to verify yourself. Otherwise, you couldn't make any withdrawal request.";
+  static const String kycVerificationMsg =
+      "Please submit the required KYC information to verify yourself. Otherwise, you couldn't make any withdrawal request.";
 
-  static const String kycPendingMsg = "Thank you for submitting your KYC documents. Our team is currently reviewing the information.";
+  static const String kycPendingMsg =
+      "Thank you for submitting your KYC documents. Our team is currently reviewing the information.";
 
   /// login-screen
   static const String passwordResetEmailSentTo = 'Password reset email sent to';
@@ -160,7 +168,8 @@ class MyStrings {
   static const String usernameHint = "Enter username";
   static const String passwordHint = "Enter password";
   static const String forgotPassword = "Forgot Password?";
-  static const String forgotPasswordSubtitle = "Enter your email or username to reset your password";
+  static const String forgotPasswordSubtitle =
+      "Enter your email or username to reset your password";
   static const String noAccount = "Don't have an account?";
   static const String createNew = "Create New";
   static const String login = "Login";
@@ -182,8 +191,10 @@ class MyStrings {
   static const String pleaseEnterYourAmount = "Please enter your amount";
   static const String plsEnterAnAmount = "Please enter an amount";
   static const String depositLimit = "Deposit Limit";
-  static const String useQRCODETips = "Use the QR code or setup key on your Google Authenticator app to add your account.";
-  static const String useQRCODETips2 = "Google Authenticator is a multifactor app for mobile devices. It generates timed codes used during the 2-step verification process. To use Google Authenticator, install the Google Authenticator application on your mobile device.";
+  static const String useQRCODETips =
+      "Use the QR code or setup key on your Google Authenticator app to add your account.";
+  static const String useQRCODETips2 =
+      "Google Authenticator is a multifactor app for mobile devices. It generates timed codes used during the 2-step verification process. To use Google Authenticator, install the Google Authenticator application on your mobile device.";
   static const String addYourAccount = "Add Your Account";
 
   static const String enable2Fa = "Enable 2FA Security";
@@ -196,13 +207,17 @@ class MyStrings {
   // otp
   static const String enterOtp = "Enter OTP";
   static const String otpEmptyMsg = "OTP field can't be empty";
-  static const String verifyPasswordSubText = "A 6 digits verification code sent to your\nemail address";
-  static const String viaEmailVerify = "We've sent you six-digit verification code via email for email verification";
-  static const String smsVerificationMsg = "We've sent you an access code to your phone number for SMS verification";
+  static const String verifyPasswordSubText =
+      "A 6 digits verification code sent to your\nemail address";
+  static const String viaEmailVerify =
+      "We've sent you six-digit verification code via email for email verification";
+  static const String smsVerificationMsg =
+      "We've sent you an access code to your phone number for SMS verification";
 
   static const String submit = "Submit";
   static const String twoFactorAuth = "Two Factor Authentication";
-  static const String twoFactorMsg = "Enter 6-digit code from your two factor authenticator APP.";
+  static const String twoFactorMsg =
+      "Enter 6-digit code from your two factor authenticator APP.";
 
   //api client
 
@@ -275,7 +290,8 @@ class MyStrings {
   static const String withdrawNow = "Withdraw Now";
   static const String withdrawMoney = "Withdraw Money";
   static const String withdrawDetails = "Withdraw Details";
-  static const String withdrawRequestSuccess = "Withdrawal request successfully submitted";
+  static const String withdrawRequestSuccess =
+      "Withdrawal request successfully submitted";
 
   /// plans
   static const String startMining = "Start Mining";
@@ -305,7 +321,8 @@ class MyStrings {
   static const String currentPassEmptyMsg = "Current password field is empty";
   static const String newPassEmptyMsg = "New password field is empty";
   static const String passNoMatchMsg = "Password not match";
-  static const String createNewPassDescription = "Your new password must be different\nfrom previous used password";
+  static const String createNewPassDescription =
+      "Your new password must be different\nfrom previous used password";
   static const String logoutSuccessMsg = "Logout Successfully";
 
   static const String notification = "Notification";
@@ -361,7 +378,8 @@ class MyStrings {
   static const String emailVerify = "Email Verification";
   static const String smsVerify = "Sms Verification";
 
-  static RegExp emailValidatorRegExp = RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
+  static RegExp emailValidatorRegExp =
+      RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
 
   static const String kMatchPassError = "Password doesn't match";
   static const String kFirstNameNullError = "Please enter first name";
@@ -401,7 +419,8 @@ class MyStrings {
   static const String cancel = "Cancel";
   static const String deleteYourAccount = 'Delete your Account';
 
-  static const String deleteBottomSheetSubtitle = "You will lose all of your data by deleting your account. This action cannot be undone.";
+  static const String deleteBottomSheetSubtitle =
+      "You will lose all of your data by deleting your account. This action cannot be undone.";
 
   static const String pleaseEnterUsername = "Please enter username";
   static const String enterUsername = "Enter username";
@@ -426,7 +445,8 @@ class MyStrings {
   static const String emailVerificationFailed = 'Email Verification Failed';
   static const String enterYourPhoneNumber = "Enter your phone number";
   static const String enterYourPassword_ = 'Enter your password';
-  static const String invalidPassMsg = "Password must be contain 1 special character and number";
+  static const String invalidPassMsg =
+      "Password must be contain 1 special character and number";
 
   static const String hasUpperLetter = "Has uppercase letter";
   static const String hasLowerLetter = "Has lowercase letter";
@@ -440,7 +460,9 @@ class MyStrings {
   static const String maintenanceCost = "Maintenance Cost";
 
   static List<MyLanguageModel> myLanguages = [
-    MyLanguageModel(languageName: 'English', countryCode: 'US', languageCode: 'en'),
-    MyLanguageModel(languageName: 'Arabic', countryCode: 'SA', languageCode: 'ar'),
+    MyLanguageModel(
+        languageName: 'English', countryCode: 'US', languageCode: 'en'),
+    MyLanguageModel(
+        languageName: 'Arabic', countryCode: 'SA', languageCode: 'ar'),
   ];
 }

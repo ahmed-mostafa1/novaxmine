@@ -27,13 +27,18 @@ class LabelTextInstruction extends StatelessWidget {
     return isRequired
         ? Row(
             children: [
-              Text(text.tr, textAlign: textAlign, style: textStyle ?? interSemiBoldDefault.copyWith(color: MyColor.labelTextColor)),
+              Text(text.tr,
+                  textAlign: textAlign,
+                  style: textStyle ??
+                      interSemiBoldDefault.copyWith(
+                          color: MyColor.labelTextColor)),
               const SizedBox(
                 width: 2,
               ),
               if (instructions != null) ...[
                 Padding(
-                  padding: EdgeInsetsDirectional.only(start: Dimensions.space5, end: Dimensions.space10),
+                  padding: EdgeInsetsDirectional.only(
+                      start: Dimensions.space5, end: Dimensions.space10),
                   child: Tooltip(
                       key: tooltipKey,
                       message: "$instructions",
@@ -44,7 +49,11 @@ class LabelTextInstruction extends StatelessWidget {
                         child: Icon(
                           Icons.info_outline_rounded,
                           size: Dimensions.space15,
-                          color: Theme.of(context).textTheme.titleLarge!.color?.withValues(alpha: 0.8),
+                          color: Theme.of(context)
+                              .textTheme
+                              .titleLarge!
+                              .color
+                              ?.withValues(alpha: 0.8),
                         ),
                       )),
                 ),
@@ -60,11 +69,14 @@ class LabelTextInstruction extends StatelessWidget {
               Text(
                 text.tr,
                 textAlign: textAlign,
-                style: textStyle ?? interSemiBoldDefault.copyWith(color: MyColor.labelTextColor),
+                style: textStyle ??
+                    interSemiBoldDefault.copyWith(
+                        color: MyColor.labelTextColor),
               ),
               if (instructions != null) ...[
                 Padding(
-                  padding: const EdgeInsetsDirectional.only(start: Dimensions.space5, end: Dimensions.space10),
+                  padding: const EdgeInsetsDirectional.only(
+                      start: Dimensions.space5, end: Dimensions.space10),
                   child: Tooltip(
                       key: tooltipKey,
                       message: "$instructions",

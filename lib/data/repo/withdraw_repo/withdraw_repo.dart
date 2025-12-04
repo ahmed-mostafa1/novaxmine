@@ -1,4 +1,4 @@
-﻿import 'dart:convert';
+import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:mine_lab/l10n/app_localizations.dart';
 import 'package:mine_lab/core/utils/url_container.dart';
@@ -128,4 +128,3 @@ class WithdrawRepo {
     }
   }
 }
-

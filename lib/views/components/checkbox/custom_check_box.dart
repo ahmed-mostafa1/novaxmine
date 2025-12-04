@@ -29,7 +29,8 @@ class _CustomCheckBoxState extends State<CustomCheckBox> {
     return Column(
       children: [
         Column(
-            children: List<CheckboxListTile>.generate(widget.list.length, (int index) {
+            children: List<CheckboxListTile>.generate(widget.list.length,
+                (int index) {
           List<String>? s = widget.selectedValue;
           bool selected_ = s != null ? s.contains(widget.list[index]) : false;
           return CheckboxListTile(

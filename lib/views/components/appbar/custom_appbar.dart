@@ -16,7 +16,16 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   final List<Widget>? action;
   final bool isProfileCompleted;
 
-  const CustomAppBar({super.key, this.isProfileCompleted = false, this.fromAuth = false, this.isTitleCenter = false, this.bgColor = Colors.transparent, this.isShowBackBtn = true, required this.title, this.action, this.isShowActionBtn = false});
+  const CustomAppBar(
+      {super.key,
+      this.isProfileCompleted = false,
+      this.fromAuth = false,
+      this.isTitleCenter = false,
+      this.bgColor = Colors.transparent,
+      this.isShowBackBtn = true,
+      required this.title,
+      this.action,
+      this.isShowActionBtn = false});
 
   @override
   State<CustomAppBar> createState() => _CustomAppBarState();
@@ -54,17 +63,20 @@ class _CustomAppBarState extends State<CustomAppBar> {
                         }
                       }
                     },
-                    icon: const Icon(Icons.arrow_back, color: MyColor.colorWhite, size: 20))
+                    icon: const Icon(Icons.arrow_back,
+                        color: MyColor.colorWhite, size: 20))
                 : const SizedBox.shrink(),
             backgroundColor: widget.bgColor,
-            title: Text(widget.title, style: interRegularLarge.copyWith(color: MyColor.colorWhite)),
+            title: Text(widget.title,
+                style: interRegularLarge.copyWith(color: MyColor.colorWhite)),
             centerTitle: widget.isTitleCenter,
             actions: widget.action,
           )
         : AppBar(
             elevation: 0,
             backgroundColor: widget.bgColor,
-            title: Text(widget.title, style: interRegularLarge.copyWith(color: MyColor.colorWhite)),
+            title: Text(widget.title,
+                style: interRegularLarge.copyWith(color: MyColor.colorWhite)),
             automaticallyImplyLeading: false,
             actions: widget.action,
           );

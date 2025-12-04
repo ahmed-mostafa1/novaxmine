@@ -7,7 +7,11 @@ class MenuItems extends StatelessWidget {
   final String imageSrc;
   final String label;
   final VoidCallback onPressed;
-  const MenuItems({super.key, required this.imageSrc, required this.label, required this.onPressed});
+  const MenuItems(
+      {super.key,
+      required this.imageSrc,
+      required this.label,
+      required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +19,8 @@ class MenuItems extends StatelessWidget {
       onTap: onPressed,
       child: Container(
         width: MediaQuery.of(context).size.width,
-        padding: const EdgeInsets.symmetric(vertical: Dimensions.space5, horizontal: Dimensions.space10),
+        padding: const EdgeInsets.symmetric(
+            vertical: Dimensions.space5, horizontal: Dimensions.space10),
         color: MyColor.transparentColor,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -26,19 +31,25 @@ class MenuItems extends StatelessWidget {
                   height: 35,
                   width: 35,
                   alignment: Alignment.center,
-                  decoration: const BoxDecoration(color: MyColor.screenBgColor, shape: BoxShape.circle),
-                  child: Image.asset(imageSrc, color: MyColor.colorBlack, height: 17.5, width: 17.5),
+                  decoration: const BoxDecoration(
+                      color: MyColor.screenBgColor, shape: BoxShape.circle),
+                  child: Image.asset(imageSrc,
+                      color: MyColor.colorBlack, height: 17.5, width: 17.5),
                 ),
                 const SizedBox(width: Dimensions.space15),
-                Text(label, style: interRegularDefault.copyWith(color: MyColor.colorBlack))
+                Text(label,
+                    style:
+                        interRegularDefault.copyWith(color: MyColor.colorBlack))
               ],
             ),
             Container(
               height: 30,
               width: 30,
               alignment: Alignment.center,
-              decoration: const BoxDecoration(color: MyColor.transparentColor, shape: BoxShape.circle),
-              child: const Icon(Icons.arrow_forward_ios_rounded, color: MyColor.colorBlack, size: 15),
+              decoration: const BoxDecoration(
+                  color: MyColor.transparentColor, shape: BoxShape.circle),
+              child: const Icon(Icons.arrow_forward_ios_rounded,
+                  color: MyColor.colorBlack, size: 15),
             ),
           ],
         ),

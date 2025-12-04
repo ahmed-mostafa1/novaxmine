@@ -18,7 +18,8 @@ class HomeResponseModel {
     return HomeResponseModel(
       remark: json['remark'],
       status: json['status'],
-      message: json['message'] != null ? Message.fromJson(json['message']) : null,
+      message:
+          json['message'] != null ? Message.fromJson(json['message']) : null,
       data: json['data'] != null ? Data.fromJson(json['data']) : null,
     );
   }
@@ -56,9 +57,16 @@ class Data {
     return Data(
       referralLink: json['referral_link']?.toString() ?? '',
       coinImagePath: json['coin_image_path']?.toString() ?? '',
-      widget: json['widget'] != null ? WidgetData.fromJson(json['widget']) : null,
-      miners: json['miners'] != null ? (json['miners'] as List).map((v) => Miners.fromJson(v)).toList() : null,
-      transactions: json['transactions'] != null ? (json['transactions'] as List).map((v) => Transactions.fromJson(v)).toList() : null,
+      widget:
+          json['widget'] != null ? WidgetData.fromJson(json['widget']) : null,
+      miners: json['miners'] != null
+          ? (json['miners'] as List).map((v) => Miners.fromJson(v)).toList()
+          : null,
+      transactions: json['transactions'] != null
+          ? (json['transactions'] as List)
+              .map((v) => Transactions.fromJson(v))
+              .toList()
+          : null,
       plan: json['plan'] != null ? Plan.fromJson(json['plan']) : null,
       user: json['user'] != null ? GlobalUser.fromJson(json['user']) : null,
     );
@@ -196,7 +204,9 @@ class Miners {
       coinImage: json['coin_image']?.toString(),
       minWithdrawLimit: json['min_withdraw_limit']?.toString() ?? '0',
       maxWithdrawLimit: json['max_withdraw_limit']?.toString() ?? '0',
-      userCoinBalances: json['user_coin_balances'] != null ? UserCoinBalances.fromJson(json['user_coin_balances']) : null,
+      userCoinBalances: json['user_coin_balances'] != null
+          ? UserCoinBalances.fromJson(json['user_coin_balances'])
+          : null,
     );
   }
 

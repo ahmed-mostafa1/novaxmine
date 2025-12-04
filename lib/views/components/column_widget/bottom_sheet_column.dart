@@ -9,16 +9,23 @@ class BottomSheetColumn extends StatelessWidget {
   final String body;
   final bool alignmentEnd;
 
-  const BottomSheetColumn({super.key, this.isCharge = false, this.alignmentEnd = false, required this.header, required this.body});
+  const BottomSheetColumn(
+      {super.key,
+      this.isCharge = false,
+      this.alignmentEnd = false,
+      required this.header,
+      required this.body});
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: alignmentEnd ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+      crossAxisAlignment:
+          alignmentEnd ? CrossAxisAlignment.end : CrossAxisAlignment.start,
       children: [
         Text(
           header.tr,
-          style: interRegularDefault.copyWith(color: MyColor.colorGrey, fontWeight: FontWeight.w600),
+          style: interRegularDefault.copyWith(
+              color: MyColor.colorGrey, fontWeight: FontWeight.w600),
           overflow: TextOverflow.ellipsis,
         ),
         const SizedBox(
@@ -26,7 +33,11 @@ class BottomSheetColumn extends StatelessWidget {
         ),
         Text(
           body.tr,
-          style: isCharge ? interRegularDefault.copyWith(fontFamily: "Inter", color: MyColor.redCancelTextColor) : interRegularDefault.copyWith(fontFamily: "Inter", color: MyColor.colorBlack),
+          style: isCharge
+              ? interRegularDefault.copyWith(
+                  fontFamily: "Inter", color: MyColor.redCancelTextColor)
+              : interRegularDefault.copyWith(
+                  fontFamily: "Inter", color: MyColor.colorBlack),
           overflow: TextOverflow.ellipsis,
         )
       ],

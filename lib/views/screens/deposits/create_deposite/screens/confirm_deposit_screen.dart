@@ -178,9 +178,9 @@ class _ConfirmDepositScreenState extends State<ConfirmDepositScreen> {
                                 return strings?.amountMustBeNumeric ??
                                     'Amount must be numeric';
                               }
-                              if (parsedAmount <= 1) {
-                                return strings?.amountMustBeGreaterThanOne ??
-                                    'Amount must be greater than 1';
+                              if (parsedAmount <= 0) {
+                                return strings?.amountMustBeGreaterThanZero ??
+                                    'Amount must be greater than 0';
                               }
                               return null;
                             },

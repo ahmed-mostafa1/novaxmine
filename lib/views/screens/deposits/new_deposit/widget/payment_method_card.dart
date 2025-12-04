@@ -11,7 +11,12 @@ class PaymentMethodCard extends StatelessWidget {
   AppPaymentGateway paymentMethod;
   final String assetPath;
   bool selected = false;
-  PaymentMethodCard({super.key, required this.press, required this.paymentMethod, required this.assetPath, this.selected = false});
+  PaymentMethodCard(
+      {super.key,
+      required this.press,
+      required this.paymentMethod,
+      required this.assetPath,
+      this.selected = false});
 
   @override
   Widget build(BuildContext context) {
@@ -23,16 +28,22 @@ class PaymentMethodCard extends StatelessWidget {
           elevation: 0.0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(Dimensions.space10),
-            side: BorderSide(color: selected ? MyColor.primaryColor : MyColor.borderColor),
+            side: BorderSide(
+                color: selected ? MyColor.primaryColor : MyColor.borderColor),
           ),
           color: Colors.white,
           child: CheckboxListTile(
             value: selected,
-            checkboxShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(Dimensions.space10)),
+            checkboxShape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(Dimensions.space10)),
             onChanged: (val) {
               press();
             },
-            contentPadding: const EdgeInsetsDirectional.only(start: Dimensions.space20, end: Dimensions.space20, top: 1, bottom: 1),
+            contentPadding: const EdgeInsetsDirectional.only(
+                start: Dimensions.space20,
+                end: Dimensions.space20,
+                top: 1,
+                bottom: 1),
             activeColor: MyColor.primaryColor,
             title: Row(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -48,7 +59,11 @@ class PaymentMethodCard extends StatelessWidget {
                 const SizedBox(width: Dimensions.space10),
                 FittedBox(
                   fit: BoxFit.scaleDown,
-                  child: Text(paymentMethod.name ?? '', style: interSemiBoldDefault.copyWith(color: MyColor.colorBlack), maxLines: 1, overflow: TextOverflow.ellipsis),
+                  child: Text(paymentMethod.name ?? '',
+                      style: interSemiBoldDefault.copyWith(
+                          color: MyColor.colorBlack),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis),
                 ),
               ],
             ),

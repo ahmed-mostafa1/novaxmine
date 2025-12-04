@@ -7,7 +7,12 @@ class SmallText extends StatelessWidget {
   final TextAlign? textAlign;
   final TextStyle textStyle;
   final Color textColor;
-  const SmallText({super.key, required this.text, this.textAlign, this.textStyle = interRegularSmall, this.textColor = MyColor.labelTextColor});
+  const SmallText(
+      {super.key,
+      required this.text,
+      this.textAlign,
+      this.textStyle = interRegularSmall,
+      this.textColor = MyColor.labelTextColor});
 
   @override
   Widget build(BuildContext context) {

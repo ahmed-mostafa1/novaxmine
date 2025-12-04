@@ -71,7 +71,11 @@ class _DepositHistoryScreenState extends State<DepositHistoryScreen> {
           elevation: 0,
           leading: IconButton(
             onPressed: () {
-              Get.back();
+              if (Get.key.currentState?.canPop() ?? false) {
+                Get.back();
+              } else {
+                Get.offAndToNamed(RouteHelper.bottomNav);
+              }
             },
             icon: const Icon(Icons.arrow_back_ios,
                 color: MyColor.colorWhite, size: 20),

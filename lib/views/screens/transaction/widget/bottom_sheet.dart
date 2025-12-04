@@ -7,7 +7,8 @@ import 'package:mine_lab/core/utils/styles.dart';
 import 'package:mine_lab/data/controller/transaction/transaction_controller.dart';
 import 'package:mine_lab/data/model/transaction/transaction_response_model.dart';
 
-showTrxBottomSheet(List<String>? list, int callFrom, {required BuildContext context}) {
+showTrxBottomSheet(List<String>? list, int callFrom,
+    {required BuildContext context}) {
   if (list != null && list.isNotEmpty) {
     showModalBottomSheet(
         isScrollControlled: true,
@@ -20,7 +21,10 @@ showTrxBottomSheet(List<String>? list, int callFrom, {required BuildContext cont
             child: Container(
                 width: MediaQuery.of(context).size.width,
                 padding: const EdgeInsets.all(20),
-                decoration: const BoxDecoration(color: MyColor.colorWhite, borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
+                decoration: const BoxDecoration(
+                    color: MyColor.colorWhite,
+                    borderRadius:
+                        BorderRadius.vertical(top: Radius.circular(20))),
                 child: SafeArea(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -49,23 +53,30 @@ showTrxBottomSheet(List<String>? list, int callFrom, {required BuildContext cont
                                 child: InkWell(
                                   onTap: () {
                                     String selectedValue = list[index];
-                                    final controller = Get.find<TransactionController>();
+                                    final controller =
+                                        Get.find<TransactionController>();
                                     if (callFrom == 1) {
-                                      controller.changeSelectedTrxType(selectedValue);
+                                      controller
+                                          .changeSelectedTrxType(selectedValue);
                                       controller.filterData();
                                     } else if (callFrom == 2) {
-                                      controller.changeSelectedRemark(selectedValue);
+                                      controller
+                                          .changeSelectedRemark(selectedValue);
                                       controller.filterData();
                                     } else if (callFrom == 3) {
-                                      controller.changeSelectedWalletType(selectedValue);
+                                      controller.changeSelectedWalletType(
+                                          selectedValue);
                                       controller.filterData();
                                     } else if (callFrom == 4) {
-                                      controller.changeSelectedCurrency(FilterCurrency(currency: selectedValue));
+                                      controller.changeSelectedCurrency(
+                                          FilterCurrency(
+                                              currency: selectedValue));
                                       controller.filterData();
                                     }
                                     Navigator.pop(context);
-                  
-                                    FocusScopeNode currentFocus = FocusScope.of(context);
+
+                                    FocusScopeNode currentFocus =
+                                        FocusScope.of(context);
                                     if (!currentFocus.hasPrimaryFocus) {
                                       currentFocus.unfocus();
                                     }
@@ -73,7 +84,10 @@ showTrxBottomSheet(List<String>? list, int callFrom, {required BuildContext cont
                                   child: Container(
                                     padding: const EdgeInsets.all(15),
                                     margin: const EdgeInsets.all(5),
-                                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(4), color: MyColor.screenBgColor.withValues(alpha: .5)),
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(4),
+                                        color: MyColor.screenBgColor
+                                            .withValues(alpha: .5)),
                                     child: Text(
                                       ' ${callFrom == 2 ? MyConverter.replaceUnderscoreWithSpace(list[index].capitalizeFirst ?? '') : list[index]}',
                                       style: interSemiBoldSmall,

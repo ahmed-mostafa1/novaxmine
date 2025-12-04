@@ -1,4 +1,4 @@
-﻿import 'dart:convert';
+import 'dart:convert';
 
 import 'package:get/get.dart';
 import 'package:mine_lab/core/route/route.dart';
@@ -57,4 +57,3 @@ class MyMenuController extends GetxController {
     update();
   }
 }
-

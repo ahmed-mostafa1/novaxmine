@@ -1,7 +1,8 @@
 import '../../auth/registration_response_model.dart';
 
 class PlanPaymentMethodResponseModel {
-  PlanPaymentMethodResponseModel({String? remark, Message? message, Data? data}) {
+  PlanPaymentMethodResponseModel(
+      {String? remark, Message? message, Data? data}) {
     _remark = remark;
     _message = message;
     _data = data;
@@ -9,7 +10,8 @@ class PlanPaymentMethodResponseModel {
 
   PlanPaymentMethodResponseModel.fromJson(dynamic json) {
     _remark = json['remark'];
-    _message = json['message'] != null ? Message.fromJson(json['message']) : null;
+    _message =
+        json['message'] != null ? Message.fromJson(json['message']) : null;
     _data = json['data'] != null ? Data.fromJson(json['data']) : null;
   }
   String? _remark;
@@ -116,7 +118,8 @@ class Methods {
     _minAmount = json['min_amount'].toString();
     _maxAmount = json['max_amount'].toString();
     _percentCharge = json['percent_charge'].toString();
-    _fixedCharge = json['fixed_charge'] != null ? json['fixed_charge'].toString() : '0';
+    _fixedCharge =
+        json['fixed_charge'] != null ? json['fixed_charge'].toString() : '0';
     _rate = json['rate'].toString();
     _image = json['image'];
     _gatewayParameter = json['gateway_parameter'].toString();

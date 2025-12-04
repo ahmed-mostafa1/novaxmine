@@ -19,7 +19,15 @@ class AuthLayout extends StatefulWidget {
   final double imageHeight;
   final double imageWidth;
 
-  const AuthLayout({super.key, required this.imageUrl, required this.child, this.bottomSpace = -Dimensions.space20, this.showBackButton = false, this.isLanguageShow = true, this.imageHeight = Dimensions.imageHeight, this.imageWidth = Dimensions.imageWidth});
+  const AuthLayout(
+      {super.key,
+      required this.imageUrl,
+      required this.child,
+      this.bottomSpace = -Dimensions.space20,
+      this.showBackButton = false,
+      this.isLanguageShow = true,
+      this.imageHeight = Dimensions.imageHeight,
+      this.imageWidth = Dimensions.imageWidth});
 
   @override
   State<AuthLayout> createState() => _AuthLayoutState();
@@ -37,14 +45,20 @@ class _AuthLayoutState extends State<AuthLayout> {
           child: Container(
             height: 420,
             width: MediaQuery.of(context).size.width,
-            decoration: const BoxDecoration(color: MyColor.circleContainerColor2, shape: BoxShape.circle),
+            decoration: const BoxDecoration(
+                color: MyColor.circleContainerColor2, shape: BoxShape.circle),
           ),
         ),
         Positioned(
           top: -170,
           left: -10,
           right: -10,
-          child: Container(height: 420, width: MediaQuery.of(context).size.width, decoration: const BoxDecoration(color: MyColor.circleContainerColor1, shape: BoxShape.circle)),
+          child: Container(
+              height: 420,
+              width: MediaQuery.of(context).size.width,
+              decoration: const BoxDecoration(
+                  color: MyColor.circleContainerColor1,
+                  shape: BoxShape.circle)),
         ),
         if (widget.showBackButton) ...[
           Positioned(
@@ -58,8 +72,11 @@ class _AuthLayoutState extends State<AuthLayout> {
                 height: 32,
                 width: 32,
                 alignment: Alignment.center,
-                decoration: BoxDecoration(color: MyColor.colorGrey.withValues(alpha: 0.2), shape: BoxShape.circle),
-                child: const Icon(Icons.arrow_back, color: MyColor.colorBlack, size: 16),
+                decoration: BoxDecoration(
+                    color: MyColor.colorGrey.withValues(alpha: 0.2),
+                    shape: BoxShape.circle),
+                child: const Icon(Icons.arrow_back,
+                    color: MyColor.colorBlack, size: 16),
               ),
             ),
           )
@@ -68,7 +85,8 @@ class _AuthLayoutState extends State<AuthLayout> {
           top: 60,
           left: Dimensions.space50,
           right: Dimensions.space50,
-          child: Image.asset(widget.imageUrl, height: widget.imageHeight, width: widget.imageWidth),
+          child: Image.asset(widget.imageUrl,
+              height: widget.imageHeight, width: widget.imageWidth),
         ),
         Positioned(
           top: 270,
@@ -76,13 +94,18 @@ class _AuthLayoutState extends State<AuthLayout> {
           child: Container(
             height: 80,
             width: 80,
-            decoration: const BoxDecoration(color: MyColor.smallCircleColor, shape: BoxShape.circle),
+            decoration: const BoxDecoration(
+                color: MyColor.smallCircleColor, shape: BoxShape.circle),
           ),
         ),
         Positioned(
           bottom: widget.bottomSpace,
           left: -25,
-          child: Container(height: 80, width: 80, decoration: const BoxDecoration(color: MyColor.smallCircleColor, shape: BoxShape.circle)),
+          child: Container(
+              height: 80,
+              width: 80,
+              decoration: const BoxDecoration(
+                  color: MyColor.smallCircleColor, shape: BoxShape.circle)),
         ),
         if (widget.isLanguageShow) ...[
           Positioned(
@@ -93,21 +116,26 @@ class _AuthLayoutState extends State<AuthLayout> {
                 Get.toNamed(RouteHelper.languageScreen);
               },
               child: Container(
-                padding: const EdgeInsetsDirectional.symmetric(horizontal: 8, vertical: 4),
+                padding: const EdgeInsetsDirectional.symmetric(
+                    horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
                   border: Border.all(color: MyColor.borderColor, width: 1),
                   borderRadius: BorderRadius.circular(4),
                 ),
                 child: Row(
                   children: [
-                    if (Get.find<SharedPreferences>().getString(SharedPreferenceHelper.languageImagePath) == null)
+                    if (Get.find<SharedPreferences>().getString(
+                            SharedPreferenceHelper.languageImagePath) ==
+                        null)
                       const Icon(
                         Icons.g_translate,
                         color: MyColor.primaryColor,
                       )
                     else
                       MyImageWidget(
-                        imageUrl: Get.find<SharedPreferences>().getString(SharedPreferenceHelper.languageImagePath) ?? "",
+                        imageUrl: Get.find<SharedPreferences>().getString(
+                                SharedPreferenceHelper.languageImagePath) ??
+                            "",
                         width: 20,
                         height: 20,
                       ),
@@ -115,8 +143,12 @@ class _AuthLayoutState extends State<AuthLayout> {
                       width: Dimensions.space3,
                     ),
                     Text(
-                      Get.find<SharedPreferences>().getString(SharedPreferenceHelper.languageCode)?.toUpperCase() ?? Environment.defaultLangCode.toUpperCase(),
-                      style: interRegularDefault.copyWith(color: MyColor.primaryColor),
+                      Get.find<SharedPreferences>()
+                              .getString(SharedPreferenceHelper.languageCode)
+                              ?.toUpperCase() ??
+                          Environment.defaultLangCode.toUpperCase(),
+                      style: interRegularDefault.copyWith(
+                          color: MyColor.primaryColor),
                     ),
                   ],
                 ),
@@ -132,11 +164,17 @@ class _AuthLayoutState extends State<AuthLayout> {
             Flexible(
               fit: FlexFit.loose,
               child: Container(
-                margin: const EdgeInsets.symmetric(horizontal: Dimensions.space15),
+                margin:
+                    const EdgeInsets.symmetric(horizontal: Dimensions.space15),
                 width: MediaQuery.of(context).size.width,
-                padding: const EdgeInsets.symmetric(horizontal: Dimensions.space15, vertical: Dimensions.space20),
+                padding: const EdgeInsets.symmetric(
+                    horizontal: Dimensions.space15,
+                    vertical: Dimensions.space20),
                 alignment: Alignment.center,
-                decoration: BoxDecoration(color: MyColor.colorWhite, borderRadius: BorderRadius.circular(Dimensions.defaultRadius)),
+                decoration: BoxDecoration(
+                    color: MyColor.colorWhite,
+                    borderRadius:
+                        BorderRadius.circular(Dimensions.defaultRadius)),
                 child: widget.child,
               ),
             ),

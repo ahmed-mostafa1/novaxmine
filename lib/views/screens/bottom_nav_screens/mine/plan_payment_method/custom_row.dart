@@ -3,7 +3,11 @@ import 'package:mine_lab/core/utils/my_color.dart';
 import 'package:mine_lab/core/utils/styles.dart';
 
 class CustomRow extends StatelessWidget {
-  const CustomRow({super.key, required this.firstText, required this.lastText, this.showDivider = true});
+  const CustomRow(
+      {super.key,
+      required this.firstText,
+      required this.lastText,
+      this.showDivider = true});
 
   final String firstText, lastText;
   final bool showDivider;
@@ -18,7 +22,8 @@ class CustomRow extends StatelessWidget {
             Flexible(
                 child: Text(
               firstText,
-              style: interRegularDefault.copyWith(color: MyColor.labelTextColor, fontWeight: FontWeight.w600),
+              style: interRegularDefault.copyWith(
+                  color: MyColor.labelTextColor, fontWeight: FontWeight.w600),
               overflow: TextOverflow.ellipsis,
               maxLines: 1,
             )),
@@ -26,7 +31,8 @@ class CustomRow extends StatelessWidget {
                 child: Text(
               lastText,
               maxLines: 2,
-              style: interRegularDefault.copyWith(color: MyColor.labelTextColor),
+              style:
+                  interRegularDefault.copyWith(color: MyColor.labelTextColor),
               overflow: TextOverflow.ellipsis,
               textAlign: TextAlign.end,
             ))

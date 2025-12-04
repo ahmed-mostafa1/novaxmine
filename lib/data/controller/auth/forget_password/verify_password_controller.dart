@@ -1,4 +1,4 @@
-﻿import 'package:flutter/cupertino.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:mine_lab/core/route/route.dart';
 import 'package:mine_lab/data/model/auth/verification/email_verification_model.dart';
@@ -71,4 +71,3 @@ class VerifyPasswordController extends GetxController {
     currentText = '';
   }
 }
-

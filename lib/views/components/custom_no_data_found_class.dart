@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 
@@ -143,4 +143,3 @@ class _NoDataOrInternetScreenState extends State<NoDataOrInternetScreen> {
     );
   }
 }
-

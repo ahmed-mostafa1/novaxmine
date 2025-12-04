@@ -9,7 +9,8 @@ class DepositMethodResponseModel {
 
   DepositMethodResponseModel.fromJson(dynamic json) {
     _remark = json['remark'];
-    _message = json["message"] == null ? null : Message.fromJson(json["message"]);
+    _message =
+        json["message"] == null ? null : Message.fromJson(json["message"]);
     _data = json['data'] != null ? Data.fromJson(json['data']) : null;
   }
 
@@ -28,7 +29,10 @@ class Data {
   Data({this.gatewayCurrency, this.gatewayImage});
 
   factory Data.fromJson(Map<String, dynamic> json) => Data(
-        gatewayCurrency: json["methods"] != null ? List<AppPaymentGateway>.from(json["methods"]!.map((x) => AppPaymentGateway.fromJson(x))) : [],
+        gatewayCurrency: json["methods"] != null
+            ? List<AppPaymentGateway>.from(
+                json["methods"]!.map((x) => AppPaymentGateway.fromJson(x)))
+            : [],
         gatewayImage: json["image_path"],
       );
 
@@ -71,7 +75,8 @@ class AppPaymentGateway {
     this.method,
   });
 
-  factory AppPaymentGateway.fromJson(Map<String, dynamic> json) => AppPaymentGateway(
+  factory AppPaymentGateway.fromJson(Map<String, dynamic> json) =>
+      AppPaymentGateway(
         id: json["id"].toString(),
         name: json["name"].toString(),
         currency: json["currency"].toString(),
@@ -85,7 +90,9 @@ class AppPaymentGateway {
         rate: json["rate"].toString(),
         createdAt: json["created_at"]?.toString(),
         updatedAt: json["updated_at"]?.toString(),
-        method: json["method"] == null ? null : AppPaymentMethod.fromJson(json["method"]),
+        method: json["method"] == null
+            ? null
+            : AppPaymentMethod.fromJson(json["method"]),
       );
 
   Map<String, dynamic> toJson() => {
@@ -139,7 +146,8 @@ class AppPaymentMethod {
     this.updatedAt,
   });
 
-  factory AppPaymentMethod.fromJson(Map<String, dynamic> json) => AppPaymentMethod(
+  factory AppPaymentMethod.fromJson(Map<String, dynamic> json) =>
+      AppPaymentMethod(
         id: json["id"].toString(),
         name: json["name"],
         image: json["image"],

@@ -30,7 +30,8 @@ class MyImages {
   static const String person = "assets/images/person.png";
   static const String twoFA = "assets/images/Two FA Security.png";
   static const String phone = "assets/images/phone.png";
-  static const String registrationImage = "assets/images/registration_image.png";
+  static const String registrationImage =
+      "assets/images/registration_image.png";
   static const String resetPassImage = "assets/images/reset_pass_image.png";
   static const String noDataImage = "assets/images/no_data.svg";
   static const String noInternet = "assets/animation/no_internet.json";

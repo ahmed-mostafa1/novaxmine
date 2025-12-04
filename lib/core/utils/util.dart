@@ -6,7 +6,11 @@ import 'package:url_launcher/url_launcher.dart';
 
 class MyUtils {
   static void splashScreenUtil() {
-    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(statusBarColor: MyColor.primaryColor, statusBarIconBrightness: Brightness.light, systemNavigationBarColor: MyColor.primaryColor, systemNavigationBarIconBrightness: Brightness.dark));
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+        statusBarColor: MyColor.primaryColor,
+        statusBarIconBrightness: Brightness.light,
+        systemNavigationBarColor: MyColor.primaryColor,
+        systemNavigationBarIconBrightness: Brightness.dark));
   }
 
   static dynamic getCardShadow() {
@@ -21,7 +25,11 @@ class MyUtils {
   }
 
   static void allScreenUtil() {
-    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(statusBarColor: MyColor.primaryColor, statusBarIconBrightness: Brightness.light, systemNavigationBarColor: MyColor.screenBgColor, systemNavigationBarIconBrightness: Brightness.dark));
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+        statusBarColor: MyColor.primaryColor,
+        statusBarIconBrightness: Brightness.light,
+        systemNavigationBarColor: MyColor.screenBgColor,
+        systemNavigationBarIconBrightness: Brightness.dark));
   }
 
   static dynamic getShadow2({double blurRadius = 8}) {
@@ -69,7 +77,11 @@ class MyUtils {
   }
 
   static void authScreenUtils() {
-    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(statusBarColor: MyColor.primaryColor, statusBarIconBrightness: Brightness.dark, systemNavigationBarColor: MyColor.screenBgColor, systemNavigationBarIconBrightness: Brightness.dark));
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+        statusBarColor: MyColor.primaryColor,
+        statusBarIconBrightness: Brightness.dark,
+        systemNavigationBarColor: MyColor.screenBgColor,
+        systemNavigationBarIconBrightness: Brightness.dark));
   }
 
   static makePortraitOnly() {
@@ -117,7 +129,8 @@ class MyUtils {
       return phoneNumber;
     }
 
-    int start = (phoneNumber.length ~/ 2) - 2; // Finding the starting index of the middle digits
+    int start = (phoneNumber.length ~/ 2) -
+        2; // Finding the starting index of the middle digits
     int end = start + 4; // Determining the ending index of the middle digits
 
     // Masking the middle digits with asterisks

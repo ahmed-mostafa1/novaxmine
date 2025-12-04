@@ -11,6 +11,9 @@ class BottomSheetLabelText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(text.tr, textAlign: textAlign, style: interRegularDefault.copyWith(color: MyColor.colorBlack, fontWeight: FontWeight.w500));
+    return Text(text.tr,
+        textAlign: textAlign,
+        style: interRegularDefault.copyWith(
+            color: MyColor.colorBlack, fontWeight: FontWeight.w500));
   }
 }

@@ -8,7 +8,13 @@ class DefaultText extends StatelessWidget {
   final int maxLines;
   final Color? textColor;
 
-  const DefaultText({super.key, required this.text, this.textAlign, this.textStyle = interRegularDefault, this.maxLines = 2, this.textColor});
+  const DefaultText(
+      {super.key,
+      required this.text,
+      this.textAlign,
+      this.textStyle = interRegularDefault,
+      this.maxLines = 2,
+      this.textColor});
 
   @override
   Widget build(BuildContext context) {

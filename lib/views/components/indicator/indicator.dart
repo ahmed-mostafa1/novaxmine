@@ -12,12 +12,15 @@ class LoadingIndicator extends StatelessWidget {
       height: 40,
       width: 40,
       padding: const EdgeInsets.all(10),
-      decoration: BoxDecoration(shape: BoxShape.circle, color: MyColor.colorWhite, boxShadow: [
-        BoxShadow(
-          color: Colors.grey.withValues(alpha: .8),
-          blurRadius: 2.0,
-        ),
-      ]),
+      decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: MyColor.colorWhite,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withValues(alpha: .8),
+              blurRadius: 2.0,
+            ),
+          ]),
       child: const CircularProgressIndicator(
         color: MyColor.primaryColor,
         strokeWidth: 3,

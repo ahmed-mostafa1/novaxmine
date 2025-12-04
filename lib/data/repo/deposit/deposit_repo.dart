@@ -50,6 +50,7 @@ class DepositRepo {
       body,
       passHeader: true,
       isJsonRequest: true,
+      manualBarear: true,
     );
   }
 

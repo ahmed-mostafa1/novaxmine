@@ -6,7 +6,11 @@ class HeaderText extends StatelessWidget {
   final String text;
   final TextAlign? textAlign;
   final TextStyle textStyle;
-  const HeaderText({super.key, required this.text, this.textAlign, this.textStyle = interSemiBoldHeader1});
+  const HeaderText(
+      {super.key,
+      required this.text,
+      this.textAlign,
+      this.textStyle = interSemiBoldHeader1});
 
   @override
   Widget build(BuildContext context) {

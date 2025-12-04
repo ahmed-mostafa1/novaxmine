@@ -76,7 +76,8 @@ class _RegistrationFormState extends State<RegistrationForm> {
               validator: (value) {
                 if (value != null && value.isEmpty) {
                   return MyStrings.emailAddressHint;
-                } else if (!MyStrings.emailValidatorRegExp.hasMatch(value ?? '')) {
+                } else if (!MyStrings.emailValidatorRegExp
+                    .hasMatch(value ?? '')) {
                   return MyStrings.enterValidEmail;
                 } else {
                   return null;
@@ -94,7 +95,8 @@ class _RegistrationFormState extends State<RegistrationForm> {
                 controller: controller.passwordController,
                 focusNode: controller.passwordFocusNode,
                 validator: (value) {
-                  if (controller.passwordController.text.toLowerCase() != controller.confirmPasswordController.text.toLowerCase()) {
+                  if (controller.passwordController.text.toLowerCase() !=
+                      controller.confirmPasswordController.text.toLowerCase()) {
                     return MyStrings.kMatchPassError.tr;
                   } else {
                     return null;
@@ -112,7 +114,8 @@ class _RegistrationFormState extends State<RegistrationForm> {
                 controller: controller.confirmPasswordController,
                 focusNode: controller.confirmPasswordFocusNode,
                 validator: (value) {
-                  if (controller.passwordController.text.toLowerCase() != controller.confirmPasswordController.text.toLowerCase()) {
+                  if (controller.passwordController.text.toLowerCase() !=
+                      controller.confirmPasswordController.text.toLowerCase()) {
                     return MyStrings.kMatchPassError.tr;
                   } else {
                     return null;
@@ -143,7 +146,11 @@ class _RegistrationFormState extends State<RegistrationForm> {
                           activeColor: MyColor.primaryColor,
                           value: controller.agreeTC,
                           side: WidgetStateBorderSide.resolveWith(
-                                (states) => BorderSide(width: 1.0, color: controller.agreeTC ? MyColor.transparentColor : MyColor.colorGrey),
+                            (states) => BorderSide(
+                                width: 1.0,
+                                color: controller.agreeTC
+                                    ? MyColor.transparentColor
+                                    : MyColor.colorGrey),
                           ),
                           onChanged: (value) {
                             controller.updateAgreeTC();
@@ -155,11 +162,16 @@ class _RegistrationFormState extends State<RegistrationForm> {
                         onTap: () {
                           controller.updateAgreeTC();
                         },
-                        child: Text("${MyStrings.iAgree} ", style: interRegularDefault.copyWith(color: MyColor.colorBlack)),
+                        child: Text("${MyStrings.iAgree} ",
+                            style: interRegularDefault.copyWith(
+                                color: MyColor.colorBlack)),
                       ),
                       GestureDetector(
-                        onTap: () => Get.toNamed(RouteHelper.privacyPolicyScreen),
-                        child: Text("${MyStrings.privacyPolicy.toLowerCase()} ", style: interRegularDefault.copyWith(color: MyColor.primaryColor)),
+                        onTap: () =>
+                            Get.toNamed(RouteHelper.privacyPolicyScreen),
+                        child: Text("${MyStrings.privacyPolicy.toLowerCase()} ",
+                            style: interRegularDefault.copyWith(
+                                color: MyColor.primaryColor)),
                       ),
                     ],
                   ),
@@ -184,12 +196,16 @@ class _RegistrationFormState extends State<RegistrationForm> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(MyStrings.haveAccount, style: interRegularDefault.copyWith(color: MyColor.accountEnsureTextColor)),
+                Text(MyStrings.haveAccount,
+                    style: interRegularDefault.copyWith(
+                        color: MyColor.accountEnsureTextColor)),
                 TextButton(
                   onPressed: () {
                     Get.toNamed(RouteHelper.loginScreen);
                   },
-                  child: Text(MyStrings.loginNow, style: interRegularDefault.copyWith(color: MyColor.primaryColor)),
+                  child: Text(MyStrings.loginNow,
+                      style: interRegularDefault.copyWith(
+                          color: MyColor.primaryColor)),
                 )
               ],
             ),

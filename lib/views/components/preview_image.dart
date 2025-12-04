@@ -31,39 +31,39 @@ class _PreviewImageState extends State<PreviewImage> {
             }),
       ),
       body: InteractiveViewer(
-              child: CachedNetworkImage(
-      imageUrl: widget.url.toString(),
-      imageBuilder: (context, imageProvider) => Container(
-        decoration: BoxDecoration(
-          boxShadow: const [],
-          // borderRadius:  BorderRadius.circular(radius),
-          image: DecorationImage(image: imageProvider, fit: BoxFit.contain),
-        ),
-      ),
-      placeholder: (context, url) => SizedBox(
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(Dimensions.mediumRadius),
-          child: Center(
-            child: SpinKitFadingCube(
-              color: MyColor.primaryColor.withValues(alpha: 0.3),
-              size: Dimensions.space20,
+        child: CachedNetworkImage(
+          imageUrl: widget.url.toString(),
+          imageBuilder: (context, imageProvider) => Container(
+            decoration: BoxDecoration(
+              boxShadow: const [],
+              // borderRadius:  BorderRadius.circular(radius),
+              image: DecorationImage(image: imageProvider, fit: BoxFit.contain),
             ),
           ),
-        ),
-      ),
-      errorWidget: (context, url, error) => SizedBox(
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(Dimensions.mediumRadius),
-          child: Center(
-            child: Icon(
-              Icons.image,
-              color: MyColor.colorGrey.withValues(alpha: 0.5),
-            ),
-          ),
-        ),
-      ),
+          placeholder: (context, url) => SizedBox(
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(Dimensions.mediumRadius),
+              child: Center(
+                child: SpinKitFadingCube(
+                  color: MyColor.primaryColor.withValues(alpha: 0.3),
+                  size: Dimensions.space20,
+                ),
               ),
             ),
+          ),
+          errorWidget: (context, url, error) => SizedBox(
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(Dimensions.mediumRadius),
+              child: Center(
+                child: Icon(
+                  Icons.image,
+                  color: MyColor.colorGrey.withValues(alpha: 0.5),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

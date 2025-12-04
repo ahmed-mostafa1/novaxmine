@@ -14,7 +14,13 @@ class LanguageCard extends StatelessWidget {
   final String langeName;
   final String imagePath;
 
-  const LanguageCard({super.key, required this.index, required this.selectedIndex, this.isShowTopRight = false, required this.langeName, required this.imagePath});
+  const LanguageCard(
+      {super.key,
+      required this.index,
+      required this.selectedIndex,
+      this.isShowTopRight = false,
+      required this.langeName,
+      required this.imagePath});
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +28,13 @@ class LanguageCard extends StatelessWidget {
       clipBehavior: Clip.none,
       children: [
         Container(
-          padding: const EdgeInsetsDirectional.symmetric(vertical: Dimensions.space25),
+          padding: const EdgeInsetsDirectional.symmetric(
+              vertical: Dimensions.space25),
           alignment: Alignment.center,
-          decoration: BoxDecoration(color: MyColor.getCardBgColor(), borderRadius: BorderRadius.circular(Dimensions.defaultRadius), boxShadow: MyUtils.getCardShadow()),
+          decoration: BoxDecoration(
+              color: MyColor.getCardBgColor(),
+              borderRadius: BorderRadius.circular(Dimensions.defaultRadius),
+              boxShadow: MyUtils.getCardShadow()),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -55,7 +65,8 @@ class LanguageCard extends StatelessWidget {
                         color: MyColor.primaryColor,
                         shape: BoxShape.circle,
                       ),
-                      child: const Icon(Icons.check, color: MyColor.colorWhite, size: 10),
+                      child: const Icon(Icons.check,
+                          color: MyColor.colorWhite, size: 10),
                     ),
                   )
                 : Positioned(
@@ -70,7 +81,8 @@ class LanguageCard extends StatelessWidget {
                         color: MyColor.primaryColor.withValues(alpha: 0.6),
                         shape: BoxShape.circle,
                       ),
-                      child: const Icon(Icons.check, color: MyColor.colorWhite, size: 22.5),
+                      child: const Icon(Icons.check,
+                          color: MyColor.colorWhite, size: 22.5),
                     ),
                   )
             : const Positioned(

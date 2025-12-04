@@ -22,10 +22,11 @@ class AchievementController extends GetxController {
     isLoading = true;
     update();
     try {
-      final ResponseModel responseModel = await achievementRepo.getAchievement();
+      final ResponseModel responseModel =
+          await achievementRepo.getAchievement();
       if (responseModel.statusCode == 200) {
         final AchievementResponseModel model =
-        AchievementResponseModel.fromJson(
+            AchievementResponseModel.fromJson(
           jsonDecode(responseModel.responseJson),
         );
 
@@ -36,8 +37,8 @@ class AchievementController extends GetxController {
 
           if (unlockBadges.isNotEmpty) {
             lockBadges.removeWhere(
-                  (lock) => unlockBadges.any(
-                    (unlock) => unlock.badgeId == lock.id,
+              (lock) => unlockBadges.any(
+                (unlock) => unlock.badgeId == lock.id,
               ),
             );
           }

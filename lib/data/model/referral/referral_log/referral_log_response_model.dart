@@ -16,7 +16,8 @@ class ReferralLogResponseModel {
   ReferralLogResponseModel.fromJson(dynamic json) {
     _remark = json['remark'];
     _status = json['status'];
-    _message = json['message'] != null ? Message.fromJson(json['message']) : null;
+    _message =
+        json['message'] != null ? Message.fromJson(json['message']) : null;
     _data = json['data'] != null ? Data.fromJson(json['data']) : null;
   }
   String? _remark;
@@ -139,7 +140,8 @@ class ReferralData {
     _percent = json['percent'] != null ? json['percent'].toString() : '';
     _createdAt = json['created_at'];
     _updatedAt = json['updated_at'];
-    _referee = json['referee'] != null ? Referee.fromJson(json['referee']) : null;
+    _referee =
+        json['referee'] != null ? Referee.fromJson(json['referee']) : null;
   }
   int? _id;
   String? _userId;

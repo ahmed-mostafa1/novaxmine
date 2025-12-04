@@ -49,7 +49,6 @@ class MyApp extends StatelessWidget {
       getPages: RouteHelper.routes,
       theme: lightThemeData,
       darkTheme: darkThemeData,
-      themeMode: ThemeMode.dark,
       // ✅ Localization (gen-l10n)
       locale: Get.deviceLocale,
       fallbackLocale: const Locale('ar'),

@@ -7,11 +7,15 @@ class MiningTrackRepo {
   ApiClient apiClient;
   MiningTrackRepo({required this.apiClient});
 
-  Future<ResponseModel> getMiningTracksData(int page, {bool isOrder = false}) async {
+  Future<ResponseModel> getMiningTracksData(int page,
+      {bool isOrder = false}) async {
     String url = "${UrlContainer.baseUrl}${UrlContainer.order}?page=$page";
-    String url1 = "${UrlContainer.baseUrl}${UrlContainer.miningTrackEndPoint}?page=$page";
+    String url1 =
+        "${UrlContainer.baseUrl}${UrlContainer.miningTrackEndPoint}?page=$page";
     // String url = "${UrlContainer.baseUrl}api/mining-tracks";
-    ResponseModel responseModel = await apiClient.request(isOrder ? url : url1, Method.getMethod, null, passHeader: true);
+    ResponseModel responseModel = await apiClient.request(
+        isOrder ? url : url1, Method.getMethod, null,
+        passHeader: true);
     return responseModel;
   }
 }

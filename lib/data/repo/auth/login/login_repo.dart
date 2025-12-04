@@ -18,7 +18,8 @@ class LoginRepo {
   Future<ResponseModel> loginUser(String email, String password) async {
     Map<String, String> map = {'username': email, 'password': password};
     String url = '${UrlContainer.baseUrl}${UrlContainer.loginEndPoint}';
-    ResponseModel model = await apiClient.request(url, Method.postMethod, map, passHeader: false);
+    ResponseModel model =
+        await apiClient.request(url, Method.postMethod, map, passHeader: false);
 
     return model;
   }
@@ -42,23 +43,32 @@ class LoginRepo {
     }
 
     String url = '${UrlContainer.baseUrl}${UrlContainer.socialLoginEndPoint}';
-    ResponseModel model = await apiClient.request(url, Method.postMethod, map, passHeader: false);
+    ResponseModel model =
+        await apiClient.request(url, Method.postMethod, map, passHeader: false);
     return model;
   }
 
-  Future<String> forgetPassword(BuildContext context, String type, String value) async {
+  Future<String> forgetPassword(
+      BuildContext context, String type, String value) async {
     final map = modelToMap(value, type);
-    String url = '${UrlContainer.baseUrl}${UrlContainer.forgetPasswordEndPoint}';
-    final response = await apiClient.request(url, Method.postMethod, map, isOnlyAcceptType: true, passHeader: true);
+    String url =
+        '${UrlContainer.baseUrl}${UrlContainer.forgetPasswordEndPoint}';
+    final response = await apiClient.request(url, Method.postMethod, map,
+        isOnlyAcceptType: true, passHeader: true);
 
-    EmailVerificationModel model = EmailVerificationModel.fromJson(jsonDecode(response.responseJson));
+    EmailVerificationModel model =
+        EmailVerificationModel.fromJson(jsonDecode(response.responseJson));
 
     if (model.status.toLowerCase() == "success") {
-      apiClient.sharedPreferences.setString(SharedPreferenceHelper.userEmailKey, model.data?.email ?? '');
-      CustomSnackBar.success(successList: ['${MyStrings.passwordResetEmailSentTo} ${model.data?.email ?? MyStrings.yourEmail}']);
+      apiClient.sharedPreferences.setString(
+          SharedPreferenceHelper.userEmailKey, model.data?.email ?? '');
+      CustomSnackBar.success(successList: [
+        '${MyStrings.passwordResetEmailSentTo} ${model.data?.email ?? MyStrings.yourEmail}'
+      ]);
       return model.data?.email ?? '';
     } else {
-      CustomSnackBar.error(errorList: model.message!.error ?? [MyStrings.requestFail]);
+      CustomSnackBar.error(
+          errorList: model.message!.error ?? [MyStrings.requestFail]);
       return '';
     }
   }
@@ -69,14 +79,19 @@ class LoginRepo {
   }
 
   Future<EmailVerificationModel> verifyForgetPassCode(String code) async {
-    String? email = apiClient.sharedPreferences.getString(SharedPreferenceHelper.userEmailKey) ?? '';
+    String? email = apiClient.sharedPreferences
+            .getString(SharedPreferenceHelper.userEmailKey) ??
+        '';
     Map<String, String> map = {'code': code, 'email': email};
 
-    String url = '${UrlContainer.baseUrl}${UrlContainer.passwordVerifyEndPoint}';
+    String url =
+        '${UrlContainer.baseUrl}${UrlContainer.passwordVerifyEndPoint}';
 
-    final response = await apiClient.request(url, Method.postMethod, map, passHeader: true, isOnlyAcceptType: true);
+    final response = await apiClient.request(url, Method.postMethod, map,
+        passHeader: true, isOnlyAcceptType: true);
 
-    EmailVerificationModel model = EmailVerificationModel.fromJson(jsonDecode(response.responseJson));
+    EmailVerificationModel model =
+        EmailVerificationModel.fromJson(jsonDecode(response.responseJson));
     if (model.status == 'success') {
       model.setCode(200);
       return model;
@@ -86,7 +101,8 @@ class LoginRepo {
     }
   }
 
-  Future<ResponseModel> resetPassword(String email, String password, String code) async {
+  Future<ResponseModel> resetPassword(
+      String email, String password, String code) async {
     Map<String, String> map = {
       'token': code,
       'email': email,
@@ -96,7 +112,8 @@ class LoginRepo {
 
     String url = '${UrlContainer.baseUrl}${UrlContainer.resetPasswordEndPoint}';
 
-    ResponseModel responseModel = await apiClient.request(url, Method.postMethod, map, isOnlyAcceptType: true);
+    ResponseModel responseModel = await apiClient
+        .request(url, Method.postMethod, map, isOnlyAcceptType: true);
 
     return responseModel;
 
@@ -105,8 +122,11 @@ class LoginRepo {
 
   Future<bool> sendUserToken() async {
     String deviceToken;
-    if (apiClient.sharedPreferences.containsKey(SharedPreferenceHelper.fcmDeviceKey)) {
-      deviceToken = apiClient.sharedPreferences.getString(SharedPreferenceHelper.fcmDeviceKey) ?? '';
+    if (apiClient.sharedPreferences
+        .containsKey(SharedPreferenceHelper.fcmDeviceKey)) {
+      deviceToken = apiClient.sharedPreferences
+              .getString(SharedPreferenceHelper.fcmDeviceKey) ??
+          '';
     } else {
       deviceToken = '';
     }
@@ -123,7 +143,8 @@ class LoginRepo {
         if (deviceToken == fcmDeviceToken) {
           success = true;
         } else {
-          apiClient.sharedPreferences.setString(SharedPreferenceHelper.fcmDeviceKey, fcmDeviceToken);
+          apiClient.sharedPreferences
+              .setString(SharedPreferenceHelper.fcmDeviceKey, fcmDeviceToken);
           success = await sendUpdatedToken(fcmDeviceToken);
         }
       });

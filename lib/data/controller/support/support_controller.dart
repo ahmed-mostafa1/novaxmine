@@ -1,4 +1,4 @@
-﻿import 'dart:convert';
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -185,4 +185,3 @@ class FileChooserModel {
   late File? choosenFile;
   FileChooserModel({required this.fileName, this.choosenFile});
 }
-

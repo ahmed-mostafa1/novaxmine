@@ -38,7 +38,10 @@ class CustomLoader extends StatelessWidget {
                 child: const Center(child: LoadingIndicator()),
               )
             : isPagination
-                ? Center(child: Padding(padding: const EdgeInsets.all(10), child: LoadingIndicator(strokeWidth: strokeWidth)))
+                ? Center(
+                    child: Padding(
+                        padding: const EdgeInsets.all(10),
+                        child: LoadingIndicator(strokeWidth: strokeWidth)))
                 : const Center(child: LoadingIndicator());
   }
 }

@@ -23,7 +23,8 @@ class _SplashScreenState extends State<SplashScreen> {
     Get.put(ApiClient(sharedPreferences: Get.find()));
     Get.put(GeneralSettingRepo(apiClient: Get.find()));
     Get.put(LocalizationController(sharedPreferences: Get.find()));
-    final controller = Get.put(SplashController(repo: Get.find(), localizationController: Get.find()));
+    final controller = Get.put(
+        SplashController(repo: Get.find(), localizationController: Get.find()));
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       controller.gotoNext(context);
@@ -40,13 +41,13 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: MyColor.primaryColor,
-      body: SizedBox.expand(              // يأخذ عرض وارتفاع الشاشة
+      body: SizedBox.expand(
+        // يأخذ عرض وارتفاع الشاشة
         child: Image.asset(
           MyImages.splash,
-          fit: BoxFit.cover,              // يملأ الشاشة مع الحفاظ على النِّسَب
+          fit: BoxFit.cover, // يملأ الشاشة مع الحفاظ على النِّسَب
         ),
       ),
     );
   }
-
 }

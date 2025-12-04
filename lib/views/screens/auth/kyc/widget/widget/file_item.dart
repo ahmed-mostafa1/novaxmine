@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mine_lab/l10n/app_localizations.dart';
 import 'package:mine_lab/data/controller/kyc_controller/kyc_controller.dart';
@@ -29,4 +29,3 @@ class _ConfirmKycFileItemState extends State<ConfirmKycFileItem> {
     });
   }
 }
-

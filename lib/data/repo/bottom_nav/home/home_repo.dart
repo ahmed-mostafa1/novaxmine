@@ -9,13 +9,15 @@ class HomeRepo {
 
   Future<ResponseModel> getDashboardData() async {
     String url = "${UrlContainer.baseUrl}${UrlContainer.userDashboardEndPoint}";
-    ResponseModel responseModel = await apiClient.request(url, Method.getMethod, null, passHeader: true);
+    ResponseModel responseModel =
+        await apiClient.request(url, Method.getMethod, null, passHeader: true);
     return responseModel;
   }
 
   Future<ResponseModel> getUserInfoData() async {
     String url = "${UrlContainer.baseUrl}${UrlContainer.getProfileEndPoint}";
-    ResponseModel responseModel = await apiClient.request(url, Method.getMethod, null, passHeader: true);
+    ResponseModel responseModel =
+        await apiClient.request(url, Method.getMethod, null, passHeader: true);
     return responseModel;
   }
 }

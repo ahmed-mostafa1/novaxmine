@@ -1,4 +1,4 @@
-﻿import 'package:get/get.dart';
+import 'package:get/get.dart';
 import 'package:mine_lab/core/utils/util.dart';
 import 'package:mine_lab/views/components/snackbar/show_custom_snackbar.dart';
 
@@ -84,4 +84,3 @@ class SupportTicketMethodsController extends GetxController {
     }
   }
 }
-

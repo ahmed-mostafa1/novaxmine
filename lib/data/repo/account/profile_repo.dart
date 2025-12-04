@@ -1,4 +1,4 @@
-﻿import 'dart:convert';
+import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:mine_lab/core/utils/method.dart';
@@ -91,4 +91,3 @@ class ProfileRepo {
     return model;
   }
 }
-

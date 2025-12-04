@@ -1,4 +1,4 @@
-﻿import 'dart:convert';
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mine_lab/l10n/app_localizations.dart';
@@ -169,4 +169,3 @@ class TransactionController extends GetxController {
     }
   }
 }
-

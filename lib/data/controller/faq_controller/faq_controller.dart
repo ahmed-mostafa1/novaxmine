@@ -1,4 +1,4 @@
-﻿import 'dart:convert';
+import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:mine_lab/l10n/app_localizations.dart';
 import 'package:mine_lab/data/model/faq_model/faq_response_model.dart';
@@ -48,4 +48,3 @@ class FaqController extends GetxController {
     update();
   }
 }
-

@@ -32,7 +32,8 @@ class OnboardController extends GetxController {
 
   bool isLoading = true;
 
-  GeneralSettingResponseModel generalSettingResponseModel = GeneralSettingResponseModel();
+  GeneralSettingResponseModel generalSettingResponseModel =
+      GeneralSettingResponseModel();
 
   List<String> onBoardImage = [];
 }

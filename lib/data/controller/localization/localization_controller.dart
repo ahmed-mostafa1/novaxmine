@@ -33,7 +33,8 @@ class LocalizationController extends GetxController {
   void loadCurrentLanguage() {
     // استرجاع اللغة من SharedPreferences أو استخدام الافتراضي ('en', 'US')
     final String languageCode =
-        sharedPreferences.getString(SharedPreferenceHelper.languageCode) ?? 'en';
+        sharedPreferences.getString(SharedPreferenceHelper.languageCode) ??
+            'en';
     final String countryCode =
         sharedPreferences.getString(SharedPreferenceHelper.countryCode) ?? 'US';
 

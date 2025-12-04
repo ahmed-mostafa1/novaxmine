@@ -59,7 +59,8 @@ class LabelTextField extends StatefulWidget {
     this.radius = Dimensions.largeRadius,
     this.suffixIcon,
     this.prefixIcon,
-    this.contentPadding = const EdgeInsets.only(top: 5, left: 15, right: 15, bottom: 5),
+    this.contentPadding =
+        const EdgeInsets.only(top: 5, left: 15, right: 15, bottom: 5),
     this.fillColor = MyColor.inputFillColor,
     this.hintTextColor = MyColor.hintTextColor,
     this.labelTextColor = MyColor.colorBlack,
@@ -84,14 +85,16 @@ class _LabelTextFieldState extends State<LabelTextField> {
                 LabelText(
                   text: widget.labelText.toString(),
                   required: widget.isRequired,
-                  textStyle: widget.labelTextStyle ?? Theme.of(context).textTheme.labelMedium,
+                  textStyle: widget.labelTextStyle ??
+                      Theme.of(context).textTheme.labelMedium,
                 ),
                 const SizedBox(height: Dimensions.textToTextSpace),
               ],
               TextFormField(
                 maxLines: widget.maxLines,
                 readOnly: widget.readOnly,
-                style: widget.inputTextStyle ?? interRegularDefault.copyWith(color: MyColor.getTextColor()),
+                style: widget.inputTextStyle ??
+                    interRegularDefault.copyWith(color: MyColor.getTextColor()),
                 cursorColor: MyColor.getTextColor(),
                 controller: widget.controller,
                 autofocus: false,
@@ -104,13 +107,23 @@ class _LabelTextFieldState extends State<LabelTextField> {
                 decoration: InputDecoration(
                   contentPadding: widget.contentPadding,
                   hintText: widget.hintText?.tr ?? '',
-                  hintStyle: interRegularDefault.copyWith(color: widget.hintTextColor),
+                  hintStyle:
+                      interRegularDefault.copyWith(color: widget.hintTextColor),
                   fillColor: widget.fillColor,
                   filled: true,
-                  border: OutlineInputBorder(borderSide: BorderSide(width: 0.5, color: MyColor.getTextFieldDisableBorder()), borderRadius: BorderRadius.circular(widget.radius)),
-                  focusedBorder: OutlineInputBorder(borderSide: BorderSide(width: 0.5, color: MyColor.getTextFieldEnableBorder()), borderRadius: BorderRadius.circular(widget.radius)),
+                  border: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          width: 0.5,
+                          color: MyColor.getTextFieldDisableBorder()),
+                      borderRadius: BorderRadius.circular(widget.radius)),
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          width: 0.5,
+                          color: MyColor.getTextFieldEnableBorder()),
+                      borderRadius: BorderRadius.circular(widget.radius)),
                   enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(width: 0.5, color: MyColor.getTextFieldDisableBorder()),
+                    borderSide: BorderSide(
+                        width: 0.5, color: MyColor.getTextFieldDisableBorder()),
                     borderRadius: BorderRadius.circular(widget.radius),
                   ),
                   prefixIcon: widget.prefixIcon,
@@ -120,17 +133,22 @@ class _LabelTextFieldState extends State<LabelTextField> {
                             color: Colors.transparent,
                             shape: const CircleBorder(),
                             child: InkWell(
-                              focusColor: MyColor.colorGrey.withValues(alpha: 0.01),
+                              focusColor:
+                                  MyColor.colorGrey.withValues(alpha: 0.01),
                               autofocus: false,
                               canRequestFocus: false,
                               onTap: _toggle,
                               child: Container(
-                                padding: const EdgeInsets.all(Dimensions.space5),
-                                decoration: const BoxDecoration(shape: BoxShape.circle),
+                                padding:
+                                    const EdgeInsets.all(Dimensions.space5),
+                                decoration:
+                                    const BoxDecoration(shape: BoxShape.circle),
                                 height: 25,
                                 width: 25,
                                 child: SvgPicture.asset(
-                                  obscureText ? MyImages.eyeInvisibleIcon : MyImages.eyeVisibleIcon,
+                                  obscureText
+                                      ? MyImages.eyeInvisibleIcon
+                                      : MyImages.eyeVisibleIcon,
                                   color: MyColor.getHintTextColor(),
                                   height: 18,
                                   width: 18,
@@ -141,7 +159,9 @@ class _LabelTextFieldState extends State<LabelTextField> {
                         )
                       : widget.suffixIcon,
                 ),
-                onFieldSubmitted: (text) => widget.nextFocus != null ? FocusScope.of(context).requestFocus(widget.nextFocus) : null,
+                onFieldSubmitted: (text) => widget.nextFocus != null
+                    ? FocusScope.of(context).requestFocus(widget.nextFocus)
+                    : null,
                 onChanged: (text) => widget.onChanged!(text),
               ),
             ],
@@ -150,7 +170,8 @@ class _LabelTextFieldState extends State<LabelTextField> {
             ? TextFormField(
                 maxLines: widget.maxLines,
                 readOnly: widget.readOnly,
-                style: widget.inputTextStyle ?? interRegularDefault.copyWith(color: MyColor.getTextColor()),
+                style: widget.inputTextStyle ??
+                    interRegularDefault.copyWith(color: MyColor.getTextColor()),
                 cursorColor: MyColor.getTextColor(),
                 controller: widget.controller,
                 autofocus: false,
@@ -163,13 +184,23 @@ class _LabelTextFieldState extends State<LabelTextField> {
                 decoration: InputDecoration(
                   contentPadding: widget.contentPadding,
                   hintText: widget.hintText?.tr ?? '',
-                  hintStyle: interRegularDefault.copyWith(color: widget.hintTextColor),
+                  hintStyle:
+                      interRegularDefault.copyWith(color: widget.hintTextColor),
                   fillColor: widget.fillColor,
                   filled: true,
-                  border: OutlineInputBorder(borderSide: BorderSide(width: 0.5, color: MyColor.getTextFieldDisableBorder()), borderRadius: BorderRadius.circular(widget.radius)),
-                  focusedBorder: OutlineInputBorder(borderSide: BorderSide(width: 0.5, color: MyColor.getTextFieldDisableBorder()), borderRadius: BorderRadius.circular(widget.radius)),
+                  border: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          width: 0.5,
+                          color: MyColor.getTextFieldDisableBorder()),
+                      borderRadius: BorderRadius.circular(widget.radius)),
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          width: 0.5,
+                          color: MyColor.getTextFieldDisableBorder()),
+                      borderRadius: BorderRadius.circular(widget.radius)),
                   enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(width: 0.5, color: MyColor.getTextFieldDisableBorder()),
+                    borderSide: BorderSide(
+                        width: 0.5, color: MyColor.getTextFieldDisableBorder()),
                     borderRadius: BorderRadius.circular(widget.radius),
                   ),
                   prefixIcon: widget.prefixIcon,
@@ -179,13 +210,17 @@ class _LabelTextFieldState extends State<LabelTextField> {
                             color: Colors.transparent,
                             shape: const CircleBorder(),
                             child: InkWell(
-                              focusColor: MyColor.colorGrey.withValues(alpha: 0.01),
+                              focusColor:
+                                  MyColor.colorGrey.withValues(alpha: 0.01),
                               autofocus: false,
                               canRequestFocus: false,
                               onTap: _toggle,
                               child: Container(
-                                padding: const EdgeInsets.all(Dimensions.space5),
-                                decoration: const BoxDecoration(shape: BoxShape.circle, color: MyColor.primaryColor),
+                                padding:
+                                    const EdgeInsets.all(Dimensions.space5),
+                                decoration: const BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: MyColor.primaryColor),
                                 height: 25,
                                 width: 25,
                               ),
@@ -194,7 +229,9 @@ class _LabelTextFieldState extends State<LabelTextField> {
                         )
                       : widget.suffixIcon,
                 ),
-                onFieldSubmitted: (text) => widget.nextFocus != null ? FocusScope.of(context).requestFocus(widget.nextFocus) : null,
+                onFieldSubmitted: (text) => widget.nextFocus != null
+                    ? FocusScope.of(context).requestFocus(widget.nextFocus)
+                    : null,
                 onChanged: (text) => widget.onChanged!(text),
               )
             : Column(
@@ -204,14 +241,17 @@ class _LabelTextFieldState extends State<LabelTextField> {
                     LabelText(
                       text: widget.labelText.toString(),
                       required: widget.isRequired,
-                      textStyle: widget.labelTextStyle ?? Theme.of(context).textTheme.labelMedium,
+                      textStyle: widget.labelTextStyle ??
+                          Theme.of(context).textTheme.labelMedium,
                     ),
                     const SizedBox(height: Dimensions.textToTextSpace),
                   ],
                   TextFormField(
                     maxLines: widget.maxLines,
                     readOnly: widget.readOnly,
-                    style: widget.inputTextStyle ?? interRegularDefault.copyWith(color: MyColor.getTextColor()),
+                    style: widget.inputTextStyle ??
+                        interRegularDefault.copyWith(
+                            color: MyColor.getTextColor()),
                     cursorColor: MyColor.getTextColor(),
                     controller: widget.controller,
                     autofocus: false,
@@ -224,12 +264,22 @@ class _LabelTextFieldState extends State<LabelTextField> {
                     decoration: InputDecoration(
                       contentPadding: widget.contentPadding,
                       hintText: widget.hintText?.tr ?? '',
-                      hintStyle: interRegularDefault.copyWith(color: widget.hintTextColor),
+                      hintStyle: interRegularDefault.copyWith(
+                          color: widget.hintTextColor),
                       fillColor: widget.fillColor,
                       filled: true,
-                      border: UnderlineInputBorder(borderSide: BorderSide(width: 0.5, color: MyColor.getTextFieldDisableBorder())),
-                      focusedBorder: UnderlineInputBorder(borderSide: BorderSide(width: 0.5, color: MyColor.getTextFieldEnableBorder())),
-                      enabledBorder: UnderlineInputBorder(borderSide: BorderSide(width: 0.5, color: MyColor.getTextFieldDisableBorder())),
+                      border: UnderlineInputBorder(
+                          borderSide: BorderSide(
+                              width: 0.5,
+                              color: MyColor.getTextFieldDisableBorder())),
+                      focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(
+                              width: 0.5,
+                              color: MyColor.getTextFieldEnableBorder())),
+                      enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(
+                              width: 0.5,
+                              color: MyColor.getTextFieldDisableBorder())),
                       prefixIcon: widget.prefixIcon,
                       suffixIcon: widget.isPassword
                           ? UnconstrainedBox(
@@ -237,15 +287,20 @@ class _LabelTextFieldState extends State<LabelTextField> {
                                 color: Colors.transparent,
                                 shape: const CircleBorder(),
                                 child: InkWell(
-                                  splashColor: MyColor.primaryColor.withValues(alpha: 0.1),
+                                  splashColor: MyColor.primaryColor
+                                      .withValues(alpha: 0.1),
                                   onTap: _toggle,
                                   child: Container(
-                                      padding: const EdgeInsets.all(Dimensions.space5),
-                                      decoration: const BoxDecoration(shape: BoxShape.circle),
+                                      padding: const EdgeInsets.all(
+                                          Dimensions.space5),
+                                      decoration: const BoxDecoration(
+                                          shape: BoxShape.circle),
                                       height: 25,
                                       width: 25,
                                       child: SvgPicture.asset(
-                                        obscureText ? MyImages.eyeInvisibleIcon : MyImages.eyeVisibleIcon,
+                                        obscureText
+                                            ? MyImages.eyeInvisibleIcon
+                                            : MyImages.eyeVisibleIcon,
                                         color: MyColor.getHintTextColor(),
                                         height: 18,
                                         width: 18,
@@ -255,7 +310,9 @@ class _LabelTextFieldState extends State<LabelTextField> {
                             )
                           : widget.suffixIcon,
                     ),
-                    onFieldSubmitted: (text) => widget.nextFocus != null ? FocusScope.of(context).requestFocus(widget.nextFocus) : null,
+                    onFieldSubmitted: (text) => widget.nextFocus != null
+                        ? FocusScope.of(context).requestFocus(widget.nextFocus)
+                        : null,
                     onChanged: (text) => widget.onChanged!(text),
                   ),
                 ],

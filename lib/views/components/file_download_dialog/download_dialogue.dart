@@ -1,4 +1,4 @@
-﻿import 'dart:async';
+import 'dart:async';
 import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
@@ -135,4 +135,3 @@ class DownloadingDialogState extends State<DownloadingDialog> {
     );
   }
 }
-

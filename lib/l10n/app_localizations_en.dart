@@ -54,7 +54,7 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get amountMustBeGreaterThanOne => 'Amount must be greater than 1';
+  String get amountMustBeGreaterThanZero => 'Amount must be greater than 0';
 
   @override
   String get sendAmountMsg =>

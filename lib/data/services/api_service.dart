@@ -23,6 +23,7 @@ class ApiClient extends GetxService {
     bool passHeader = false,
     bool isOnlyAcceptType = false,
     bool isJsonRequest = false,
+    bool manualBarear = false,
   }) async {
     Uri url = Uri.parse(uri);
     http.Response response;
@@ -33,7 +34,9 @@ class ApiClient extends GetxService {
         if (passHeader) {
           final headers = {
             "Accept": "application/json",
-            if (!isOnlyAcceptType) "Authorization": "$tokenType $token",
+            if (!isOnlyAcceptType)
+              "Authorization":
+                  manualBarear ? "Bearer $token" : "$tokenType $token",
             if (isJsonRequest) "Content-Type": "application/json",
           };
           final body = isJsonRequest ? jsonEncode(params ?? {}) : params;
@@ -50,7 +53,8 @@ class ApiClient extends GetxService {
               body: isJsonRequest ? jsonEncode(params ?? {}) : params,
               headers: {
                 "Accept": "application/json",
-                "Authorization": "$tokenType $token",
+                "Authorization":
+                    manualBarear ? "Bearer $token" : "$tokenType $token",
                 if (isJsonRequest) "Content-Type": "application/json",
               });
         } else {
@@ -67,7 +71,8 @@ class ApiClient extends GetxService {
         if (passHeader) {
           response = await http.get(url, headers: {
             "Accept": "application/json",
-            "Authorization": "$tokenType $token"
+            "Authorization":
+                manualBarear ? "Bearer $token" : "$tokenType $token"
           });
         } else {
           response = await http.get(url);

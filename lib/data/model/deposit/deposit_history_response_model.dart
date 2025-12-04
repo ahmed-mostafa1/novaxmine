@@ -2,7 +2,8 @@ import 'package:mine_lab/core/utils/util.dart';
 import 'package:mine_lab/data/model/global/meassage_model.dart';
 
 class DepositHistoryResponseModel {
-  DepositHistoryResponseModel({String? remark, String? status, Message? message, MainData? data}) {
+  DepositHistoryResponseModel(
+      {String? remark, String? status, Message? message, MainData? data}) {
     _remark = remark;
     _status = status;
     _message = message;
@@ -12,7 +13,8 @@ class DepositHistoryResponseModel {
   DepositHistoryResponseModel.fromJson(dynamic json) {
     _remark = json['remark'];
     _status = json['status'];
-    _message = json["message"] == null ? null : Message.fromJson(json["message"]);
+    _message =
+        json["message"] == null ? null : Message.fromJson(json["message"]);
     _data = json['data'] != null ? MainData.fromJson(json['data']) : null;
   }
   String? _remark;
@@ -34,7 +36,8 @@ class MainData {
   }
 
   MainData.fromJson(dynamic json) {
-    _deposits = json['deposits'] != null ? Deposits.fromJson(json['deposits']) : null;
+    _deposits =
+        json['deposits'] != null ? Deposits.fromJson(json['deposits']) : null;
   }
   Deposits? _deposits;
 
@@ -50,7 +53,10 @@ class MainData {
 }
 
 class Deposits {
-  Deposits({List<DepositHistoryListModel>? data, String? nextPageUrl, String? path}) {
+  Deposits(
+      {List<DepositHistoryListModel>? data,
+      String? nextPageUrl,
+      String? path}) {
     _data = data;
     _path = path;
     _nextPageUrl = nextPageUrl;
@@ -87,7 +93,25 @@ class Deposits {
 }
 
 class DepositHistoryListModel {
-  DepositHistoryListModel({int? id, String? userId, String? methodCode, String? amount, String? methodCurrency, String? charge, String? rate, String? finalAmo, dynamic detail, String? btcAmo, String? btcWallet, String? trx, String? status, String? fromApi, dynamic adminFeedback, String? createdAt, String? updatedAt, Gateway? gateway}) {
+  DepositHistoryListModel(
+      {int? id,
+      String? userId,
+      String? methodCode,
+      String? amount,
+      String? methodCurrency,
+      String? charge,
+      String? rate,
+      String? finalAmo,
+      dynamic detail,
+      String? btcAmo,
+      String? btcWallet,
+      String? trx,
+      String? status,
+      String? fromApi,
+      dynamic adminFeedback,
+      String? createdAt,
+      String? updatedAt,
+      Gateway? gateway}) {
     _id = id;
     _userId = userId;
     _methodCode = methodCode;
@@ -113,7 +137,9 @@ class DepositHistoryListModel {
     _userId = json['user_id'].toString();
     _methodCode = json['method_code'].toString();
     _amount = json['amount'].toString();
-    _methodCurrency = json['method_currency'] != null ? json['method_currency'].toString() : '';
+    _methodCurrency = json['method_currency'] != null
+        ? json['method_currency'].toString()
+        : '';
     _charge = json['charge'].toString();
     _rate = json['rate'].toString();
     _finalAmount = json['final_amount'].toString();
@@ -126,7 +152,8 @@ class DepositHistoryListModel {
     _adminFeedback = json['admin_feedback'].toString();
     _createdAt = json['created_at'];
     _updatedAt = json['updated_at'];
-    _gateway = json['gateway'] != null ? Gateway.fromJson(json['gateway']) : null;
+    _gateway =
+        json['gateway'] != null ? Gateway.fromJson(json['gateway']) : null;
   }
 
   int? _id;
@@ -193,7 +220,21 @@ class DepositHistoryListModel {
 }
 
 class Gateway {
-  Gateway({int? id, String? formId, String? code, String? name, String? alias, String? image, String? status, String? gatewayParameters, List<String>? supportedCurrencies, String? crypto, dynamic extra, String? description, String? createdAt, String? updatedAt}) {
+  Gateway(
+      {int? id,
+      String? formId,
+      String? code,
+      String? name,
+      String? alias,
+      String? image,
+      String? status,
+      String? gatewayParameters,
+      List<String>? supportedCurrencies,
+      String? crypto,
+      dynamic extra,
+      String? description,
+      String? createdAt,
+      String? updatedAt}) {
     _id = id;
     _formId = formId;
     _code = code;
@@ -277,7 +318,8 @@ class Gateway {
     map['status'] = _status;
     map['gateway_parameters'] = _gatewayParameters;
     if (_supportedCurrencies != null) {
-      map['supported_currencies'] = _supportedCurrencies?.map((v) => v.toJson()).toList();
+      map['supported_currencies'] =
+          _supportedCurrencies?.map((v) => v.toJson()).toList();
     }
     map['crypto'] = _crypto;
     map['extra'] = _extra;

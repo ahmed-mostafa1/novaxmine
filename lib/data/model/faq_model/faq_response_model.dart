@@ -19,7 +19,8 @@ class FaqResponseModel {
   FaqResponseModel.fromJson(dynamic json) {
     _remark = json['remark'];
     _status = json['status'];
-    _message = json['message'] != null ? Message.fromJson(json['message']) : null;
+    _message =
+        json['message'] != null ? Message.fromJson(json['message']) : null;
     _data = json['data'] != null ? Data.fromJson(json['data']) : null;
   }
   String? _remark;
@@ -100,7 +101,9 @@ class Faqs {
   Faqs.fromJson(dynamic json) {
     _id = json['id'];
     _dataKeys = json['data_keys'] != null ? json['data_keys'].toString() : '';
-    _dataValues = json['data_values'] != null ? DataValues.fromJson(json['data_values']) : null;
+    _dataValues = json['data_values'] != null
+        ? DataValues.fromJson(json['data_values'])
+        : null;
     _templateName = json['tempname'].toString();
     _createdAt = json['created_at'];
     _updatedAt = json['updated_at'];

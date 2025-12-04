@@ -70,17 +70,38 @@ class _SearchTextFieldState extends State<SearchTextField> {
             keyboardType: widget.textInputType,
             obscureText: widget.isPassword ? obscureText : false,
             decoration: InputDecoration(
-              contentPadding: const EdgeInsets.only(top: 5, left: 15, right: 15, bottom: 5),
+              contentPadding:
+                  const EdgeInsets.only(top: 5, left: 15, right: 15, bottom: 5),
               hintText: widget.hintText,
-              hintStyle: interRegularDefault.copyWith(color: MyColor.getHintTextColor()),
+              hintStyle: interRegularDefault.copyWith(
+                  color: MyColor.getHintTextColor()),
               fillColor: MyColor.transparentColor,
               filled: true,
-              border: OutlineInputBorder(borderSide: BorderSide(color: MyColor.getTextFieldDisableBorder()), borderRadius: BorderRadius.circular(Dimensions.defaultRadius)),
-              focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: MyColor.getTextFieldEnableBorder()), borderRadius: BorderRadius.circular(Dimensions.defaultRadius)),
-              enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: MyColor.getTextFieldDisableBorder()), borderRadius: BorderRadius.circular(Dimensions.defaultRadius)),
+              border: OutlineInputBorder(
+                  borderSide:
+                      BorderSide(color: MyColor.getTextFieldDisableBorder()),
+                  borderRadius:
+                      BorderRadius.circular(Dimensions.defaultRadius)),
+              focusedBorder: OutlineInputBorder(
+                  borderSide:
+                      BorderSide(color: MyColor.getTextFieldEnableBorder()),
+                  borderRadius:
+                      BorderRadius.circular(Dimensions.defaultRadius)),
+              enabledBorder: OutlineInputBorder(
+                  borderSide:
+                      BorderSide(color: MyColor.getTextFieldDisableBorder()),
+                  borderRadius:
+                      BorderRadius.circular(Dimensions.defaultRadius)),
               suffixIcon: widget.isShowSuffixIcon
                   ? widget.isPassword
-                      ? IconButton(icon: Icon(obscureText ? Icons.visibility_off : Icons.visibility, color: MyColor.hintTextColor, size: 20), onPressed: _toggle)
+                      ? IconButton(
+                          icon: Icon(
+                              obscureText
+                                  ? Icons.visibility_off
+                                  : Icons.visibility,
+                              color: MyColor.hintTextColor,
+                              size: 20),
+                          onPressed: _toggle)
                       : widget.isIcon
                           ? IconButton(
                               onPressed: widget.onSuffixTap,
@@ -97,7 +118,9 @@ class _SearchTextFieldState extends State<SearchTextField> {
                           : null
                   : null,
             ),
-            onFieldSubmitted: (text) => widget.nextFocus != null ? FocusScope.of(context).requestFocus(widget.nextFocus) : null,
+            onFieldSubmitted: (text) => widget.nextFocus != null
+                ? FocusScope.of(context).requestFocus(widget.nextFocus)
+                : null,
             onChanged: (text) => widget.onChanged!(text),
           )
         : TextFormField(
@@ -114,17 +137,32 @@ class _SearchTextFieldState extends State<SearchTextField> {
             keyboardType: widget.textInputType,
             obscureText: widget.isPassword ? obscureText : false,
             decoration: InputDecoration(
-              contentPadding: const EdgeInsets.only(top: 5, left: 0, right: 0, bottom: 5),
+              contentPadding:
+                  const EdgeInsets.only(top: 5, left: 0, right: 0, bottom: 5),
               labelText: widget.labelText?.tr ?? '',
-              labelStyle: interRegularDefault.copyWith(color: MyColor.colorBlack),
+              labelStyle:
+                  interRegularDefault.copyWith(color: MyColor.colorBlack),
               fillColor: MyColor.transparentColor,
               filled: true,
-              border: UnderlineInputBorder(borderSide: BorderSide(color: MyColor.getTextFieldDisableBorder())),
-              focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: MyColor.getTextFieldEnableBorder())),
-              enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: MyColor.getTextFieldDisableBorder())),
+              border: UnderlineInputBorder(
+                  borderSide:
+                      BorderSide(color: MyColor.getTextFieldDisableBorder())),
+              focusedBorder: UnderlineInputBorder(
+                  borderSide:
+                      BorderSide(color: MyColor.getTextFieldEnableBorder())),
+              enabledBorder: UnderlineInputBorder(
+                  borderSide:
+                      BorderSide(color: MyColor.getTextFieldDisableBorder())),
               suffixIcon: widget.isShowSuffixIcon
                   ? widget.isPassword
-                      ? IconButton(icon: Icon(obscureText ? Icons.visibility_off : Icons.visibility, color: MyColor.hintTextColor, size: 20), onPressed: _toggle)
+                      ? IconButton(
+                          icon: Icon(
+                              obscureText
+                                  ? Icons.visibility_off
+                                  : Icons.visibility,
+                              color: MyColor.hintTextColor,
+                              size: 20),
+                          onPressed: _toggle)
                       : widget.isIcon
                           ? IconButton(
                               onPressed: widget.onSuffixTap,
@@ -141,7 +179,9 @@ class _SearchTextFieldState extends State<SearchTextField> {
                           : null
                   : null,
             ),
-            onFieldSubmitted: (text) => widget.nextFocus != null ? FocusScope.of(context).requestFocus(widget.nextFocus) : null,
+            onFieldSubmitted: (text) => widget.nextFocus != null
+                ? FocusScope.of(context).requestFocus(widget.nextFocus)
+                : null,
             onChanged: (text) => widget.onChanged!(text),
           );
   }

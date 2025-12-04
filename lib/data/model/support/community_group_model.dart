@@ -6,7 +6,8 @@ import 'dart:convert';
 
 import 'package:mine_lab/data/model/auth/registration_response_model.dart';
 
-CommunityGroup communityGroupFromJson(String str) => CommunityGroup.fromJson(json.decode(str));
+CommunityGroup communityGroupFromJson(String str) =>
+    CommunityGroup.fromJson(json.decode(str));
 
 String communityGroupToJson(CommunityGroup data) => json.encode(data.toJson());
 
@@ -26,7 +27,8 @@ class CommunityGroup {
   factory CommunityGroup.fromJson(Map<String, dynamic> json) => CommunityGroup(
         remark: json["remark"],
         status: json["status"],
-        message: json["message"] == null ? null : Message.fromJson(json["message"]),
+        message:
+            json["message"] == null ? null : Message.fromJson(json["message"]),
         data: json["data"] == null ? null : Data.fromJson(json["data"]),
       );
 
@@ -48,12 +50,17 @@ class Data {
   });
 
   factory Data.fromJson(Map<String, dynamic> json) => Data(
-        communityGroups: json["community_groups"] == null ? [] : List<CommunityGroupElement>.from(json["community_groups"]!.map((x) => CommunityGroupElement.fromJson(x))),
+        communityGroups: json["community_groups"] == null
+            ? []
+            : List<CommunityGroupElement>.from(json["community_groups"]!
+                .map((x) => CommunityGroupElement.fromJson(x))),
         communityGroupImagePath: json["community_group_image_path"],
       );
 
   Map<String, dynamic> toJson() => {
-        "community_groups": communityGroups == null ? [] : List<dynamic>.from(communityGroups!.map((x) => x.toJson())),
+        "community_groups": communityGroups == null
+            ? []
+            : List<dynamic>.from(communityGroups!.map((x) => x.toJson())),
         "community_group_image_path": communityGroupImagePath,
       };
 }
@@ -75,10 +82,13 @@ class CommunityGroupElement {
     this.updatedAt,
   });
 
-  factory CommunityGroupElement.fromJson(Map<String, dynamic> json) => CommunityGroupElement(
+  factory CommunityGroupElement.fromJson(Map<String, dynamic> json) =>
+      CommunityGroupElement(
         id: json["id"].toString(),
         dataKeys: json["data_keys"].toString(),
-        dataValues: json["data_values"] == null ? null : DataValues.fromJson(json["data_values"]),
+        dataValues: json["data_values"] == null
+            ? null
+            : DataValues.fromJson(json["data_values"]),
         tempname: json["tempname"].toString(),
         createdAt: json["created_at"].toString(),
         updatedAt: json["updated_at"].toString(),

@@ -9,14 +9,18 @@ class WalletRepo {
 
   Future<ResponseModel> getWalletData() async {
     String url = "${UrlContainer.baseUrl}${UrlContainer.walletEndPoint}";
-    ResponseModel responseModel = await apiClient.request(url, Method.getMethod, null, passHeader: true);
+    ResponseModel responseModel =
+        await apiClient.request(url, Method.getMethod, null, passHeader: true);
     return responseModel;
   }
 
-  Future<ResponseModel> moveToProfitWallet({required String minerId, required String amount}) async {
-    String url = "${UrlContainer.baseUrl}${UrlContainer.walletUpdateEndPoint}/$minerId";
+  Future<ResponseModel> moveToProfitWallet(
+      {required String minerId, required String amount}) async {
+    String url =
+        "${UrlContainer.baseUrl}${UrlContainer.walletUpdateEndPoint}/$minerId";
     Map<String, String> map = {"amount": amount};
-    ResponseModel responseModel = await apiClient.request(url, Method.postMethod, map, passHeader: true);
+    ResponseModel responseModel =
+        await apiClient.request(url, Method.postMethod, map, passHeader: true);
     return responseModel;
   }
 }

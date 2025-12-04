@@ -1,4 +1,4 @@
-﻿import 'dart:convert';
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mine_lab/core/helper/string_format_helper.dart';
@@ -179,4 +179,3 @@ class AddNewDepositController extends GetxController {
         arguments: depositInsertData);
   }
 }
-

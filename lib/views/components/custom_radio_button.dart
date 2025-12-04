@@ -31,7 +31,8 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
       children: [
         widget.title != null ? const SizedBox() : Text(widget.title ?? ''),
         Column(
-            children: List<RadioListTile<int>>.generate(widget.list.length, (int index) {
+            children: List<RadioListTile<int>>.generate(widget.list.length,
+                (int index) {
           return RadioListTile<int>(
             value: index,
             groupValue: widget.selectedIndex,

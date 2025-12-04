@@ -17,7 +17,8 @@ class MiningTrackResponseModel {
     return MiningTrackResponseModel(
       remark: json['remark'],
       status: json['status'],
-      message: json['message'] != null ? Message.fromJson(json['message']) : null,
+      message:
+          json['message'] != null ? Message.fromJson(json['message']) : null,
       data: json['data'] != null ? Data.fromJson(json['data']) : null,
     );
   }
@@ -44,7 +45,9 @@ class Data {
   factory Data.fromJson(Map<String, dynamic> json) {
     return Data(
       orders: json['orders'] != null ? Orders.fromJson(json['orders']) : null,
-      miningTracks: json['mining_tracks'] != null ? Orders.fromJson(json['mining_tracks']) : null,
+      miningTracks: json['mining_tracks'] != null
+          ? Orders.fromJson(json['mining_tracks'])
+          : null,
     );
   }
 
@@ -68,7 +71,11 @@ class Orders {
 
   factory Orders.fromJson(Map<String, dynamic> json) {
     return Orders(
-      data: json['data'] != null ? (json['data'] as List).map((v) => MiningTrackData.fromJson(v)).toList() : null,
+      data: json['data'] != null
+          ? (json['data'] as List)
+              .map((v) => MiningTrackData.fromJson(v))
+              .toList()
+          : null,
       nextPageUrl: json['next_page_url'],
       path: json['path'],
     );
@@ -132,7 +139,9 @@ class MiningTrackData {
       trx: json['trx']?.toString(),
       userId: json['user_id']?.toString(),
       minerId: json['miner_id']?.toString(),
-      planDetails: json['plan_details'] != null ? PlanDetails.fromJson(json['plan_details']) : null,
+      planDetails: json['plan_details'] != null
+          ? PlanDetails.fromJson(json['plan_details'])
+          : null,
       miner: json['miner'] != null ? Miner.fromJson(json['miner']) : null,
       amount: json['amount']?.toString(),
       minReturnPerDay: json['min_return_per_day']?.toString(),

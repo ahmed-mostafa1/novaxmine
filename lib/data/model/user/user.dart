@@ -76,21 +76,32 @@ class GlobalUser {
     _address = json['address'] != null ? json['address'].toString() : "";
     _image = json['image'] != null ? json['image'].toString() : "";
     _status = json['status'] != null ? json['status'].toString() : "";
-    _countryName = json['country_name'] != null ? json['country_name'].toString() : "";
-    _countryCode = json['country_code'] != null ? json['country_code'].toString() : "";
-    _kycRejectionReason = json['kyc_rejection_reason'] != null ? json['kyc_rejection_reason'].toString() : "null";
-    _profileComplete = json['profile_complete'] != null ? json['profile_complete'].toString() : "";
-    _verCodeSendAt = json['ver_code_send_at'] != null ? json['ver_code_send_at'].toString() : "";
+    _countryName =
+        json['country_name'] != null ? json['country_name'].toString() : "";
+    _countryCode =
+        json['country_code'] != null ? json['country_code'].toString() : "";
+    _kycRejectionReason = json['kyc_rejection_reason'] != null
+        ? json['kyc_rejection_reason'].toString()
+        : "null";
+    _profileComplete = json['profile_complete'] != null
+        ? json['profile_complete'].toString()
+        : "";
+    _verCodeSendAt = json['ver_code_send_at'] != null
+        ? json['ver_code_send_at'].toString()
+        : "";
     _ts = json['ts'] != null ? json['ts'].toString() : "";
     _tv = json['tv'] != null ? json['tv'].toString() : "";
     _tsc = json['tsc'] != null ? json['tsc'].toString() : "";
     _kv = json['kv'] != null ? json['kv'].toString() : "";
     _ev = json['ev'] != null ? json['ev'].toString() : "";
     _sv = json['sv'] != null ? json['sv'].toString() : "";
-    _banReason = json['ban_reason'] != null ? json['ban_reason'].toString() : "";
+    _banReason =
+        json['ban_reason'] != null ? json['ban_reason'].toString() : "";
     _provider = json['provider'] != null ? json['provider'].toString() : "";
-    _createdAt = json['created_at'] != null ? json['created_at'].toString() : "";
-    _updatedAt = json['updated_at'] != null ? json['updated_at'].toString() : "";
+    _createdAt =
+        json['created_at'] != null ? json['created_at'].toString() : "";
+    _updatedAt =
+        json['updated_at'] != null ? json['updated_at'].toString() : "";
   }
   int? _id;
   String? _firstname;

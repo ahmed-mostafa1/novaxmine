@@ -77,7 +77,9 @@ class MyColor {
   }
 
   static Color getPrimaryTextColor() {
-    return Get.find<ThemeController>().darkTheme ? dPrimaryTextColor : lPrimaryTextColor;
+    return Get.find<ThemeController>().darkTheme
+        ? dPrimaryTextColor
+        : lPrimaryTextColor;
   }
 
   static Color getLabelTextColor() {

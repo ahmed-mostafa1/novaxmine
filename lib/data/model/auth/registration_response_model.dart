@@ -1,5 +1,6 @@
 class RegistrationResponseModel {
-  RegistrationResponseModel({String? remark, String? status, Message? message, Data? data}) {
+  RegistrationResponseModel(
+      {String? remark, String? status, Message? message, Data? data}) {
     _remark = remark;
     _status = status;
     _message = message;
@@ -9,7 +10,8 @@ class RegistrationResponseModel {
   RegistrationResponseModel.fromJson(dynamic json) {
     _remark = json['remark'];
     _status = json['status'].toString();
-    _message = json['message'] != null ? Message.fromJson(json['message']) : null;
+    _message =
+        json['message'] != null ? Message.fromJson(json['message']) : null;
     _data = json['data'] != null ? Data.fromJson(json['data']) : null;
   }
 
@@ -70,7 +72,34 @@ class Data {
 }
 
 class User {
-  User({int? id, int? packageId, String? validity, dynamic telegramUsername, String? firstname, String? lastname, String? username, String? email, String? countryCode, String? mobile, String? refBy, String? balance, dynamic image, Address? address, String? status, String? ev, String? sv, String? profileComplete, dynamic verCode, dynamic verCodeSendAt, String? ts, String? tv, dynamic tsc, String? regStep, String? buyFreePackage, String? createdAt, String? updatedAt}) {
+  User(
+      {int? id,
+      int? packageId,
+      String? validity,
+      dynamic telegramUsername,
+      String? firstname,
+      String? lastname,
+      String? username,
+      String? email,
+      String? countryCode,
+      String? mobile,
+      String? refBy,
+      String? balance,
+      dynamic image,
+      Address? address,
+      String? status,
+      String? ev,
+      String? sv,
+      String? profileComplete,
+      dynamic verCode,
+      dynamic verCodeSendAt,
+      String? ts,
+      String? tv,
+      dynamic tsc,
+      String? regStep,
+      String? buyFreePackage,
+      String? createdAt,
+      String? updatedAt}) {
     _id = id;
     _packageId = packageId;
     _validity = validity;
@@ -109,7 +138,8 @@ class User {
     _mobile = json['mobile'].toString();
     _balance = json['balance'].toString();
     _image = json['image'];
-    _address = json['address'] != null ? Address.fromJson(json['address']) : null;
+    _address =
+        json['address'] != null ? Address.fromJson(json['address']) : null;
     _status = json['status'].toString();
     _ev = json['ev'].toString();
     _sv = json['sv'].toString();
@@ -205,7 +235,12 @@ class User {
 }
 
 class Address {
-  Address({String? address, String? state, String? zip, String? country, String? city}) {
+  Address(
+      {String? address,
+      String? state,
+      String? zip,
+      String? country,
+      String? city}) {
     _address = address;
     _state = state;
     _zip = zip;

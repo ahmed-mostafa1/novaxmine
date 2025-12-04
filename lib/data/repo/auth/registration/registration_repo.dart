@@ -13,7 +13,9 @@ class RegistrationRepo {
   Future<ResponseModel> registerUser(SignUpModel model) async {
     final map = model.toMap();
     String url = '${UrlContainer.baseUrl}${UrlContainer.registrationEndPoint}';
-    ResponseModel responseModel = await apiClient.request(url, Method.postMethod, map, passHeader: true, isOnlyAcceptType: true);
+    ResponseModel responseModel = await apiClient.request(
+        url, Method.postMethod, map,
+        passHeader: true, isOnlyAcceptType: true);
     return responseModel;
   }
 
@@ -25,8 +27,11 @@ class RegistrationRepo {
 
   Future<bool> sendUserToken() async {
     String deviceToken;
-    if (apiClient.sharedPreferences.containsKey(SharedPreferenceHelper.fcmDeviceKey)) {
-      deviceToken = apiClient.sharedPreferences.getString(SharedPreferenceHelper.fcmDeviceKey) ?? '';
+    if (apiClient.sharedPreferences
+        .containsKey(SharedPreferenceHelper.fcmDeviceKey)) {
+      deviceToken = apiClient.sharedPreferences
+              .getString(SharedPreferenceHelper.fcmDeviceKey) ??
+          '';
     } else {
       deviceToken = '';
     }
@@ -63,7 +68,8 @@ class RegistrationRepo {
 
     String url = '${UrlContainer.baseUrl}${UrlContainer.socialLoginEndPoint}';
 
-    ResponseModel model = await apiClient.request(url, Method.postMethod, map, passHeader: false);
+    ResponseModel model =
+        await apiClient.request(url, Method.postMethod, map, passHeader: false);
 
     return model;
   }

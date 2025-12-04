@@ -23,7 +23,9 @@ class CircularButtonWithIndicator extends StatelessWidget {
           duration: const Duration(milliseconds: 700),
           size: Dimensions.indicatorSize,
           callback: () {},
-          indicatorValue: 100 / controller.onboardTitleList.length * (controller.currentIndex.toDouble() + 1),
+          indicatorValue: 100 /
+              controller.onboardTitleList.length *
+              (controller.currentIndex.toDouble() + 1),
         ),
         GestureDetector(
           child: AnimatedContainer(
@@ -31,13 +33,21 @@ class CircularButtonWithIndicator extends StatelessWidget {
             alignment: Alignment.bottomCenter,
             height: Dimensions.space60,
             width: Dimensions.space60,
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(99), color: MyColor.primaryColor),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(99),
+                color: MyColor.primaryColor),
             child: Center(
-              child: Icon(controller.currentIndex == controller.onboardTitleList.length - 1 ? Icons.check : Icons.arrow_forward_ios_rounded, color: MyColor.colorWhite),
+              child: Icon(
+                  controller.currentIndex ==
+                          controller.onboardTitleList.length - 1
+                      ? Icons.check
+                      : Icons.arrow_forward_ios_rounded,
+                  color: MyColor.colorWhite),
             ),
           ),
           onTap: () {
-            if (controller.currentIndex < controller.onboardTitleList.length - 1) {
+            if (controller.currentIndex <
+                controller.onboardTitleList.length - 1) {
               controller.controller?.nextPage(
                 duration: const Duration(milliseconds: 300),
                 curve: Curves.easeInOut,

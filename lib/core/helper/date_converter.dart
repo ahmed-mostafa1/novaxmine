@@ -12,14 +12,16 @@ class DateConverter {
   }
 
   static String formatDepositTimeWithAmFormat(String dateString) {
-    var newStr = '${dateString.substring(0, 10)} ${dateString.substring(11, 23)}';
+    var newStr =
+        '${dateString.substring(0, 10)} ${dateString.substring(11, 23)}';
     DateTime dt = DateTime.parse(newStr);
     String formatedDate = DateFormat("yyyy-MM-dd").format(dt);
 
     return formatedDate;
   }
 
-  static String isoToLocalDateAndTime(String dateTime, {String errorResult = '--'}) {
+  static String isoToLocalDateAndTime(String dateTime,
+      {String errorResult = '--'}) {
     String date = '';
     if (dateTime.isEmpty || dateTime == 'null') {
       date = '';
@@ -50,7 +52,9 @@ class DateConverter {
   }
 
   static DateTime isoStringToLocalDate(String dateTime) {
-    return DateFormat('yyyy-MM-ddTHH:mm:ss.SSS').parse(dateTime, true).toLocal();
+    return DateFormat('yyyy-MM-ddTHH:mm:ss.SSS')
+        .parse(dateTime, true)
+        .toLocal();
   }
 
   static String isoStringToLocalTimeOnly(String dateTime) {
@@ -77,7 +81,8 @@ class DateConverter {
     return DateFormat('hh:mm a').format(DateFormat('hh:mm:ss').parse(time));
   }
 
-  static String getFormatedSubtractTime(String time, {bool numericDates = false}) {
+  static String getFormatedSubtractTime(String time,
+      {bool numericDates = false}) {
     final date1 = DateTime.now();
     final isoDate = isoStringToLocalDate(time);
     final difference = date1.difference(isoDate);

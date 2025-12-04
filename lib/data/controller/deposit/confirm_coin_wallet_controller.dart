@@ -1,7 +1,8 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:get/get.dart';
-import 'package:mine_lab/data/model/deposit/deposit_insert_response_model.dart';
+import 'package:mine_lab/data/model/deposit/deposit_insert_response_model/deposit_insert_response_model.dart';
 import 'package:mine_lab/data/model/global/response_model/response_model.dart';
 import 'package:mine_lab/data/repo/deposit/deposit_repo.dart';
 import 'package:mine_lab/l10n/app_localizations.dart';
@@ -35,20 +36,22 @@ class ConfirmCoinWalletController extends GetxController {
         amount: amount,
       );
 
-      if (response.statusCode == 200) {
+      if (response.statusCode == 200 ||
+          response.statusCode == 201 ||
+          response.statusCode == 499) {
         try {
           final decoded = jsonDecode(response.responseJson);
           final model = DepositInsertResponseModel.fromJson(decoded);
           final status = model.status?.toLowerCase() ?? '';
+          log(status);
           if (status == 'success') {
             CustomSnackBar.success(
-              successList: model.message?.success ?? [successMessage],
+              successList:
+                  model.message == null ? [successMessage] : [model.message!],
             );
             return true;
           } else {
-            CustomSnackBar.error(
-              errorList: model.message?.error ?? [defaultError],
-            );
+            CustomSnackBar.error(errorList: [defaultError]);
             return false;
           }
         } catch (e) {

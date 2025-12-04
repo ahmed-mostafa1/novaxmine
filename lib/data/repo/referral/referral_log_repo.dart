@@ -8,8 +8,10 @@ class ReferralLogRepo {
   ReferralLogRepo({required this.apiClient});
 
   Future<ResponseModel> getReferralLogData(int page) async {
-    String url = "${UrlContainer.baseUrl}${UrlContainer.referralLogEndPoint}?page=$page";
-    ResponseModel responseModel = await apiClient.request(url, Method.getMethod, null, passHeader: true);
+    String url =
+        "${UrlContainer.baseUrl}${UrlContainer.referralLogEndPoint}?page=$page";
+    ResponseModel responseModel =
+        await apiClient.request(url, Method.getMethod, null, passHeader: true);
     return responseModel;
   }
 }

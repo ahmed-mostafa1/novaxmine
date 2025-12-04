@@ -33,7 +33,9 @@ class CustomElevatedBtn extends StatelessWidget {
   Widget build(BuildContext context) {
     return icon != null
         ? ElevatedButton.icon(
-            icon: isLoading ? const SizedBox.shrink() : icon ?? const SizedBox.shrink(),
+            icon: isLoading
+                ? const SizedBox.shrink()
+                : icon ?? const SizedBox.shrink(),
             onPressed: () {
               if (isLoading == false) {
                 press();
@@ -44,7 +46,8 @@ class CustomElevatedBtn extends StatelessWidget {
               elevation: elevation, //
               surfaceTintColor: bgColor.withValues(alpha: 0.5),
               shadowColor: shadowColor,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(radius)),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(radius)),
               maximumSize: Size.fromHeight(height),
               minimumSize: Size(width, height),
               splashFactory: InkRipple.splashFactory,
@@ -74,7 +77,8 @@ class CustomElevatedBtn extends StatelessWidget {
               // overlayColor: bgColor.withValues(alpha:0.5),
               // shadowColor: shadowColor,
               splashFactory: InkRipple.splashFactory,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(radius)),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(radius)),
               maximumSize: Size.fromHeight(height),
               minimumSize: Size(width, height),
             ),
@@ -85,7 +89,8 @@ class CustomElevatedBtn extends StatelessWidget {
                     child: CircularProgressIndicator(color: Colors.white),
                   )
                 : Text(text, //
-                    style: interBoldDefault.copyWith(color: MyColor.colorWhite)),
+                    style:
+                        interBoldDefault.copyWith(color: MyColor.colorWhite)),
           );
   }
 }

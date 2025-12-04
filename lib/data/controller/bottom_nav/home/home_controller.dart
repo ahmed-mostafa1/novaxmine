@@ -1,4 +1,4 @@
-﻿import 'dart:convert';
+import 'dart:convert';
 
 import 'package:get/get.dart';
 import 'package:mine_lab/core/helper/share_preference_helper.dart';
@@ -135,4 +135,3 @@ class HomeController extends GetxController {
     }
   }
 }
-

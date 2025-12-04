@@ -15,7 +15,13 @@ class OnboardContent extends StatelessWidget {
   final String subTitle;
   final String? image;
 
-  const OnboardContent({super.key, required this.controller, required this.index, required this.title, required this.subTitle, this.image});
+  const OnboardContent(
+      {super.key,
+      required this.controller,
+      required this.index,
+      required this.title,
+      required this.subTitle,
+      this.image});
 
   @override
   Widget build(BuildContext context) {
@@ -30,11 +36,19 @@ class OnboardContent extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(height: size.height * .03),
-              Image.asset(image ?? MyImages.onboardFirstImage, height: size.height * .25),
+              Image.asset(image ?? MyImages.onboardFirstImage,
+                  height: size.height * .25),
               SizedBox(height: size.height * .04),
-              Text(title.tr.toTitleCase(), textAlign: TextAlign.center, style: boldOverLarge.copyWith(fontSize: 20, color: MyColor.titleColor)),
+              Text(title.tr.toTitleCase(),
+                  textAlign: TextAlign.center,
+                  style: boldOverLarge.copyWith(
+                      fontSize: 20, color: MyColor.titleColor)),
               SizedBox(height: size.height * .01),
-              Text(subTitle.tr.toCapitalized(), textAlign: TextAlign.center, style: interRegularDefault.copyWith(fontSize: 16, color: MyColor.titleColor.withValues(alpha: .7)))
+              Text(subTitle.tr.toCapitalized(),
+                  textAlign: TextAlign.center,
+                  style: interRegularDefault.copyWith(
+                      fontSize: 16,
+                      color: MyColor.titleColor.withValues(alpha: .7)))
             ],
           ),
         ),

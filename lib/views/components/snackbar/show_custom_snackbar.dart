@@ -5,7 +5,11 @@ import 'package:mine_lab/core/utils/my_color.dart';
 import 'package:mine_lab/core/utils/my_strings.dart';
 
 class CustomSnackBar {
-  static showCustomSnackBar({required List<String> errorList, required List<String> msg, required bool isError, int duration = 5}) {
+  static showCustomSnackBar(
+      {required List<String> errorList,
+      required List<String> msg,
+      required bool isError,
+      int duration = 5}) {
     String message = '';
     if (isError) {
       if (errorList.isEmpty) {
@@ -15,7 +19,8 @@ class CustomSnackBar {
           message = message.isEmpty ? '$message$element' : "$message\n$element";
         }
       }
-      message = MyConverter.removeQuotationAndSpecialCharacterFromString(message);
+      message =
+          MyConverter.removeQuotationAndSpecialCharacterFromString(message);
     } else {
       if (msg.isEmpty) {
         message = 'success';
@@ -25,7 +30,8 @@ class CustomSnackBar {
         }
       }
 
-      message = MyConverter.removeQuotationAndSpecialCharacterFromString(message);
+      message =
+          MyConverter.removeQuotationAndSpecialCharacterFromString(message);
     }
 
     Get.rawSnackbar(

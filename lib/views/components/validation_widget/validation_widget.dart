@@ -6,7 +6,8 @@ class ValidationWidget extends StatelessWidget {
   final List<ErrorModel> list;
   final double heightBottom;
 
-  const ValidationWidget({super.key, required this.list, this.heightBottom = 10});
+  const ValidationWidget(
+      {super.key, required this.list, this.heightBottom = 10});
 
   @override
   Widget build(BuildContext context) {

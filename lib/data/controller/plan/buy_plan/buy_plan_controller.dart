@@ -1,4 +1,4 @@
-﻿import 'dart:convert';
+import 'dart:convert';
 
 import 'package:get/get.dart';
 import 'package:mine_lab/core/helper/string_format_helper.dart';
@@ -151,4 +151,3 @@ class BuyPlanController extends GetxController {
     update();
   }
 }
-

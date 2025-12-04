@@ -22,7 +22,7 @@
   "youHaveSelected": "لقد قمت باختيار",
   "coinSelection": "{coinTitle}",
   "coinSubtitleTemplate": " ({coinSubtitle}).",
-  "amountMustBeGreaterThanOne": "يجب أن يكون المبلغ أكبر من 1",
+  "amountMustBeGreaterThanZero": "يجب أن يكون المبلغ أكبر من 0",
   "sendAmountMsg": "يرجى إرسال المبلغ المطلوب إلى عنوان المحفظة أدناه، ثم الضغط على \"لقد قمت بالتحويل\".",
   "doubleCheckMsg": "تأكد من مطابقة العنوان والشبكة قبل الإرسال. المعاملات لا يمكن عكسها.",
   "iHaveTransferred": "لقد قمت بالتحويل",

@@ -15,8 +15,12 @@ class BottomSheetCloseButton extends StatelessWidget {
         width: 30,
         alignment: Alignment.center,
         padding: const EdgeInsets.all(Dimensions.space5),
-        decoration: BoxDecoration(color: iconColor?.withValues(alpha: .1) ?? MyColor.colorWhite.withValues(alpha: .1), shape: BoxShape.circle),
-        child: Icon(Icons.clear, color: iconColor ?? MyColor.colorWhite, size: 15),
+        decoration: BoxDecoration(
+            color: iconColor?.withValues(alpha: .1) ??
+                MyColor.colorWhite.withValues(alpha: .1),
+            shape: BoxShape.circle),
+        child:
+            Icon(Icons.clear, color: iconColor ?? MyColor.colorWhite, size: 15),
       ),
     );
   }

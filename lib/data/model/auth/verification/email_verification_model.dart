@@ -1,7 +1,12 @@
 import '../../global/meassage_model.dart';
 
 class EmailVerificationModel {
-  EmailVerificationModel({required int code, required String status, required String colorRedirectUrl, Message? message, Data? data}) {
+  EmailVerificationModel(
+      {required int code,
+      required String status,
+      required String colorRedirectUrl,
+      Message? message,
+      Data? data}) {
     _status = status;
     _message = message;
     _colorRedirectUrl = colorRedirectUrl;
@@ -12,7 +17,8 @@ class EmailVerificationModel {
     _code = json['code'] ?? 0;
     _colorRedirectUrl = json['colorRedirect_url'] ?? '';
     _status = json['status'] ?? 'null status';
-    _message = json['message'] != null ? Message.fromJson(json['message']) : null;
+    _message =
+        json['message'] != null ? Message.fromJson(json['message']) : null;
     _data = json['data'] != null ? Data.fromJson(json['data']) : null;
   }
 

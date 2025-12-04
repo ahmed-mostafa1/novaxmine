@@ -2,7 +2,9 @@ library;
 
 import 'package:flutter/material.dart';
 
-import 'src/core/auth_handler/auth_handler.dart' if (dart.library.js_interop) 'src/core/auth_handler/auth_handler_web.dart' as auth_code;
+import 'src/core/auth_handler/auth_handler.dart'
+    if (dart.library.js_interop) 'src/core/auth_handler/auth_handler_web.dart'
+    as auth_code;
 import 'src/core/linkedin_api_client.dart';
 import 'src/models/models.dart';
 import 'src/utils/extensions.dart';
@@ -31,7 +33,8 @@ final class SignInWithLinkedIn {
       appBar: appBar,
     );
 
-    if (redirectUrl != null && redirectUrl.getParamValue('state') == config.state) {
+    if (redirectUrl != null &&
+        redirectUrl.getParamValue('state') == config.state) {
       final authCode = redirectUrl.getParamValue('code');
       if (authCode.isNotEmpty) {
         return (authCode, null);

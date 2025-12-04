@@ -145,7 +145,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           RouteHelper.transactionScreen),
                                       child: Padding(
                                         padding: const EdgeInsets.symmetric(
-                                            vertical: 5, horizontal: 8), 
+                                            vertical: 5, horizontal: 8),
                                         child: Text(MyStrings.viewAll,
                                             style: interRegularSmall.copyWith(
                                                 color: MyColor.primaryColor)),

@@ -16,11 +16,21 @@ class CountryTextField extends StatelessWidget {
       onTap: press,
       child: Container(
         width: MediaQuery.of(context).size.width,
-        padding: const EdgeInsets.symmetric(vertical: Dimensions.space15, horizontal: Dimensions.space15),
-        decoration: BoxDecoration(color: MyColor.colorWhite, borderRadius: BorderRadius.circular(Dimensions.defaultRadius), border: Border.all(color: MyColor.textFieldBorderColor)),
+        padding: const EdgeInsets.symmetric(
+            vertical: Dimensions.space15, horizontal: Dimensions.space15),
+        decoration: BoxDecoration(
+            color: MyColor.colorWhite,
+            borderRadius: BorderRadius.circular(Dimensions.defaultRadius),
+            border: Border.all(color: MyColor.textFieldBorderColor)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [Text(text.tr, style: interRegularDefault.copyWith(color: MyColor.colorBlack, fontFamily: "Inter")), const Icon(Icons.expand_more_rounded, color: MyColor.hintTextColor, size: 20)],
+          children: [
+            Text(text.tr,
+                style: interRegularDefault.copyWith(
+                    color: MyColor.colorBlack, fontFamily: "Inter")),
+            const Icon(Icons.expand_more_rounded,
+                color: MyColor.hintTextColor, size: 20)
+          ],
         ),
       ),
     );

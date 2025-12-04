@@ -68,7 +68,9 @@ class _OutlinedTextFieldState extends State<OutlinedTextField> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        LabelText(text: widget.labelText.toString(), textColor: MyColor.labelTextColor),
+        LabelText(
+            text: widget.labelText.toString(),
+            textColor: MyColor.labelTextColor),
         const SizedBox(height: Dimensions.textToTextSpace),
         TextFormField(
           readOnly: widget.readOnly,
@@ -84,20 +86,29 @@ class _OutlinedTextFieldState extends State<OutlinedTextField> {
           keyboardType: widget.textInputType,
           obscureText: widget.isPassword ? obscureText : false,
           decoration: InputDecoration(
-              contentPadding: const EdgeInsets.only(top: 5, left: Dimensions.space15, right: Dimensions.space15, bottom: 5),
+              contentPadding: const EdgeInsets.only(
+                  top: 5,
+                  left: Dimensions.space15,
+                  right: Dimensions.space15,
+                  bottom: 5),
               hintText: widget.hintText,
-              hintStyle: interRegularSmall.copyWith(color: MyColor.hintTextColor),
+              hintStyle:
+                  interRegularSmall.copyWith(color: MyColor.hintTextColor),
               fillColor: MyColor.transparentColor,
               //filled: true,
-              border: const OutlineInputBorder(borderSide: BorderSide(color: MyColor.lineColor)),
-              focusedBorder: const OutlineInputBorder(borderSide: BorderSide(color: MyColor.primaryColor)),
-              enabledBorder: const OutlineInputBorder(borderSide: BorderSide(color: MyColor.lineColor))),
-          onFieldSubmitted: (text) => widget.nextFocus != null ? FocusScope.of(context).requestFocus(widget.nextFocus) : null,
+              border: const OutlineInputBorder(
+                  borderSide: BorderSide(color: MyColor.lineColor)),
+              focusedBorder: const OutlineInputBorder(
+                  borderSide: BorderSide(color: MyColor.primaryColor)),
+              enabledBorder: const OutlineInputBorder(
+                  borderSide: BorderSide(color: MyColor.lineColor))),
+          onFieldSubmitted: (text) => widget.nextFocus != null
+              ? FocusScope.of(context).requestFocus(widget.nextFocus)
+              : null,
           onChanged: (text) => widget.onChanged!(text),
           onTap: widget.onTap,
         ),
       ],
     );
   }
-
 }

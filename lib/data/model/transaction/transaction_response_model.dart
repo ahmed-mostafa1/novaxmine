@@ -17,7 +17,8 @@ class TransactionResponseModel {
     return TransactionResponseModel(
       remark: json['remark'],
       status: json['status'],
-      message: json['message'] != null ? Message.fromJson(json['message']) : null,
+      message:
+          json['message'] != null ? Message.fromJson(json['message']) : null,
       data: json['data'] != null ? Data.fromJson(json['data']) : null,
     );
   }
@@ -45,9 +46,16 @@ class Data {
 
   factory Data.fromJson(Map<String, dynamic> json) {
     return Data(
-      transactions: json['transactions'] != null ? Transactions.fromJson(json['transactions']) : null,
-      remarks: json['remarks'] != null ? (json['remarks'] as List).map((v) => Remarks.fromJson(v)).toList() : null,
-      currency: json["currencies"] == null ? [] : List<FilterCurrency>.from(json["currencies"]!.map((x) => FilterCurrency.fromJson(x))),
+      transactions: json['transactions'] != null
+          ? Transactions.fromJson(json['transactions'])
+          : null,
+      remarks: json['remarks'] != null
+          ? (json['remarks'] as List).map((v) => Remarks.fromJson(v)).toList()
+          : null,
+      currency: json["currencies"] == null
+          ? []
+          : List<FilterCurrency>.from(
+              json["currencies"]!.map((x) => FilterCurrency.fromJson(x))),
     );
   }
 
@@ -93,7 +101,11 @@ class Transactions {
 
   factory Transactions.fromJson(Map<String, dynamic> json) {
     return Transactions(
-      data: json['data'] != null ? (json['data'] as List).map((v) => TransactionData.fromJson(v)).toList() : null,
+      data: json['data'] != null
+          ? (json['data'] as List)
+              .map((v) => TransactionData.fromJson(v))
+              .toList()
+          : null,
       nextPageUrl: json['next_page_url'],
       path: json['path'],
     );

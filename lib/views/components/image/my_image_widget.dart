@@ -38,7 +38,9 @@ class MyImageWidget extends StatelessWidget {
           image: DecorationImage(
             image: imageProvider,
             fit: boxFit,
-            colorFilter: color != null ? ColorFilter.mode(color!, BlendMode.srcIn) : null,
+            colorFilter: color != null
+                ? ColorFilter.mode(color!, BlendMode.srcIn)
+                : null,
           ),
         ),
       ),
@@ -61,9 +63,11 @@ class MyImageWidget extends StatelessWidget {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(radius),
           child: isProfile
-              ? Image.asset(MyImages.avatar, fit: BoxFit.cover, height: height, width: width)
+              ? Image.asset(MyImages.avatar,
+                  fit: BoxFit.cover, height: height, width: width)
               : Center(
-                  child: Icon(Icons.image, color: MyColor.colorGrey.withValues(alpha: 0.5)),
+                  child: Icon(Icons.image,
+                      color: MyColor.colorGrey.withValues(alpha: 0.5)),
                 ),
         ),
       ),

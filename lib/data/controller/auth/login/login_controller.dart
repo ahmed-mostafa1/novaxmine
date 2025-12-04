@@ -26,20 +26,28 @@ class LoginController extends GetxController {
     isSubmitLoading = true;
     update();
 
-    ResponseModel model = await loginRepo.loginUser(usernameController.text.toString(), passwordController.text.toString());
+    ResponseModel model = await loginRepo.loginUser(
+        usernameController.text.toString(), passwordController.text.toString());
 
     if (model.statusCode == 200) {
-      LoginResponseModel loginModel = LoginResponseModel.fromJson(jsonDecode(model.responseJson));
-      if (loginModel.status.toString().toLowerCase() == MyStrings.success.toLowerCase()) {
+      LoginResponseModel loginModel =
+          LoginResponseModel.fromJson(jsonDecode(model.responseJson));
+      if (loginModel.status.toString().toLowerCase() ==
+          MyStrings.success.toLowerCase()) {
         String accessToken = loginModel.data?.accessToken ?? "";
         String tokenType = loginModel.data?.tokenType ?? "";
         GlobalUser? user = loginModel.data?.user;
-        await RouteHelper.checkUserStatusAndGoToNextStep(user, accessToken: accessToken, tokenType: tokenType, isRemember: remember);
+        await RouteHelper.checkUserStatusAndGoToNextStep(user,
+            accessToken: accessToken,
+            tokenType: tokenType,
+            isRemember: remember);
         if (remember) {
           changeRememberMe();
         }
       } else {
-        CustomSnackBar.error(errorList: loginModel.message?.error ?? [MyStrings.loginFailedTryAgain]);
+        CustomSnackBar.error(
+            errorList:
+                loginModel.message?.error ?? [MyStrings.loginFailedTryAgain]);
       }
     } else {
       CustomSnackBar.error(errorList: [model.message]);

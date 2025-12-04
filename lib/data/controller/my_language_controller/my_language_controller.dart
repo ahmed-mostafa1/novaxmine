@@ -18,7 +18,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 class MyLanguageController extends GetxController {
   GeneralSettingRepo repo;
   LocalizationController localizationController;
-  MyLanguageController({required this.repo, required this.localizationController});
+  MyLanguageController(
+      {required this.repo, required this.localizationController});
 
   bool isLoading = true;
   String languageImagePath = "";
@@ -28,22 +29,30 @@ class MyLanguageController extends GetxController {
     langList.clear();
     isLoading = true;
     SharedPreferences pref = repo.apiClient.sharedPreferences;
-    String languageString = pref.getString(SharedPreferenceHelper.languageListKey) ?? '';
+    String languageString =
+        pref.getString(SharedPreferenceHelper.languageListKey) ?? '';
     var language = jsonDecode(languageString);
 
-    MainLanguageResponseModel model = MainLanguageResponseModel.fromJson(language);
+    MainLanguageResponseModel model =
+        MainLanguageResponseModel.fromJson(language);
     languageImagePath = "${UrlContainer.baseUrl}${model.data?.imagePath ?? ''}";
     if (model.data?.languages != null && model.data!.languages!.isNotEmpty) {
       for (var listItem in model.data!.languages!) {
-        MyLanguageModel model = MyLanguageModel(languageCode: listItem.code ?? '', countryCode: listItem.name ?? '', languageName: listItem.name ?? '', imageUrl: listItem.image ?? '');
+        MyLanguageModel model = MyLanguageModel(
+            languageCode: listItem.code ?? '',
+            countryCode: listItem.name ?? '',
+            languageName: listItem.name ?? '',
+            imageUrl: listItem.image ?? '');
         langList.add(model);
       }
     }
 
-    String languageCode = pref.getString(SharedPreferenceHelper.languageCode) ?? 'en';
+    String languageCode =
+        pref.getString(SharedPreferenceHelper.languageCode) ?? 'en';
 
     if (langList.isNotEmpty) {
-      int index = langList.indexWhere((element) => element.languageCode.toLowerCase() == languageCode.toLowerCase());
+      int index = langList.indexWhere((element) =>
+          element.languageCode.toLowerCase() == languageCode.toLowerCase());
 
       changeSelectedIndex(index);
     }
@@ -55,23 +64,27 @@ class MyLanguageController extends GetxController {
   String selectedLangCode = 'en';
 
   bool isChangeLangLoading = false;
-  void changeLanguage(BuildContext context,int index) async {
+  void changeLanguage(BuildContext context, int index) async {
     isChangeLangLoading = true;
     update();
 
     MyLanguageModel selectedLangModel = langList[index];
     String languageCode = selectedLangModel.languageCode;
     try {
-      ResponseModel response = await repo.getLanguage(context,languageCode);
+      ResponseModel response = await repo.getLanguage(context, languageCode);
 
       if (response.statusCode == 200) {
         var resJson = jsonDecode(response.responseJson);
-        await repo.apiClient.sharedPreferences.setString(SharedPreferenceHelper.languageListKey, response.responseJson);
+        await repo.apiClient.sharedPreferences.setString(
+            SharedPreferenceHelper.languageListKey, response.responseJson);
 
         Locale local = Locale(selectedLangModel.languageCode, 'US');
-        localizationController.setLanguage(local, "$languageImagePath/${langList[index].imageUrl}");
+        localizationController.setLanguage(
+            local, "$languageImagePath/${langList[index].imageUrl}");
 
-        var value = resJson['data']['file'].toString() == '[]' ? {} : resJson['data']['file'];
+        var value = resJson['data']['file'].toString() == '[]'
+            ? {}
+            : resJson['data']['file'];
         Map<String, String> json = {};
         value.forEach((key, value) {
           json[key] = value.toString();

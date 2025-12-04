@@ -1,4 +1,4 @@
-﻿import 'dart:convert';
+import 'dart:convert';
 
 import 'package:get/get.dart';
 import 'package:mine_lab/l10n/app_localizations.dart';
@@ -87,4 +87,3 @@ class ReferralLogController extends GetxController {
         : false;
   }
 }
-

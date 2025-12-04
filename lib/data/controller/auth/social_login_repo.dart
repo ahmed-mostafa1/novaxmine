@@ -27,7 +27,8 @@ class SocialLoginRepo {
     }
 
     String url = '${UrlContainer.baseUrl}${UrlContainer.socialLoginEndPoint}';
-    ResponseModel model = await apiClient.request(url, Method.postMethod, map, passHeader: false);
+    ResponseModel model =
+        await apiClient.request(url, Method.postMethod, map, passHeader: false);
     return model;
   }
 }

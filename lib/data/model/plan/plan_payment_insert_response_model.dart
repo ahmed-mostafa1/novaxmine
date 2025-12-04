@@ -16,7 +16,8 @@ class PlanPaymentInsertResponseModel {
   PlanPaymentInsertResponseModel.fromJson(dynamic json) {
     _remark = json['remark'];
     _status = json['status'];
-    _message = json['message'] != null ? Message.fromJson(json['message']) : null;
+    _message =
+        json['message'] != null ? Message.fromJson(json['message']) : null;
     _data = json['data'] != null ? Data.fromJson(json['data']) : null;
   }
   String? _remark;
@@ -53,7 +54,8 @@ class Data {
   }
 
   Data.fromJson(dynamic json) {
-    _payment = json['payment'] != null ? Payment.fromJson(json['payment']) : null;
+    _payment =
+        json['payment'] != null ? Payment.fromJson(json['payment']) : null;
     _redirectUrl = json['redirect_url'];
   }
   Payment? _payment;
@@ -108,14 +110,18 @@ class Payment {
   Payment.fromJson(dynamic json) {
     _orderId = json['order_id'] != null ? json['order_id'].toString() : '';
     _userId = json['user_id'] != null ? json['user_idString'].toString() : '';
-    _methodCode = json['method_code'] != null ? json['method_code'].toString() : '0';
-    _methodCurrency = json['method_currency'] != null ? json['method_currency'].toString() : '0';
+    _methodCode =
+        json['method_code'] != null ? json['method_code'].toString() : '0';
+    _methodCurrency = json['method_currency'] != null
+        ? json['method_currency'].toString()
+        : '0';
     _amount = json['amount'] != null ? json['amount'].toString() : '';
     _charge = json['charge'] != null ? json['charge'].toString() : '';
     _rate = json['rate'] != null ? json['rate'].toString() : '';
     _finalAmo = json['final_amo'] != null ? json['final_amo'].toString() : '';
     _btcAmo = json['btc_amo'] != null ? json['btc_amo'].toString() : '';
-    _btcWallet = json['btc_wallet'] != null ? json['btc_wallet'].toString() : '';
+    _btcWallet =
+        json['btc_wallet'] != null ? json['btc_wallet'].toString() : '';
     _trx = json['trx'] != null ? json['trx'].toString() : '';
     _updatedAt = json['updated_at'];
     _createdAt = json['created_at'];

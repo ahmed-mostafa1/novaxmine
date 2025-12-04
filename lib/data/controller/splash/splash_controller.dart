@@ -1,4 +1,4 @@
-﻿import 'dart:convert';
+import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:mine_lab/core/helper/share_preference_helper.dart';
@@ -180,4 +180,3 @@ class SplashController extends GetxController {
         .setString(SharedPreferenceHelper.languageListKey, languageJson);
   }
 }
-

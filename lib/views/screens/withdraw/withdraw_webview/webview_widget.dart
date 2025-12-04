@@ -69,13 +69,10 @@ class _MyWebViewWidgetState extends State<MyWebViewWidget> {
 
             final currentUrl = url.toString();
 
-            if (currentUrl ==
-                '${UrlContainer.baseUrl}user/mining-tracks' ||
-                currentUrl ==
-                    '${UrlContainer.baseUrl}user/deposit/history') {
+            if (currentUrl == '${UrlContainer.baseUrl}user/mining-tracks' ||
+                currentUrl == '${UrlContainer.baseUrl}user/deposit/history') {
               Get.offAndToNamed(RouteHelper.miningTrackScreen);
-            } else if (currentUrl ==
-                '${UrlContainer.baseUrl}/user/dashboard' ||
+            } else if (currentUrl == '${UrlContainer.baseUrl}/user/dashboard' ||
                 currentUrl == '${UrlContainer.baseUrl}user/deposit') {
               Get.back();
               // هنا استبدلنا MyStrings.requestFail بالترجمة من l10n
@@ -122,11 +119,9 @@ class _MyWebViewWidgetState extends State<MyWebViewWidget> {
               this.url = url.toString();
             });
           },
-          onReceivedError:
-              (controller, resourceRequest, resourceError) {},
+          onReceivedError: (controller, resourceRequest, resourceError) {},
           onProgressChanged: (controller, progress) {},
-          onUpdateVisitedHistory:
-              (controller, url, androidIsReload) {
+          onUpdateVisitedHistory: (controller, url, androidIsReload) {
             setState(() {
               this.url = url.toString();
             });

@@ -12,7 +12,8 @@ class ProfileResponseModel {
   ProfileResponseModel.fromJson(dynamic json) {
     remark = json['remark'];
     status = json['status'];
-    message = json['message'] != null ? Message.fromJson(json['message']) : null;
+    message =
+        json['message'] != null ? Message.fromJson(json['message']) : null;
     data = json['data'] != null ? Data.fromJson(json['data']) : null;
   }
   String? remark;

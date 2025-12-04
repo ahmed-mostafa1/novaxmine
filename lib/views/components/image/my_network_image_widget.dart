@@ -43,7 +43,8 @@ class MyNetworkImageWidget extends StatelessWidget {
               height: height,
               width: width,
               child: ClipRRect(
-                  borderRadius: borderRadius ?? BorderRadius.circular(Dimensions.defaultRadius * 5),
+                  borderRadius: borderRadius ??
+                      BorderRadius.circular(Dimensions.defaultRadius * 5),
                   child: Center(
                     child: SpinKitFadingCube(
                       color: MyColor.primaryColor.withValues(alpha: 0.3),
@@ -55,7 +56,8 @@ class MyNetworkImageWidget extends StatelessWidget {
               height: height,
               width: width,
               child: ClipRRect(
-                borderRadius: borderRadius ?? BorderRadius.circular(Dimensions.defaultRadius * 5),
+                borderRadius: borderRadius ??
+                    BorderRadius.circular(Dimensions.defaultRadius * 5),
                 child: Center(
                   child: Icon(
                     Icons.image,
@@ -70,7 +72,8 @@ class MyNetworkImageWidget extends StatelessWidget {
               height: height,
               width: width,
               child: ClipRRect(
-                borderRadius: borderRadius ?? BorderRadius.circular(Dimensions.defaultRadius * 5),
+                borderRadius: borderRadius ??
+                    BorderRadius.circular(Dimensions.defaultRadius * 5),
                 child: Center(
                   child: Icon(
                     Icons.image,

@@ -5,7 +5,8 @@ import 'package:mine_lab/core/utils/util.dart';
 import '../global/meassage_model.dart';
 
 class KycResponseModel {
-  KycResponseModel({String? remark, String? status, Message? message, Data? data}) {
+  KycResponseModel(
+      {String? remark, String? status, Message? message, Data? data}) {
     _remark = remark;
     _status = status;
     _message = message;
@@ -15,7 +16,8 @@ class KycResponseModel {
   KycResponseModel.fromJson(dynamic json) {
     _remark = json['remark'];
     _status = json['status'] != null ? json['status'].toString() : '';
-    _message = json['message'] != null ? Message.fromJson(json['message']) : null;
+    _message =
+        json['message'] != null ? Message.fromJson(json['message']) : null;
     _data = json['data'] != null ? Data.fromJson(json['data']) : null;
   }
 
@@ -43,7 +45,10 @@ class Data {
 
   Data.fromJson(dynamic json) {
     _form = json['form'] != null ? GlobalKYCForm.fromJson(json['form']) : null;
-    _kycPendingData = json['kyc_data'] == null ? [] : List<KycPendingData>.from(json["kyc_data"]!.map((x) => KycPendingData.fromJson(x)));
+    _kycPendingData = json['kyc_data'] == null
+        ? []
+        : List<KycPendingData>.from(
+            json["kyc_data"]!.map((x) => KycPendingData.fromJson(x)));
     _path = json["image_path"];
   }
 
@@ -69,7 +74,15 @@ class GlobalKYCForm {
     try {
       List<GlobalFormModel>? list = map.entries
           .map(
-            (e) => GlobalFormModel(e.value['name'], e.value['label'], e.value['is_required'], e.value['instruction'], e.value['extensions'], (e.value['options'] as List).map((e) => e as String).toList(), e.value['type'], ''),
+            (e) => GlobalFormModel(
+                e.value['name'],
+                e.value['label'],
+                e.value['is_required'],
+                e.value['instruction'],
+                e.value['extensions'],
+                (e.value['options'] as List).map((e) => e as String).toList(),
+                e.value['type'],
+                ''),
           )
           .toList();
 
@@ -99,7 +112,9 @@ class GlobalFormModel {
   File? imageFile;
   List<String>? cbSelected;
   // Added an optional parameter to initialize the textEditingController
-  GlobalFormModel(this.name, this.label, this.isRequired, this.instruction, this.extensions, this.options, this.type, this.selectedValue, {this.cbSelected, this.imageFile, this.textEditingController}) {
+  GlobalFormModel(this.name, this.label, this.isRequired, this.instruction,
+      this.extensions, this.options, this.type, this.selectedValue,
+      {this.cbSelected, this.imageFile, this.textEditingController}) {
     // Initialize textEditingController if not provided
     textEditingController ??= TextEditingController();
   }

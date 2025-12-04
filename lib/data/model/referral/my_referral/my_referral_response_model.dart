@@ -1,7 +1,8 @@
 import '../../auth/registration_response_model.dart';
 
 class MyReferralResponseModel {
-  MyReferralResponseModel({String? remark, String? status, Message? message, Data? data}) {
+  MyReferralResponseModel(
+      {String? remark, String? status, Message? message, Data? data}) {
     _remark = remark;
     _status = status;
     _message = message;
@@ -11,7 +12,8 @@ class MyReferralResponseModel {
   MyReferralResponseModel.fromJson(dynamic json) {
     _remark = json['remark'];
     _status = json['status'];
-    _message = json['message'] != null ? Message.fromJson(json['message']) : null;
+    _message =
+        json['message'] != null ? Message.fromJson(json['message']) : null;
     _data = json['data'] != null ? Data.fromJson(json['data']) : null;
   }
   String? _remark;

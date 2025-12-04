@@ -8,14 +8,17 @@ class UserInfoCard extends StatelessWidget {
   final String title;
   final String data;
 
-  const UserInfoCard({super.key, required this.icon, required this.title, required this.data});
+  const UserInfoCard(
+      {super.key, required this.icon, required this.title, required this.data});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      padding: const EdgeInsets.symmetric(vertical: Dimensions.space10 + 2, horizontal: Dimensions.space15),
-      decoration: BoxDecoration(color: MyColor.colorWhite, borderRadius: BorderRadius.circular(5)),
+      padding: const EdgeInsets.symmetric(
+          vertical: Dimensions.space10 + 2, horizontal: Dimensions.space15),
+      decoration: BoxDecoration(
+          color: MyColor.colorWhite, borderRadius: BorderRadius.circular(5)),
       child: IntrinsicHeight(
         child: Row(
           children: [
@@ -26,7 +29,9 @@ class UserInfoCard extends StatelessWidget {
               width: 16,
             ),
             const SizedBox(width: Dimensions.space15),
-            const SizedBox(height: 25, child: VerticalDivider(color: MyColor.lineColor, thickness: 1)),
+            const SizedBox(
+                height: 25,
+                child: VerticalDivider(color: MyColor.lineColor, thickness: 1)),
             const SizedBox(width: Dimensions.space15),
             Expanded(
               child: Column(
@@ -34,13 +39,16 @@ class UserInfoCard extends StatelessWidget {
                 children: [
                   Text(
                     title,
-                    style: interRegularSmall.copyWith(color: MyColor.labelTextColor, fontWeight: FontWeight.w500),
+                    style: interRegularSmall.copyWith(
+                        color: MyColor.labelTextColor,
+                        fontWeight: FontWeight.w500),
                   ),
                   const SizedBox(height: Dimensions.space5),
                   Text(
                     data,
                     overflow: TextOverflow.ellipsis,
-                    style: interRegularDefault.copyWith(color: MyColor.colorBlack),
+                    style:
+                        interRegularDefault.copyWith(color: MyColor.colorBlack),
                   ),
                 ],
               ),

@@ -6,7 +6,8 @@ import 'package:mine_lab/data/model/kyc/kyc_response_model.dart';
 import '../global/meassage_model.dart';
 
 class WithdrawRequestResponseModel {
-  WithdrawRequestResponseModel({String? remark, String? status, Message? message, Data? data}) {
+  WithdrawRequestResponseModel(
+      {String? remark, String? status, Message? message, Data? data}) {
     _remark = remark;
     _status = status;
     _message = message;
@@ -16,7 +17,8 @@ class WithdrawRequestResponseModel {
   WithdrawRequestResponseModel.fromJson(dynamic json) {
     _remark = json['remark'];
     _status = json['status'];
-    _message = json['message'] != null ? Message.fromJson(json['message']) : null;
+    _message =
+        json['message'] != null ? Message.fromJson(json['message']) : null;
     _data = json['data'] != null ? Data.fromJson(json['data']) : null;
   }
 
@@ -53,8 +55,12 @@ class Data {
 
   Data.fromJson(dynamic json) {
     _trx = json['trx'];
-    _form = json['form'] != null && json['form'].toString() != "[]" ? GlobalKYCForm.fromJson(json['form']) : null;
-    _withdrawData = json['withdraw_data'] != null ? WithdrawData.fromJson(json['withdraw_data']) : null;
+    _form = json['form'] != null && json['form'].toString() != "[]"
+        ? GlobalKYCForm.fromJson(json['form'])
+        : null;
+    _withdrawData = json['withdraw_data'] != null
+        ? WithdrawData.fromJson(json['withdraw_data'])
+        : null;
   }
 
   String? _trx;
@@ -90,7 +96,15 @@ class Form {
     try {
       List<FormModel>? list = map.entries
           .map(
-            (e) => FormModel(e.value['name'], e.value['label'], e.value['is_required'], e.value['instruction'], e.value['extensions'], (e.value['options'] as List).map((e) => e as String).toList(), e.value['type'], ''),
+            (e) => FormModel(
+                e.value['name'],
+                e.value['label'],
+                e.value['is_required'],
+                e.value['instruction'],
+                e.value['extensions'],
+                (e.value['options'] as List).map((e) => e as String).toList(),
+                e.value['type'],
+                ''),
           )
           .toList();
       if (list.isNotEmpty) {
@@ -119,7 +133,9 @@ class FormModel {
   File? file;
   List<String>? cbSelected;
   // Added an optional parameter to initialize the textEditingController
-  FormModel(this.name, this.label, this.isRequired, this.instruction, this.extensions, this.options, this.type, this.selectedValue, {this.cbSelected, this.file, this.textEditingController}) {
+  FormModel(this.name, this.label, this.isRequired, this.instruction,
+      this.extensions, this.options, this.type, this.selectedValue,
+      {this.cbSelected, this.file, this.textEditingController}) {
     // Initialize textEditingController if not provided
     textEditingController ??= TextEditingController();
   }
@@ -161,8 +177,10 @@ class WithdrawData {
     _currency = json['currency'].toString();
     _rate = json['rate'] != null ? json['rate'].toString() : '1';
     _charge = json['charge'] != null ? json['charge'].toString() : '0';
-    _finalAmount = json['final_amount'] != null ? json['final_amount'].toString() : '';
-    _afterCharge = json['after_charge'] != null ? json['after_charge'].toString() : '';
+    _finalAmount =
+        json['final_amount'] != null ? json['final_amount'].toString() : '';
+    _afterCharge =
+        json['after_charge'] != null ? json['after_charge'].toString() : '';
     _trx = json['trx'].toString();
     _updatedAt = json['updated_at'];
     _createdAt = json['created_at'];

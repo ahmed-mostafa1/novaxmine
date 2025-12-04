@@ -15,7 +15,8 @@ class TransactionRepo {
     String currency = "",
     String walletType = "",
   }) async {
-    if (type.toLowerCase() == "all" || (type.toLowerCase() != 'plus' && type.toLowerCase() != 'minus')) {
+    if (type.toLowerCase() == "all" ||
+        (type.toLowerCase() != 'plus' && type.toLowerCase() != 'minus')) {
       type = '';
     }
 
@@ -39,8 +40,10 @@ class TransactionRepo {
                   : '';
     }
 
-    String url = '${UrlContainer.baseUrl}${UrlContainer.transactionEndpoint}?page=$page&type=$type&remark=$remark&search=$searchText&currency=$currency&wallet_type=$walletType';
-    ResponseModel responseModel = await apiClient.request(url, Method.getMethod, null, passHeader: true);
+    String url =
+        '${UrlContainer.baseUrl}${UrlContainer.transactionEndpoint}?page=$page&type=$type&remark=$remark&search=$searchText&currency=$currency&wallet_type=$walletType';
+    ResponseModel responseModel =
+        await apiClient.request(url, Method.getMethod, null, passHeader: true);
     return responseModel;
   }
 }

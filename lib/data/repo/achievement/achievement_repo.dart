@@ -9,6 +9,8 @@ class AchievementRepo {
   AchievementRepo({required this.apiClient});
 
   Future<ResponseModel> getAchievement() async {
-    return await apiClient.request(UrlContainer.achievementEndPoint, Method.getMethod, null, passHeader: true);
+    return await apiClient.request(
+        UrlContainer.achievementEndPoint, Method.getMethod, null,
+        passHeader: true);
   }
 }

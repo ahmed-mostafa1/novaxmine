@@ -5,7 +5,14 @@ import 'package:mine_lab/core/utils/my_color.dart';
 import 'package:mine_lab/core/utils/styles.dart';
 
 class RoundedBorderContainer extends StatelessWidget {
-  const RoundedBorderContainer({super.key, required this.text, this.borderColor = MyColor.primaryColor, this.bgColor = MyColor.primaryColor, this.horizontalPadding = 12, this.verticalPadding = 5, this.textColor = MyColor.primaryColor});
+  const RoundedBorderContainer(
+      {super.key,
+      required this.text,
+      this.borderColor = MyColor.primaryColor,
+      this.bgColor = MyColor.primaryColor,
+      this.horizontalPadding = 12,
+      this.verticalPadding = 5,
+      this.textColor = MyColor.primaryColor});
 
   final Color bgColor, textColor, borderColor;
   final double horizontalPadding, verticalPadding;
@@ -14,9 +21,15 @@ class RoundedBorderContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: horizontalPadding, vertical: verticalPadding),
-      decoration: BoxDecoration(color: bgColor, borderRadius: BorderRadius.circular(4), border: Border.all(color: borderColor, width: 1.5)),
-      child: Text(text.tr, style: interBoldDefault.copyWith(color: textColor, fontSize: Dimensions.fontSmall)),
+      padding: EdgeInsets.symmetric(
+          horizontal: horizontalPadding, vertical: verticalPadding),
+      decoration: BoxDecoration(
+          color: bgColor,
+          borderRadius: BorderRadius.circular(4),
+          border: Border.all(color: borderColor, width: 1.5)),
+      child: Text(text.tr,
+          style: interBoldDefault.copyWith(
+              color: textColor, fontSize: Dimensions.fontSmall)),
     );
   }
 }

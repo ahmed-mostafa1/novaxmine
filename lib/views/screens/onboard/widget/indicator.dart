@@ -9,13 +9,19 @@ class AnimatedIndicator extends StatefulWidget {
   final double size;
   final VoidCallback callback;
   final double indicatorValue;
-  const AnimatedIndicator({super.key, required this.duration, required this.size, required this.callback, this.indicatorValue = 100 / 3});
+  const AnimatedIndicator(
+      {super.key,
+      required this.duration,
+      required this.size,
+      required this.callback,
+      this.indicatorValue = 100 / 3});
 
   @override
   State<AnimatedIndicator> createState() => _AnimatedIndicatorState();
 }
 
-class _AnimatedIndicatorState extends State<AnimatedIndicator> with TickerProviderStateMixin {
+class _AnimatedIndicatorState extends State<AnimatedIndicator>
+    with TickerProviderStateMixin {
   late Animation<double> animation;
   late AnimationController controller;
 
@@ -47,7 +53,9 @@ class _AnimatedIndicatorState extends State<AnimatedIndicator> with TickerProvid
     return AnimatedBuilder(
         animation: animation,
         builder: (context, child) {
-          return CustomPaint(size: Size(widget.size, widget.size), painter: ProgressPainter(widget.indicatorValue));
+          return CustomPaint(
+              size: Size(widget.size, widget.size),
+              painter: ProgressPainter(widget.indicatorValue));
         });
   }
 }
@@ -83,9 +91,11 @@ class ProgressPainter extends CustomPainter {
     final centerOffset = Offset(centerX, centerY);
     final double radius = min(size.width, size.height) / 2;
 
-    canvas.drawArc(Rect.fromCircle(center: centerOffset, radius: radius), startRadian, sweepRadian, false, linePaint);
+    canvas.drawArc(Rect.fromCircle(center: centerOffset, radius: radius),
+        startRadian, sweepRadian, false, linePaint);
 
-    final x = radius * (1 + sin(sweepRadian)), y = radius * (1 - cos(sweepRadian));
+    final x = radius * (1 + sin(sweepRadian)),
+        y = radius * (1 - cos(sweepRadian));
     final circleOffset = Offset(x, y);
     canvas.drawCircle(circleOffset, 5, circlePaint);
   }

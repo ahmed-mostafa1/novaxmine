@@ -1,4 +1,4 @@
-﻿import 'dart:async';
+import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
@@ -131,4 +131,3 @@ class EmailVerificationController extends GetxController {
     update();
   }
 }
-

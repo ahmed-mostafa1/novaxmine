@@ -20,7 +20,7 @@
   "youHaveSelected": "You have selected",
   "coinSelection": "{coinTitle}",
   "coinSubtitleTemplate": " ({coinSubtitle}).",
-  "amountMustBeGreaterThanOne": "Amount must be greater than 1",
+  "amountMustBeGreaterThanZero": "Amount must be greater than 0",
   "sendAmountMsg": "Please send the desired amount to the wallet address below, then click \"I Have Transferred\".",
   "doubleCheckMsg": "Make sure to double-check the address and network before sending. Transactions cannot be reversed.",
   "iHaveTransferred": "I Have Transferred",

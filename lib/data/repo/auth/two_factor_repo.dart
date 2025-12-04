@@ -11,7 +11,8 @@ class TwoFactorRepo {
     final map = {'code': code};
 
     String url = '${UrlContainer.baseUrl}${UrlContainer.verify2FAUrl}';
-    ResponseModel responseModel = await apiClient.request(url, Method.postMethod, map, passHeader: true);
+    ResponseModel responseModel =
+        await apiClient.request(url, Method.postMethod, map, passHeader: true);
 
     return responseModel;
   }
@@ -23,7 +24,8 @@ class TwoFactorRepo {
     };
 
     String url = '${UrlContainer.baseUrl}${UrlContainer.twoFactorEnable}';
-    ResponseModel responseModel = await apiClient.request(url, Method.postMethod, map, passHeader: true);
+    ResponseModel responseModel =
+        await apiClient.request(url, Method.postMethod, map, passHeader: true);
 
     return responseModel;
   }
@@ -34,14 +36,16 @@ class TwoFactorRepo {
     };
 
     String url = '${UrlContainer.baseUrl}${UrlContainer.twoFactorDisable}';
-    ResponseModel responseModel = await apiClient.request(url, Method.postMethod, map, passHeader: true);
+    ResponseModel responseModel =
+        await apiClient.request(url, Method.postMethod, map, passHeader: true);
 
     return responseModel;
   }
 
   Future<ResponseModel> get2FaData() async {
     String url = '${UrlContainer.baseUrl}${UrlContainer.twoFactor}';
-    ResponseModel responseModel = await apiClient.request(url, Method.getMethod, null, passHeader: true);
+    ResponseModel responseModel =
+        await apiClient.request(url, Method.getMethod, null, passHeader: true);
 
     return responseModel;
   }

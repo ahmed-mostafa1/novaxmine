@@ -6,9 +6,11 @@ import 'dart:convert';
 
 import 'package:mine_lab/data/model/auth/registration_response_model.dart';
 
-PrivacyResponseModel privacyResponseModelFromJson(String str) => PrivacyResponseModel.fromJson(json.decode(str));
+PrivacyResponseModel privacyResponseModelFromJson(String str) =>
+    PrivacyResponseModel.fromJson(json.decode(str));
 
-String privacyResponseModelToJson(PrivacyResponseModel data) => json.encode(data.toJson());
+String privacyResponseModelToJson(PrivacyResponseModel data) =>
+    json.encode(data.toJson());
 
 class PrivacyResponseModel {
   String? remark;
@@ -23,10 +25,12 @@ class PrivacyResponseModel {
     this.data,
   });
 
-  factory PrivacyResponseModel.fromJson(Map<String, dynamic> json) => PrivacyResponseModel(
+  factory PrivacyResponseModel.fromJson(Map<String, dynamic> json) =>
+      PrivacyResponseModel(
         remark: json["remark"],
         status: json["status"],
-        message: json["message"] == null ? null : Message.fromJson(json["message"]),
+        message:
+            json["message"] == null ? null : Message.fromJson(json["message"]),
         data: json["data"] == null ? null : Data.fromJson(json["data"]),
       );
 
@@ -46,11 +50,16 @@ class Data {
   });
 
   factory Data.fromJson(Map<String, dynamic> json) => Data(
-        policies: json["policies"] == null ? [] : List<Policy>.from(json["policies"]!.map((x) => Policy.fromJson(x))),
+        policies: json["policies"] == null
+            ? []
+            : List<Policy>.from(
+                json["policies"]!.map((x) => Policy.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
-        "policies": policies == null ? [] : List<dynamic>.from(policies!.map((x) => x.toJson())),
+        "policies": policies == null
+            ? []
+            : List<dynamic>.from(policies!.map((x) => x.toJson())),
       };
 }
 
@@ -79,11 +88,17 @@ class Policy {
         id: json["id"],
         dataKeys: json["data_keys"],
         tempname: json["tempname"],
-        dataValues: json["data_values"] == null ? null : DataValues.fromJson(json["data_values"]),
+        dataValues: json["data_values"] == null
+            ? null
+            : DataValues.fromJson(json["data_values"]),
         seoContent: json["seo_content"],
         slug: json["slug"],
-        createdAt: json["created_at"] == null ? null : DateTime.parse(json["created_at"]),
-        updatedAt: json["updated_at"] == null ? null : DateTime.parse(json["updated_at"]),
+        createdAt: json["created_at"] == null
+            ? null
+            : DateTime.parse(json["created_at"]),
+        updatedAt: json["updated_at"] == null
+            ? null
+            : DateTime.parse(json["updated_at"]),
       );
 
   Map<String, dynamic> toJson() => {

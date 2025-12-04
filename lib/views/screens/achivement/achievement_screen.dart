@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mine_lab/core/helper/share_preference_helper.dart';
 import 'package:mine_lab/core/helper/string_format_helper.dart';
@@ -248,4 +248,3 @@ class _AchievementScreenState extends State<AchievementScreen> {
     );
   }
 }
-

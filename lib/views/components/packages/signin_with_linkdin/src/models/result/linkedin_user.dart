@@ -44,7 +44,9 @@ class LinkedInUser extends Equatable {
       sub: json['sub'] as String?,
       emailVerified: json['email_verified'] as bool?,
       name: json['name'] as String?,
-      locale: json['locale'] == null ? null : LinkedInLocale.fromJson(json['locale'] as Map<String, dynamic>),
+      locale: json['locale'] == null
+          ? null
+          : LinkedInLocale.fromJson(json['locale'] as Map<String, dynamic>),
       givenName: json['given_name'] as String?,
       familyName: json['family_name'] as String?,
       email: json['email'] as String?,

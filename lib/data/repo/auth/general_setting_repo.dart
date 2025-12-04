@@ -1,4 +1,4 @@
-﻿import 'dart:convert';
+import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:mine_lab/core/helper/share_preference_helper.dart';
@@ -51,4 +51,3 @@ class GeneralSettingRepo {
     }
   }
 }
-

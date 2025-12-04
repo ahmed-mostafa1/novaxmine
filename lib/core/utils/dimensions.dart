@@ -48,12 +48,16 @@ class Dimensions {
   static const double largeRadius = 12;
   static const double mediumRadius = 8;
 
-  static const EdgeInsets screenPaddingHV = EdgeInsets.symmetric(horizontal: space15, vertical: space20);
+  static const EdgeInsets screenPaddingHV =
+      EdgeInsets.symmetric(horizontal: space15, vertical: space20);
   static const EdgeInsets onBoardPadding = EdgeInsets.all(40);
 
-  static const EdgeInsets cardPaddingHV = EdgeInsets.symmetric(horizontal: space15, vertical: 12);
+  static const EdgeInsets cardPaddingHV =
+      EdgeInsets.symmetric(horizontal: space15, vertical: 12);
   static const double defaultRadius = 5;
   static const double textToTextSpace = 8;
-  static const EdgeInsets screenPadding = EdgeInsets.symmetric(horizontal: horizontalScreenPadding, vertical: verticalScreenPadding);
-  static const EdgeInsets defaultPaddingHV = EdgeInsets.symmetric(vertical: space20, horizontal: space15);
+  static const EdgeInsets screenPadding = EdgeInsets.symmetric(
+      horizontal: horizontalScreenPadding, vertical: verticalScreenPadding);
+  static const EdgeInsets defaultPaddingHV =
+      EdgeInsets.symmetric(vertical: space20, horizontal: space15);
 }

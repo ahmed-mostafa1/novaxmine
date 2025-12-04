@@ -6,9 +6,11 @@ import 'dart:convert';
 
 import 'package:mine_lab/data/model/auth/login/login_response_model.dart';
 
-GeneralSettingResponseModel generalSettingResponseModelFromJson(String str) => GeneralSettingResponseModel.fromJson(json.decode(str));
+GeneralSettingResponseModel generalSettingResponseModelFromJson(String str) =>
+    GeneralSettingResponseModel.fromJson(json.decode(str));
 
-String generalSettingResponseModelToJson(GeneralSettingResponseModel data) => json.encode(data.toJson());
+String generalSettingResponseModelToJson(GeneralSettingResponseModel data) =>
+    json.encode(data.toJson());
 
 class GeneralSettingResponseModel {
   String? remark;
@@ -23,10 +25,12 @@ class GeneralSettingResponseModel {
     this.data,
   });
 
-  factory GeneralSettingResponseModel.fromJson(Map<String, dynamic> json) => GeneralSettingResponseModel(
+  factory GeneralSettingResponseModel.fromJson(Map<String, dynamic> json) =>
+      GeneralSettingResponseModel(
         remark: json["remark"],
         status: json["status"],
-        message: json["message"] == null ? null : Message.fromJson(json["message"]),
+        message:
+            json["message"] == null ? null : Message.fromJson(json["message"]),
         data: json["data"] == null ? null : Data.fromJson(json["data"]),
       );
 
@@ -48,7 +52,9 @@ class Data {
   });
 
   factory Data.fromJson(Map<String, dynamic> json) => Data(
-        generalSetting: json["general_setting"] == null ? null : GeneralSetting.fromJson(json["general_setting"]),
+        generalSetting: json["general_setting"] == null
+            ? null
+            : GeneralSetting.fromJson(json["general_setting"]),
         socialLoginRedirect: json["social_login_redirect"],
       );
 

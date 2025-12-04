@@ -11,7 +11,8 @@ class MyConverter {
     }
   }
 
-  static String twoDecimalPlaceFixedWithoutRounding(String value, {int precision = 4}) {
+  static String twoDecimalPlaceFixedWithoutRounding(String value,
+      {int precision = 4}) {
     try {
       double number = double.parse(value);
       String b = number.toStringAsFixed(precision);
@@ -41,7 +42,8 @@ class MyConverter {
 
   static String removeQuotationAndSpecialCharacterFromString(String value) {
     try {
-      String formatedString = value.replaceAll('"', '').replaceAll('[', '').replaceAll(']', '');
+      String formatedString =
+          value.replaceAll('"', '').replaceAll('[', '').replaceAll(']', '');
       return formatedString;
     } catch (e) {
       return value;
@@ -51,7 +53,8 @@ class MyConverter {
   static String replaceUnderscoreWithSpace(String value) {
     try {
       String formatedString = value.replaceAll('_', ' ');
-      String v = formatedString.split(" ").map((str) => str.capitalize).join(" ");
+      String v =
+          formatedString.split(" ").map((str) => str.capitalize).join(" ");
       return v;
     } catch (e) {
       return value;
@@ -59,7 +62,18 @@ class MyConverter {
   }
 
   static String getTrailingExtension(int number) {
-    List<String> list = ['th', 'st', 'nd', 'rd', 'th', 'th', 'th', 'th', 'th', 'th'];
+    List<String> list = [
+      'th',
+      'st',
+      'nd',
+      'rd',
+      'th',
+      'th',
+      'th',
+      'th',
+      'th',
+      'th'
+    ];
     if (((number % 100) >= 11) && ((number % 100) <= 13)) {
       return '${number}th';
     } else {
@@ -112,13 +126,19 @@ class MyConverter {
     double firstNum = double.tryParse(min) ?? 0;
     double secondNum = double.tryParse(max) ?? 0;
 
-    return firstNum != secondNum ? "${firstNum.toStringAsFixed(0)}-${secondNum.toStringAsFixed(0)}" : firstNum.toStringAsFixed(0);
+    return firstNum != secondNum
+        ? "${firstNum.toStringAsFixed(0)}-${secondNum.toStringAsFixed(0)}"
+        : firstNum.toStringAsFixed(0);
   }
 }
 
 extension StringCasingExtension on String {
-  String toCapitalized() => length > 0 ? '${this[0].toUpperCase()}${substring(1).toLowerCase()}' : '';
-  String toTitleCase() => replaceAll(RegExp(' +'), ' ').split(' ').map((str) => str.toCapitalized()).join(' ');
+  String toCapitalized() =>
+      length > 0 ? '${this[0].toUpperCase()}${substring(1).toLowerCase()}' : '';
+  String toTitleCase() => replaceAll(RegExp(' +'), ' ')
+      .split(' ')
+      .map((str) => str.toCapitalized())
+      .join(' ');
 }
 
 extension StringMinMaxFormatter on String? {
@@ -140,11 +160,20 @@ extension StringMinMaxFormatter on String? {
 
       // 🧠 Smart precision logic
       if (value < 0.0001) {
-        return value.toStringAsFixed(8).replaceFirst(RegExp(r'0+$'), '').replaceFirst(RegExp(r'\.$'), '');
+        return value
+            .toStringAsFixed(8)
+            .replaceFirst(RegExp(r'0+$'), '')
+            .replaceFirst(RegExp(r'\.$'), '');
       } else if (value < 1) {
-        return value.toStringAsFixed(6).replaceFirst(RegExp(r'0+$'), '').replaceFirst(RegExp(r'\.$'), '');
+        return value
+            .toStringAsFixed(6)
+            .replaceFirst(RegExp(r'0+$'), '')
+            .replaceFirst(RegExp(r'\.$'), '');
       } else if (value < 1000) {
-        return value.toStringAsFixed(2).replaceFirst(RegExp(r'0+$'), '').replaceFirst(RegExp(r'\.$'), '');
+        return value
+            .toStringAsFixed(2)
+            .replaceFirst(RegExp(r'0+$'), '')
+            .replaceFirst(RegExp(r'\.$'), '');
       } else {
         return value.toStringAsFixed(0);
       }

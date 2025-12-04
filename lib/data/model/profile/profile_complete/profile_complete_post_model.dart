@@ -12,7 +12,17 @@ class ProfileCompletePostModel {
   final String? zip;
   final String? city;
 
-  ProfileCompletePostModel({required this.username, required this.countryName, required this.countryCode, required this.mobileNumber, required this.mobileCode, required this.image, required this.address, required this.state, required this.zip, required this.city});
+  ProfileCompletePostModel(
+      {required this.username,
+      required this.countryName,
+      required this.countryCode,
+      required this.mobileNumber,
+      required this.mobileCode,
+      required this.image,
+      required this.address,
+      required this.state,
+      required this.zip,
+      required this.city});
 
   Map<String, dynamic> toMap() {
     final map = <String, dynamic>{};

@@ -6,7 +6,11 @@ class BottomSheetCard extends StatelessWidget {
   final Widget child;
   final double bottomSpace;
   final double padding;
-  const BottomSheetCard({super.key, required this.child, this.bottomSpace = Dimensions.space10, this.padding = Dimensions.space15});
+  const BottomSheetCard(
+      {super.key,
+      required this.child,
+      this.bottomSpace = Dimensions.space10,
+      this.padding = Dimensions.space15});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +20,8 @@ class BottomSheetCard extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(Dimensions.defaultRadius),
         color: MyColor.colorGrey2,
-        border: Border.all(width: .5, color: MyColor.primaryColor.withValues(alpha: .1)),
+        border: Border.all(
+            width: .5, color: MyColor.primaryColor.withValues(alpha: .1)),
       ),
       child: child,
     );
