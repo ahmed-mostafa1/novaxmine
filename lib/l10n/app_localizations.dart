@@ -176,6 +176,12 @@ abstract class AppLocalizations {
   /// **' ({coinSubtitle}).'**
   String coinSubtitleTemplate(Object coinSubtitle);
 
+  /// No description provided for @amountMustBeGreaterThanOne.
+  ///
+  /// In en, this message translates to:
+  /// **'Amount must be greater than 1'**
+  String get amountMustBeGreaterThanOne;
+
   /// No description provided for @sendAmountMsg.
   ///
   /// In en, this message translates to:

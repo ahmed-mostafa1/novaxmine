@@ -165,16 +165,22 @@ class _ConfirmDepositScreenState extends State<ConfirmDepositScreen> {
                                 'Enter transferred amount',
                             isRequired: true,
                             keyboardType: const TextInputType.numberWithOptions(
-                              decimal: false,
+                              decimal: true,
                             ),
                             validator: (value) {
-                              if (value == null || value.trim().isEmpty) {
+                              final amountText = value?.trim() ?? '';
+                              if (amountText.isEmpty) {
                                 return strings?.enterTransferredAmount ??
                                     'Please enter the amount';
                               }
-                              if (int.tryParse(value) == null) {
+                              final parsedAmount = double.tryParse(amountText);
+                              if (parsedAmount == null) {
                                 return strings?.amountMustBeNumeric ??
-                                    'Amount must be numeric without decimal point';
+                                    'Amount must be numeric';
+                              }
+                              if (parsedAmount <= 1) {
+                                return strings?.amountMustBeGreaterThanOne ??
+                                    'Amount must be greater than 1';
                               }
                               return null;
                             },

@@ -54,6 +54,9 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
+  String get amountMustBeGreaterThanOne => 'يجب أن يكون المبلغ أكبر من 1';
+
+  @override
   String get sendAmountMsg =>
       'يرجى إرسال المبلغ المطلوب إلى عنوان المحفظة أدناه، ثم الضغط على \"لقد قمت بالتحويل\".';
 

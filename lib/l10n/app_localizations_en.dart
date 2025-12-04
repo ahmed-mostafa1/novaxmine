@@ -54,6 +54,9 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String get amountMustBeGreaterThanOne => 'Amount must be greater than 1';
+
+  @override
   String get sendAmountMsg =>
       'Please send the desired amount to the wallet address below, then click \"I Have Transferred\".';
 
