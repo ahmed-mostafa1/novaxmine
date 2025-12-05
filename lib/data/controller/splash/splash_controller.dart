@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:mine_lab/core/helper/share_preference_helper.dart';
 import 'package:mine_lab/core/route/route.dart';
-import 'package:mine_lab/core/utils/messages.dart';
 import 'package:mine_lab/l10n/app_localizations.dart';
 import 'package:mine_lab/data/controller/localization/localization_controller.dart';
 import 'package:mine_lab/data/model/general_setting/general_settings_response_model.dart';
@@ -21,12 +20,17 @@ class SplashController extends GetxController {
   });
 
   Future<void> gotoNext(BuildContext context) async {
-    await loadLanguage(context);
+    // Load the saved language (no server call needed)
+    localizationController.loadCurrentLanguage();
+    
+    // Apply the locale to GetX
+    Get.updateLocale(localizationController.locale);
 
     bool isRemember = repo.apiClient.sharedPreferences
             .getBool(SharedPreferenceHelper.rememberMeKey) ??
         false;
 
+    // Fetch general settings (not language related)
     ResponseModel response = await repo.getGeneralSetting();
 
     if (response.statusCode == 200) {
@@ -74,109 +78,5 @@ class SplashController extends GetxController {
         });
       }
     }
-  }
-
-  Future<void> loadLanguage(BuildContext context) async {
-    // تحميل اللغة الحالية من الكنترولر
-    localizationController.loadCurrentLanguage();
-    final locale = localizationController.locale;
-    final String languageCode = locale.languageCode;
-
-    ResponseModel response = await repo.getLanguage(context, languageCode);
-
-    if (response.statusCode == 200) {
-      try {
-        final dynamic resJson = jsonDecode(response.responseJson);
-        // حفظ الـ JSON الخام في الـ SharedPreferences كما هو
-        saveLanguageList(response.responseJson);
-
-        // تحديد مكان ملف اللغة بشكل مرن (data.file أو file أو الجذر نفسه)
-        dynamic fileNode;
-
-        if (resJson is Map<String, dynamic>) {
-          if (resJson['data'] != null &&
-              resJson['data'] is Map &&
-              (resJson['data'] as Map)['file'] != null) {
-            fileNode = (resJson['data'] as Map)['file'];
-          } else if (resJson['file'] != null) {
-            fileNode = resJson['file'];
-          } else {
-            // fallback: افترض أن الجذر نفسه هو ملف اللغة
-            fileNode = resJson;
-          }
-        } else {
-          // لو مش Map أصلاً
-          fileNode = {};
-        }
-
-        // تحويل أي شكل لملف اللغة إلى Map<String, String>
-        final Map<String, String> jsonMap = {};
-
-        // 1) لو fileNode = Map
-        if (fileNode is Map) {
-          fileNode.forEach((key, value) {
-            if (key != null) {
-              jsonMap[key.toString()] = value?.toString() ?? '';
-            }
-          });
-        }
-        // 2) لو fileNode = List من Maps (بعض الـ APIs بترجعها كـ array)
-        else if (fileNode is List) {
-          for (final element in fileNode) {
-            if (element is Map) {
-              element.forEach((key, value) {
-                if (key != null) {
-                  jsonMap[key.toString()] = value?.toString() ?? '';
-                }
-              });
-            }
-          }
-        }
-        // 3) لو fileNode = String وداخله JSON
-        else if (fileNode is String) {
-          try {
-            final decoded = jsonDecode(fileNode);
-            if (decoded is Map) {
-              decoded.forEach((key, value) {
-                if (key != null) {
-                  jsonMap[key.toString()] = value?.toString() ?? '';
-                }
-              });
-            }
-          } catch (_) {
-            // تجاهل الخطأ، وسِب jsonMap فاضي
-          }
-        }
-
-        if (jsonMap.isEmpty) {
-          final context = Get.context;
-          final MyStrings =
-              context != null ? AppLocalizations.of(context)! : null;
-          // لو مفيش أي حاجة اتحملت، نرجع برسالة خطأ بدل ما يحصل كراش صامت
-          CustomSnackBar.error(errorList: [MyStrings!.somethingWentWrong]);
-          return;
-        }
-
-        // مفتاح اللغة: en_US / ar_SA ... إلخ
-        final String langKey =
-            '${localizationController.locale.languageCode}_${localizationController.locale.countryCode}';
-
-        final Map<String, Map<String, String>> language = {
-          langKey: jsonMap,
-        };
-
-        // إضافة الترجمات إلى GetX
-        Get.addTranslations(Messages(languages: language).keys);
-      } catch (e) {
-        CustomSnackBar.error(errorList: [e.toString()]);
-      }
-    } else {
-      CustomSnackBar.error(errorList: [response.message]);
-    }
-  }
-
-  Future<void> saveLanguageList(String languageJson) async {
-    await repo.apiClient.sharedPreferences
-        .setString(SharedPreferenceHelper.languageListKey, languageJson);
   }
 }

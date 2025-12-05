@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:mine_lab/core/utils/dimensions.dart';
 import 'package:mine_lab/core/utils/my_color.dart';
 import 'package:mine_lab/core/utils/styles.dart';
-import 'package:mine_lab/views/components/image/my_image_widget.dart';
 
 import '../../../../core/utils/util.dart';
 
@@ -39,8 +38,8 @@ class LanguageCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              MyImageWidget(
-                imageUrl: imagePath,
+              Image.asset(
+                imagePath,
                 width: 60,
                 height: 50,
               ),

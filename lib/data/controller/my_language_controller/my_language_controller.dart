@@ -1,116 +1,74 @@
-import 'dart:convert';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mine_lab/core/helper/share_preference_helper.dart';
-import 'package:mine_lab/core/utils/messages.dart';
-import 'package:mine_lab/core/utils/url_container.dart';
-import 'package:mine_lab/core/utils/util.dart';
 import 'package:mine_lab/data/controller/localization/localization_controller.dart';
-import 'package:mine_lab/data/model/global/response_model/response_model.dart';
 import 'package:mine_lab/data/model/language/language_model.dart';
-import 'package:mine_lab/data/model/language/main_language_response_model.dart';
-import 'package:mine_lab/data/repo/auth/general_setting_repo.dart';
-import 'package:mine_lab/views/components/snackbar/show_custom_snackbar.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class MyLanguageController extends GetxController {
-  GeneralSettingRepo repo;
   LocalizationController localizationController;
-  MyLanguageController(
-      {required this.repo, required this.localizationController});
+  
+  MyLanguageController({required this.localizationController});
 
-  bool isLoading = true;
-  String languageImagePath = "";
+  bool isLoading = false;
   List<MyLanguageModel> langList = [];
 
+  @override
+  void onInit() {
+    super.onInit();
+    loadLanguage();
+  }
+
   void loadLanguage() {
-    langList.clear();
     isLoading = true;
-    SharedPreferences pref = repo.apiClient.sharedPreferences;
-    String languageString =
-        pref.getString(SharedPreferenceHelper.languageListKey) ?? '';
-    var language = jsonDecode(languageString);
+    update();
 
-    MainLanguageResponseModel model =
-        MainLanguageResponseModel.fromJson(language);
-    languageImagePath = "${UrlContainer.baseUrl}${model.data?.imagePath ?? ''}";
-    if (model.data?.languages != null && model.data!.languages!.isNotEmpty) {
-      for (var listItem in model.data!.languages!) {
-        MyLanguageModel model = MyLanguageModel(
-            languageCode: listItem.code ?? '',
-            countryCode: listItem.name ?? '',
-            languageName: listItem.name ?? '',
-            imageUrl: listItem.image ?? '');
-        langList.add(model);
-      }
-    }
+    // Get languages from LocalizationController (defined locally)
+    langList = localizationController.languages;
 
-    String languageCode =
-        pref.getString(SharedPreferenceHelper.languageCode) ?? 'en';
+    // Find current language index
+    String currentCode = localizationController.locale.languageCode;
+    int index = langList.indexWhere(
+      (element) => element.languageCode.toLowerCase() == currentCode.toLowerCase()
+    );
 
-    if (langList.isNotEmpty) {
-      int index = langList.indexWhere((element) =>
-          element.languageCode.toLowerCase() == languageCode.toLowerCase());
-
+    if (index != -1) {
       changeSelectedIndex(index);
+    } else {
+      changeSelectedIndex(0); // Default to first language
     }
 
     isLoading = false;
     update();
   }
 
-  String selectedLangCode = 'en';
-
+  int selectedIndex = 0;
   bool isChangeLangLoading = false;
+
+  void changeSelectedIndex(int index) {
+    selectedIndex = index;
+    update();
+  }
+
   void changeLanguage(BuildContext context, int index) async {
     isChangeLangLoading = true;
     update();
 
-    MyLanguageModel selectedLangModel = langList[index];
-    String languageCode = selectedLangModel.languageCode;
     try {
-      ResponseModel response = await repo.getLanguage(context, languageCode);
+      MyLanguageModel selectedLangModel = langList[index];
+      Locale newLocale = Locale(
+        selectedLangModel.languageCode,
+        selectedLangModel.countryCode,
+      );
 
-      if (response.statusCode == 200) {
-        var resJson = jsonDecode(response.responseJson);
-        await repo.apiClient.sharedPreferences.setString(
-            SharedPreferenceHelper.languageListKey, response.responseJson);
+      // Update locale - this will trigger flutter_localizations to load the .arb file
+      localizationController.setLanguage(newLocale);
 
-        Locale local = Locale(selectedLangModel.languageCode, 'US');
-        localizationController.setLanguage(
-            local, "$languageImagePath/${langList[index].imageUrl}");
-
-        var value = resJson['data']['file'].toString() == '[]'
-            ? {}
-            : resJson['data']['file'];
-        Map<String, String> json = {};
-        value.forEach((key, value) {
-          json[key] = value.toString();
-        });
-
-        Map<String, Map<String, String>> language = {};
-        language['${selectedLangModel.languageCode}_${'US'}'] = json;
-
-        Get.clearTranslations();
-        Get.addTranslations(Messages(languages: language).keys);
-
-        Get.back();
-      } else {
-        CustomSnackBar.error(errorList: [response.message]);
-      }
+      // Navigate back
+      Get.back();
     } catch (e) {
-      printX(e.toString());
+      debugPrint('Error changing language: $e');
     }
 
     isChangeLangLoading = false;
-    update();
-  }
-
-  int selectedIndex = 0;
-  void changeSelectedIndex(int index) {
-    selectedIndex = index;
     update();
   }
 }

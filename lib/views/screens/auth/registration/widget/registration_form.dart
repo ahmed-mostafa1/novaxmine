@@ -3,9 +3,9 @@ import 'package:get/get.dart';
 import 'package:mine_lab/core/route/route.dart';
 import 'package:mine_lab/core/utils/dimensions.dart';
 import 'package:mine_lab/core/utils/my_color.dart';
-import 'package:mine_lab/core/utils/my_strings.dart';
 import 'package:mine_lab/core/utils/styles.dart';
 import 'package:mine_lab/data/controller/auth/registration/registration_controller.dart';
+import 'package:mine_lab/l10n/app_localizations.dart';
 import 'package:mine_lab/views/components/buttons/rounded_button.dart';
 import 'package:mine_lab/views/components/text-field/custom_text_field.dart';
 import 'package:mine_lab/views/screens/auth/login/widget/social_login_section.dart';
@@ -24,6 +24,9 @@ class _RegistrationFormState extends State<RegistrationForm> {
 
   @override
   Widget build(BuildContext context) {
+    // Get localized strings
+    final localizations = AppLocalizations.of(context)!;
+    
     return GetBuilder<RegistrationController>(
       builder: (controller) => Form(
         key: formKey,
@@ -33,14 +36,14 @@ class _RegistrationFormState extends State<RegistrationForm> {
             CustomTextField(
               needLabel: false,
               needOutlineBorder: true,
-              labelText: MyStrings.firstName,
-              hintText: MyStrings.enterFirstName,
+              labelText: localizations.firstName,
+              hintText: localizations.enterFirstName,
               controller: controller.firstNameController,
               focusNode: controller.firstNameFocusNode,
               onChanged: (value) {},
               validator: (value) {
                 if (value!.isEmpty) {
-                  return MyStrings.enterFirstName;
+                  return localizations.enterFirstName;
                 } else {
                   return null;
                 }
@@ -50,14 +53,14 @@ class _RegistrationFormState extends State<RegistrationForm> {
             CustomTextField(
               needLabel: false,
               needOutlineBorder: true,
-              labelText: MyStrings.lastName,
-              hintText: MyStrings.enterLastName,
+              labelText: localizations.lastName,
+              hintText: localizations.enterLastName,
               controller: controller.lastNameController,
               focusNode: controller.lastNameFocusNode,
               onChanged: (value) {},
               validator: (value) {
                 if (value!.isEmpty) {
-                  return MyStrings.enterLastName;
+                  return localizations.enterLastName;
                 } else {
                   return null;
                 }
@@ -67,18 +70,18 @@ class _RegistrationFormState extends State<RegistrationForm> {
             CustomTextField(
               needLabel: false,
               needOutlineBorder: true,
-              labelText: MyStrings.emailAddress,
-              hintText: MyStrings.emailAddressHint,
+              labelText: localizations.emailAddress,
+              hintText: localizations.emailAddressHint,
               controller: controller.emailController,
               focusNode: controller.emailFocusNode,
               textInputType: TextInputType.emailAddress,
               onChanged: (value) {},
               validator: (value) {
                 if (value != null && value.isEmpty) {
-                  return MyStrings.emailAddressHint;
-                } else if (!MyStrings.emailValidatorRegExp
+                  return localizations.emailAddressHint;
+                } else if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
                     .hasMatch(value ?? '')) {
-                  return MyStrings.enterValidEmail;
+                  return localizations.enterValidEmail;
                 } else {
                   return null;
                 }
@@ -88,8 +91,8 @@ class _RegistrationFormState extends State<RegistrationForm> {
             CustomTextField(
                 needLabel: false,
                 needOutlineBorder: true,
-                labelText: MyStrings.password,
-                hintText: MyStrings.passwordHint,
+                labelText: localizations.password,
+                hintText: localizations.passwordHint,
                 isPassword: true,
                 isShowSuffixIcon: true,
                 controller: controller.passwordController,
@@ -97,7 +100,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                 validator: (value) {
                   if (controller.passwordController.text.toLowerCase() !=
                       controller.confirmPasswordController.text.toLowerCase()) {
-                    return MyStrings.kMatchPassError.tr;
+                    return localizations.kMatchPassError;
                   } else {
                     return null;
                   }
@@ -107,8 +110,8 @@ class _RegistrationFormState extends State<RegistrationForm> {
             CustomTextField(
                 needLabel: false,
                 needOutlineBorder: true,
-                labelText: MyStrings.confirmPassword,
-                hintText: MyStrings.confirmPasswordHint,
+                labelText: localizations.confirmPassword,
+                hintText: localizations.confirmPasswordHint,
                 isPassword: true,
                 isShowSuffixIcon: true,
                 controller: controller.confirmPasswordController,
@@ -116,7 +119,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                 validator: (value) {
                   if (controller.passwordController.text.toLowerCase() !=
                       controller.confirmPasswordController.text.toLowerCase()) {
-                    return MyStrings.kMatchPassError.tr;
+                    return localizations.kMatchPassError;
                   } else {
                     return null;
                   }
@@ -126,8 +129,8 @@ class _RegistrationFormState extends State<RegistrationForm> {
             CustomTextField(
               needLabel: false,
               needOutlineBorder: true,
-              labelText: MyStrings.referralCode,
-              hintText: MyStrings.enterReferralCode.tr,
+              labelText: localizations.referralCode,
+              hintText: localizations.enterReferralCode,
               isShowSuffixIcon: true,
               controller: controller.referralCodeController,
               validator: (value) {
@@ -162,14 +165,14 @@ class _RegistrationFormState extends State<RegistrationForm> {
                         onTap: () {
                           controller.updateAgreeTC();
                         },
-                        child: Text("${MyStrings.iAgree} ",
+                        child: Text("${localizations.iAgree} ",
                             style: interRegularDefault.copyWith(
                                 color: MyColor.colorBlack)),
                       ),
                       GestureDetector(
                         onTap: () =>
                             Get.toNamed(RouteHelper.privacyPolicyScreen),
-                        child: Text("${MyStrings.privacyPolicy.toLowerCase()} ",
+                        child: Text("${localizations.privacyPolicy.toLowerCase()} ",
                             style: interRegularDefault.copyWith(
                                 color: MyColor.primaryColor)),
                       ),
@@ -188,7 +191,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
               },
               width: MediaQuery.of(context).size.width,
               color: MyColor.primaryColor,
-              text: MyStrings.createAccount,
+              text: localizations.createAccount,
               textColor: MyColor.colorWithe,
             ),
             const SizedBox(height: Dimensions.space15),
@@ -196,14 +199,14 @@ class _RegistrationFormState extends State<RegistrationForm> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(MyStrings.haveAccount,
+                Text(localizations.haveAccount,
                     style: interRegularDefault.copyWith(
                         color: MyColor.accountEnsureTextColor)),
                 TextButton(
                   onPressed: () {
                     Get.toNamed(RouteHelper.loginScreen);
                   },
-                  child: Text(MyStrings.loginNow,
+                  child: Text(localizations.loginNow,
                       style: interRegularDefault.copyWith(
                           color: MyColor.primaryColor)),
                 )

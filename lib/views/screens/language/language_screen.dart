@@ -2,11 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mine_lab/core/utils/dimensions.dart';
 import 'package:mine_lab/core/utils/my_color.dart';
-import 'package:mine_lab/data/controller/common/theme_controller.dart';
 import 'package:mine_lab/data/controller/localization/localization_controller.dart';
 import 'package:mine_lab/data/controller/my_language_controller/my_language_controller.dart';
-import 'package:mine_lab/data/repo/auth/general_setting_repo.dart';
-import 'package:mine_lab/data/services/api_service.dart';
 import 'package:mine_lab/l10n/app_localizations.dart';
 import 'package:mine_lab/views/components/appbar/custom_appbar.dart';
 import 'package:mine_lab/views/components/buttons/custom_elevated_button.dart';
@@ -22,21 +19,14 @@ class LanguageScreen extends StatefulWidget {
 }
 
 class _LanguageScreenState extends State<LanguageScreen> {
-  String comeFrom = '';
-
   @override
   void initState() {
-    Get.put(ApiClient(sharedPreferences: Get.find()));
-    Get.put(GeneralSettingRepo(apiClient: Get.find()));
-    ThemeController themeController =
-        Get.put(ThemeController(sharedPreferences: Get.find()));
-    Get.put(LocalizationController(sharedPreferences: Get.find()));
-    final controller = Get.put(MyLanguageController(
-        repo: Get.find(), localizationController: Get.find()));
-
-    comeFrom = Get.arguments ?? '';
-
     super.initState();
+
+    // Initialize controller
+    Get.put(LocalizationController(sharedPreferences: Get.find()));
+    final controller =
+        Get.put(MyLanguageController(localizationController: Get.find()));
 
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       controller.loadLanguage();
@@ -52,7 +42,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
         appBar: CustomAppBar(
           bgColor: MyColor.primaryColor,
           isShowBackBtn: true,
-          title: MyStrings!.language.tr,
+          title: MyStrings!.language,
         ),
         body: controller.isLoading
             ? const CustomLoader()
@@ -83,8 +73,8 @@ class _LanguageScreenState extends State<LanguageScreen> {
                           selectedIndex: controller.selectedIndex,
                           langeName: controller.langList[index].languageName,
                           isShowTopRight: true,
-                          imagePath:
-                              "${controller.languageImagePath}/${controller.langList[index].imageUrl}",
+                          // Use local asset path
+                          imagePath: controller.langList[index].imageUrl,
                         ),
                       ),
                     ),
@@ -93,10 +83,8 @@ class _LanguageScreenState extends State<LanguageScreen> {
           padding: const EdgeInsetsDirectional.symmetric(
               vertical: Dimensions.space15, horizontal: Dimensions.space15),
           child: CustomElevatedBtn(
-            text: MyStrings.confirm.tr,
+            text: MyStrings.confirm,
             isLoading: controller.isChangeLangLoading,
-            // color: MyColor.getButtonColor(),
-            // textColor: MyColor.getButtonTextColor(),
             press: () {
               controller.changeLanguage(context, controller.selectedIndex);
             },

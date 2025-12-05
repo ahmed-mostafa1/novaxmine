@@ -5,6 +5,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:mine_lab/core/helper/share_preference_helper.dart';
 import 'package:mine_lab/core/route/route.dart';
 import 'package:mine_lab/core/theme/dark.dart';
+import 'package:mine_lab/data/controller/localization/localization_controller.dart';
 import 'package:mine_lab/data/services/push_notification_service.dart';
 import 'package:mine_lab/firebase_options.dart';
 import 'package:mine_lab/l10n/app_localizations.dart';
@@ -26,6 +27,11 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   await di_service.init();
+  
+  // Initialize LocalizationController early
+  final sharedPreferences = Get.find<SharedPreferences>();
+  Get.put(LocalizationController(sharedPreferences: sharedPreferences));
+  
   FirebaseMessaging.onBackgroundMessage(_messageHandler);
   await PushNotificationService(apiClient: Get.find()).setupInteractedMessage();
 
@@ -37,28 +43,37 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final MyStrings = context != null ? AppLocalizations.of(context)! : null;
-
-    return GetMaterialApp(
-      title: "Novaxmine",
-      debugShowCheckedModeBanner: false,
-      defaultTransition: Transition.noTransition,
-      transitionDuration: const Duration(milliseconds: 200),
-      initialRoute: RouteHelper.splashScreen,
-      navigatorKey: Get.key,
-      getPages: RouteHelper.routes,
-      theme: lightThemeData,
-      darkTheme: darkThemeData,
-      // ✅ Localization (gen-l10n)
-      locale: Get.deviceLocale,
-      fallbackLocale: const Locale('ar'),
-      supportedLocales: AppLocalizations.supportedLocales,
-      localizationsDelegates: const [
-        AppLocalizations.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
+    return GetBuilder<LocalizationController>(
+      builder: (localizationController) {
+        return GetMaterialApp(
+          title: "Novaxmine",
+          debugShowCheckedModeBanner: false,
+          defaultTransition: Transition.noTransition,
+          transitionDuration: const Duration(milliseconds: 200),
+          initialRoute: RouteHelper.splashScreen,
+          navigatorKey: Get.key,
+          getPages: RouteHelper.routes,
+          theme: lightThemeData,
+          darkTheme: darkThemeData,
+          
+          // ✅ Use LocalizationController's saved locale instead of device locale
+          locale: localizationController.locale,
+          fallbackLocale: const Locale('en', 'US'), // Changed to English as fallback
+          
+          supportedLocales: const [
+            Locale('en', 'US'),
+            Locale('ar', 'SA'),
+            // Add more supported locales here
+          ],
+          
+          localizationsDelegates: const [
+            AppLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+        );
+      },
     );
   }
 }

@@ -65,6 +65,7 @@ flutter:
     - assets/animation/
     - assets/images/onboard/
     - assets/images/social/
+    - assets/images/flags/
 
   fonts:
     - family: Roboto

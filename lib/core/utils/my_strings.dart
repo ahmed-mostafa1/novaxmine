@@ -459,10 +459,10 @@ class MyStrings {
   static const String running = "Running";
   static const String maintenanceCost = "Maintenance Cost";
 
-  static List<MyLanguageModel> myLanguages = [
-    MyLanguageModel(
-        languageName: 'English', countryCode: 'US', languageCode: 'en'),
-    MyLanguageModel(
-        languageName: 'Arabic', countryCode: 'SA', languageCode: 'ar'),
-  ];
+  // static List<MyLanguageModel> myLanguages = [
+  //   MyLanguageModel(
+  //       languageName: 'English', countryCode: 'US', languageCode: 'en'),
+  //   MyLanguageModel(
+  //       languageName: 'Arabic', countryCode: 'SA', languageCode: 'ar'),
+  // ];
 }

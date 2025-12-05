@@ -11,30 +11,41 @@ class LocalizationController extends GetxController {
     loadCurrentLanguage();
   }
 
-  // القيمة الافتراضية للّغة (يمكنك تغييرها لـ ar / SA مثلاً)
   Locale _locale = const Locale('en', 'US');
   bool _isLtr = true;
 
-  // لو عندك قائمة لغات ثابتة في مكان آخر، يمكنك تعبئتها هنا يدويًا
-  final List<MyLanguageModel> _languages = [];
+  // Define your supported languages locally
+  final List<MyLanguageModel> _languages = [
+    MyLanguageModel(
+      languageName: 'English',
+      languageCode: 'en',
+      countryCode: 'US',
+      imageUrl: 'assets/images/flags/us.png', // Add local flag images
+    ),
+    MyLanguageModel(
+      languageName: 'العربية',
+      languageCode: 'ar',
+      countryCode: 'SA',
+      imageUrl: 'assets/images/flags/sa.png', // Add local flag images
+    ),
+    // Add more languages as needed
+  ];
 
   Locale get locale => _locale;
   bool get isLtr => _isLtr;
   List<MyLanguageModel> get languages => _languages;
 
-  void setLanguage(Locale locale, String? imageUrl) {
+  void setLanguage(Locale locale) {
     Get.updateLocale(locale);
     _locale = locale;
     _isLtr = _locale.languageCode != 'ar';
-    saveLanguage(_locale, imageUrl);
+    saveLanguage(_locale);
     update();
   }
 
   void loadCurrentLanguage() {
-    // استرجاع اللغة من SharedPreferences أو استخدام الافتراضي ('en', 'US')
     final String languageCode =
-        sharedPreferences.getString(SharedPreferenceHelper.languageCode) ??
-            'en';
+        sharedPreferences.getString(SharedPreferenceHelper.languageCode) ?? 'en';
     final String countryCode =
         sharedPreferences.getString(SharedPreferenceHelper.countryCode) ?? 'US';
 
@@ -43,7 +54,7 @@ class LocalizationController extends GetxController {
     update();
   }
 
-  void saveLanguage(Locale locale, String? imageUrl) {
+  void saveLanguage(Locale locale) {
     sharedPreferences.setString(
       SharedPreferenceHelper.languageCode,
       locale.languageCode,
@@ -51,10 +62,6 @@ class LocalizationController extends GetxController {
     sharedPreferences.setString(
       SharedPreferenceHelper.countryCode,
       locale.countryCode ?? '',
-    );
-    sharedPreferences.setString(
-      SharedPreferenceHelper.languageImagePath,
-      imageUrl ?? '',
     );
   }
 
@@ -65,4 +72,4 @@ class LocalizationController extends GetxController {
     _selectedIndex = index;
     update();
   }
-}
+} 

@@ -82,13 +82,21 @@ class BuyPlanBottomSheet {
                               BorderRadius.circular(Dimensions.defaultRadius),
                           border: Border.all(
                               color: buyPlanController.selectPaymentSystem ==
-                                      MyStrings.selectOne
+                                          null ||
+                                      buyPlanController
+                                          .selectPaymentSystem!.isEmpty
                                   ? MyColor.lineColor
                                   : MyColor.primaryColor,
                               width: 1)),
-                      child: DropdownButton(
+                      child: DropdownButton<String>(
                         dropdownColor: MyColor.colorWhite,
                         value: buyPlanController.selectPaymentSystem,
+                        hint: Text(
+                          MyStrings.selectOne,
+                          style: interRegularDefault.copyWith(
+                            color: MyColor.colorGrey,
+                          ),
+                        ),
                         elevation: 8,
                         icon: const Icon(Icons.keyboard_arrow_down,
                             color: MyColor.primaryColor),
@@ -98,10 +106,12 @@ class BuyPlanBottomSheet {
                         underline:
                             Container(height: 0, color: MyColor.primaryColor),
                         onChanged: (value) {
-                          buyPlanController.setPaymentMethod(value!);
+                          if (value != null) {
+                            buyPlanController.setPaymentMethod(value);
+                          }
                         },
                         items: buyPlanController.paymentSystemList.map((data) {
-                          return DropdownMenuItem(
+                          return DropdownMenuItem<String>(
                             value: data,
                             child: Text(data, style: interRegularDefault),
                           );
@@ -114,8 +124,8 @@ class BuyPlanBottomSheet {
                     text: MyStrings.submit,
                     textColor: MyColor.colorWhite,
                     press: () {
-                      if (buyPlanController.selectPaymentSystem ==
-                          MyStrings.selectOne) {
+                      if (buyPlanController.selectPaymentSystem == null ||
+                          buyPlanController.selectPaymentSystem!.isEmpty) {
                         CustomSnackBar.error(
                             errorList: [(MyStrings.selectAGateway)]);
                         return;

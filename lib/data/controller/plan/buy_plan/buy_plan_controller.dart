@@ -21,13 +21,8 @@ class BuyPlanController extends GetxController {
   List<Miners> walletList = [];
   List<ActivePlans> planList = [];
 
-  List<String> paymentSystemList = [
-    "Select One",
-    "From Balance",
-    "From Profit Wallet",
-    "Direct Payment",
-  ];
-  String selectPaymentSystem = "Select One";
+  List<String> paymentSystemList = [];
+  String? selectPaymentSystem; // Made nullable for hint to work
 
   String currency = "";
   String currencySym = "";
@@ -35,6 +30,25 @@ class BuyPlanController extends GetxController {
   Future<void> initialValue() async {
     currency = buyPlanRepo.apiClient.getCurrencyOrUsername(isCurrency: true);
     currencySym = buyPlanRepo.apiClient.getCurrencyOrUsername(isSymbol: true);
+    
+    // Initialize payment system list with placeholder keys
+    // These will be replaced with actual localized values in loadBuyPlanData
+    final context = Get.context;
+    if (context != null) {
+      final MyStrings = AppLocalizations.of(context)!;
+      paymentSystemList = [
+        MyStrings.fromBalance ?? "From Balance",
+        MyStrings.fromProfitWallet ?? "From Profit Wallet",
+        MyStrings.directPayment ?? "Direct Payment",
+      ];
+    } else {
+      paymentSystemList = [
+        "From Balance",
+        "From Profit Wallet",
+        "Direct Payment",
+      ];
+    }
+    
     update();
     loadBuyPlanData();
   }
@@ -54,18 +68,20 @@ class BuyPlanController extends GetxController {
     if (responseModel.statusCode == 200) {
       BuyPlanResponseModel model =
           BuyPlanResponseModel.fromJson(jsonDecode(responseModel.responseJson));
-      if (model.status.toString().toLowerCase() ==
-          MyStrings!.success.toLowerCase()) {
-        paymentSystemList[1] =
-            "${MyStrings.fromBalance} ($currencySym${MyConverter.twoDecimalPlaceFixedWithoutRounding(model.data?.balance ?? "0")})";
-        paymentSystemList[2] =
-            "${MyStrings.fromProfitWallet} ($currencySym${MyConverter.twoDecimalPlaceFixedWithoutRounding(model.data?.profitBalance ?? "0")})";
+      if (model.status.toString().toLowerCase() == 'success') {
+        // Update payment system list with localized strings and balance values
+        paymentSystemList = [
+          "${MyStrings?.fromBalance ?? "From Balance"} ($currencySym${MyConverter.twoDecimalPlaceFixedWithoutRounding(model.data?.balance ?? "0")})",
+          "${MyStrings?.fromProfitWallet ?? "From Profit Wallet"} ($currencySym${MyConverter.twoDecimalPlaceFixedWithoutRounding(model.data?.profitBalance ?? "0")})",
+          MyStrings?.directPayment ?? "Direct Payment",
+        ];
+        
         walletList = model.data?.miners ?? [];
-
         changeWallet(walletIndex);
       } else {
         CustomSnackBar.showCustomSnackBar(
-            errorList: model.message?.error ?? [MyStrings.somethingWentWrong],
+            errorList: model.message?.error ??
+                [MyStrings?.somethingWentWrong ?? 'Something went Wrong'],
             msg: [],
             isError: true);
       }
@@ -95,13 +111,17 @@ class BuyPlanController extends GetxController {
     update();
 
     printX(selectPaymentSystem);
-    String method = paymentSystemList.indexOf(selectPaymentSystem).toString();
-    String paymentMethod =
-        method == "3" // 1 -> balance | 2 -> gateway | 3 -> profit wallet
-            ? "2"
-            : method == "2"
-                ? "3"
-                : method;
+    
+    // Determine payment method based on selected index
+    // Index 0 -> balance (method 1)
+    // Index 1 -> profit wallet (method 3)
+    // Index 2 -> direct payment (method 2)
+    String method = paymentSystemList.indexOf(selectPaymentSystem!).toString();
+    String paymentMethod = method == "0"
+        ? "1" // From Balance
+        : method == "1"
+            ? "3" // From Profit Wallet
+            : "2"; // Direct Payment
 
     printX(method);
     printX("request $paymentMethod");
@@ -113,14 +133,13 @@ class BuyPlanController extends GetxController {
     if (responseModel.statusCode == 200) {
       BuyPlanSubmitResponseModel model = BuyPlanSubmitResponseModel.fromJson(
           jsonDecode(responseModel.responseJson));
-      if (model.status.toString().toLowerCase() ==
-          MyStrings!.success.toLowerCase()) {
+      if (model.status.toString().toLowerCase() == 'success') {
         Get.back();
         if (paymentMethod.toString() == '1' || paymentMethod == '3') {
-          selectPaymentSystem = paymentSystemList[0];
+          selectPaymentSystem = null; // Reset to null
           CustomSnackBar.success(
-              successList:
-                  model.message?.success ?? [MyStrings.requestSuccess]);
+              successList: model.message?.success ??
+                  [MyStrings?.requestSuccess ?? "Success"]);
           loadBuyPlanData();
         } else {
           String title = model.data?.order?.planTitle ?? '';
@@ -131,7 +150,8 @@ class BuyPlanController extends GetxController {
         }
       } else {
         CustomSnackBar.showCustomSnackBar(
-            errorList: model.message?.error ?? [MyStrings.requestFail],
+            errorList:
+                model.message?.error ?? [MyStrings?.requestFail ?? "Failed"],
             msg: [],
             isError: true);
       }
