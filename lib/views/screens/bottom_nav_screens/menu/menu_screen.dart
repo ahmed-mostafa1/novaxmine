@@ -131,7 +131,7 @@ class _MenuScreenState extends State<MenuScreen> {
                       imageSrc: MyImages.dDeposit,
                       label: MyStrings.deposit.tr,
                       onPressed: () =>
-                          Get.toNamed(RouteHelper.newDepositScreenScreen),
+                          Get.toNamed(RouteHelper.depositOptionsScreen),
                     ),
                     const CustomDivider(),
                     MenuItems(
