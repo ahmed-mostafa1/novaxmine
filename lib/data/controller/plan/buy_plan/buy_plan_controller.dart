@@ -30,7 +30,7 @@ class BuyPlanController extends GetxController {
   Future<void> initialValue() async {
     currency = buyPlanRepo.apiClient.getCurrencyOrUsername(isCurrency: true);
     currencySym = buyPlanRepo.apiClient.getCurrencyOrUsername(isSymbol: true);
-    
+
     // Initialize payment system list with placeholder keys
     // These will be replaced with actual localized values in loadBuyPlanData
     final context = Get.context;
@@ -48,7 +48,7 @@ class BuyPlanController extends GetxController {
         "Direct Payment",
       ];
     }
-    
+
     update();
     loadBuyPlanData();
   }
@@ -75,7 +75,7 @@ class BuyPlanController extends GetxController {
           "${MyStrings?.fromProfitWallet ?? "From Profit Wallet"} ($currencySym${MyConverter.twoDecimalPlaceFixedWithoutRounding(model.data?.profitBalance ?? "0")})",
           MyStrings?.directPayment ?? "Direct Payment",
         ];
-        
+
         walletList = model.data?.miners ?? [];
         changeWallet(walletIndex);
       } else {
@@ -111,7 +111,7 @@ class BuyPlanController extends GetxController {
     update();
 
     printX(selectPaymentSystem);
-    
+
     // Determine payment method based on selected index
     // Index 0 -> balance (method 1)
     // Index 1 -> profit wallet (method 3)
@@ -138,8 +138,7 @@ class BuyPlanController extends GetxController {
         if (paymentMethod.toString() == '1' || paymentMethod == '3') {
           selectPaymentSystem = null; // Reset to null
           CustomSnackBar.success(
-              successList: model.message?.success ??
-                  [MyStrings?.requestSuccess ?? "Success"]);
+              successList: [MyStrings?.requestSuccess ?? "Success"]);
           loadBuyPlanData();
         } else {
           String title = model.data?.order?.planTitle ?? '';
@@ -150,14 +149,13 @@ class BuyPlanController extends GetxController {
         }
       } else {
         CustomSnackBar.showCustomSnackBar(
-            errorList:
-                model.message?.error ?? [MyStrings?.requestFail ?? "Failed"],
+            errorList: [MyStrings?.requestFail ?? "Failed"],
             msg: [],
             isError: true);
       }
     } else {
       CustomSnackBar.showCustomSnackBar(
-          errorList: [responseModel.message], msg: [], isError: true);
+          errorList: [MyStrings?.requestFail ?? "Failed"], msg: [], isError: true);
     }
 
     purchaseLoading = false;
