@@ -176,7 +176,7 @@ class PlanPaymentMethodController extends GetxController {
       } else {
         CustomSnackBar.showCustomSnackBar(
           errorList:
-              insertResponseModel.message?.error ?? <String>[tryAgainText],
+               <String>[tryAgainText],
           msg: const [],
           isError: true,
         );

@@ -20,9 +20,12 @@ class SplashController extends GetxController {
   });
 
   Future<void> gotoNext(BuildContext context) async {
+    final context = Get.context;
+    final MyStrings = context != null ? AppLocalizations.of(context)! : null;
+
     // Load the saved language (no server call needed)
     localizationController.loadCurrentLanguage();
-    
+
     // Apply the locale to GetX
     Get.updateLocale(localizationController.locale);
 
@@ -34,8 +37,6 @@ class SplashController extends GetxController {
     ResponseModel response = await repo.getGeneralSetting();
 
     if (response.statusCode == 200) {
-      final context = Get.context;
-      final MyStrings = context != null ? AppLocalizations.of(context)! : null;
       try {
         GeneralSettingResponseModel model =
             GeneralSettingResponseModel.fromJson(
@@ -59,7 +60,7 @@ class SplashController extends GetxController {
       }
     } else {
       CustomSnackBar.showCustomSnackBar(
-        errorList: [response.message],
+        errorList: [MyStrings!.somethingWentWrong],
         msg: [],
         isError: true,
       );

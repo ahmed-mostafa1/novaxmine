@@ -35,6 +35,10 @@ class MiningTracksController extends GetxController {
   }
 
   Future<void> loadMiningTrackData({bool isOrder = false}) async {
+    final context = Get.context;
+
+    final MyStrings = context != null ? AppLocalizations.of(context)! : null;
+
     currency = miningTrackRepo.apiClient
         .getCurrencyOrUsername(isCurrency: true, isSymbol: false);
 
@@ -56,17 +60,14 @@ class MiningTracksController extends GetxController {
           miningTrackList.addAll(tempMiningList);
         }
       } else {
-        final context = Get.context;
-        final MyStrings =
-            context != null ? AppLocalizations.of(context)! : null;
         CustomSnackBar.showCustomSnackBar(
-            errorList: model.message?.error ?? [MyStrings!.somethingWentWrong],
-            msg: [],
-            isError: true);
+            errorList: [MyStrings!.somethingWentWrong], msg: [], isError: true);
       }
     } else {
       CustomSnackBar.showCustomSnackBar(
-          errorList: [responseModel.message], msg: [], isError: true);
+          errorList: [MyStrings?.somethingWentWrong ?? "Something went wrong"],
+          msg: [],
+          isError: true);
     }
   }
 

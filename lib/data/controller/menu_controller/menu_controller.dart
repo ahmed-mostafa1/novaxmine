@@ -43,14 +43,14 @@ class MyMenuController extends GetxController {
         await menuRepo.clearSharedPrefData();
         Get.offAllNamed(RouteHelper.loginScreen);
         CustomSnackBar.success(
-            successList: model.message?.success ??
+            successList: 
                 [MyStrings.accountDeletedSuccessfully]);
       } else {
         CustomSnackBar.error(
-            errorList: model.message?.error ?? [MyStrings.somethingWentWrong]);
+            errorList:  [MyStrings.somethingWentWrong]);
       }
     } else {
-      CustomSnackBar.error(errorList: [responseModal.message]);
+      CustomSnackBar.error(errorList: [MyStrings?.somethingWentWrong??"Something went wrong"]);
     }
 
     removeLoading = false;

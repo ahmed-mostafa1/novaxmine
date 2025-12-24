@@ -39,8 +39,7 @@ class ForgetPasswordController extends GetxController {
           arguments: responseEmail,
         );
       } else {
-        // لو حابب تضيف رسالة فشل عامة من اللوجاليزيشن:
-        // CustomSnackBar.error(errorList: [l10n.somethingWentWrong]);
+        CustomSnackBar.error(errorList: [l10n.somethingWentWrong]);
       }
     } finally {
       submitLoading = false;

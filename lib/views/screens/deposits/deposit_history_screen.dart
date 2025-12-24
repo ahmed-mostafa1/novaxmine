@@ -107,7 +107,7 @@ class _DepositHistoryScreenState extends State<DepositHistoryScreen> {
               const SizedBox(width: Dimensions.space7),
               GestureDetector(
                 onTap: () {
-                  Get.toNamed(RouteHelper.newDepositScreenScreen);
+                  Get.toNamed(RouteHelper.depositOptionsScreen);
                 },
                 child: Container(
                   margin: const EdgeInsets.only(
