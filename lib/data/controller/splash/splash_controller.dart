@@ -9,6 +9,7 @@ import 'package:mine_lab/data/model/general_setting/general_settings_response_mo
 import 'package:mine_lab/data/model/global/response_model/response_model.dart';
 import 'package:mine_lab/data/repo/auth/general_setting_repo.dart';
 import 'package:mine_lab/views/components/snackbar/show_custom_snackbar.dart';
+import 'package:mine_lab/data/services/push_notification_service.dart';
 
 class SplashController extends GetxController {
   final GeneralSettingRepo repo;
@@ -20,6 +21,14 @@ class SplashController extends GetxController {
   });
 
   Future<void> gotoNext(BuildContext context) async {
+    // Initialize Push Notifications here to run in background while splash shows
+    try {
+      await PushNotificationService(apiClient: repo.apiClient)
+          .setupInteractedMessage();
+    } catch (e) {
+      debugPrint("Push initialization failed: $e");
+    }
+
     final context = Get.context;
     final MyStrings = context != null ? AppLocalizations.of(context)! : null;
 

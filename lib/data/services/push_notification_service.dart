@@ -1,12 +1,12 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:firebase_core/firebase_core.dart';
+
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter/foundation.dart';
 import 'package:mine_lab/core/helper/share_preference_helper.dart';
 import 'package:mine_lab/core/utils/util.dart';
-import 'package:mine_lab/firebase_options.dart';
+
 import 'package:path_provider/path_provider.dart';
 import 'package:http/http.dart' as http;
 
@@ -19,9 +19,7 @@ class PushNotificationService {
   PushNotificationService({required this.apiClient});
 
   Future<void> setupInteractedMessage() async {
-    await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
+    // Firebase.initializeApp() is already called in main.dart
     FirebaseMessaging messaging = FirebaseMessaging.instance;
     await _requestPermissions();
 
