@@ -13,6 +13,31 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'core/di_service/di_services.dart' as di_service;
 import 'core/theme/light/light.dart';
+import 'package:flutter/widgets.dart';
+
+// ✅ Added: token logger (permission + token print)
+Future<void> _logFcmToken() async {
+  try {
+    // Android 13+ needs runtime notification permission for showing notifications
+    final settings = await FirebaseMessaging.instance.requestPermission(
+      alert: true,
+      badge: true,
+      sound: true,
+    );
+
+    debugPrint('FCM permission: ${settings.authorizationStatus}');
+
+    final token = await FirebaseMessaging.instance.getToken();
+    debugPrint('FCM TOKEN: $token');
+
+    // Optional: log token refresh (useful after reinstall / token changes)
+    FirebaseMessaging.instance.onTokenRefresh.listen((newToken) {
+      debugPrint('FCM TOKEN REFRESHED: $newToken');
+    });
+  } catch (e) {
+    debugPrint('FCM token log failed: $e');
+  }
+}
 
 Future<void> _messageHandler(RemoteMessage message) async {
   try {
@@ -24,6 +49,13 @@ Future<void> _messageHandler(RemoteMessage message) async {
   } catch (e) {
     debugPrint("Firebase init failed (likely duplicate): $e");
   }
+
+  // ✅ Optional: log message basics (doesn’t affect your logic)
+  debugPrint('BG messageId: ${message.messageId}');
+  debugPrint('BG data: ${message.data}');
+  debugPrint(
+      'BG notification: ${message.notification?.title} / ${message.notification?.body}');
+
   final sharedPreferences = await SharedPreferences.getInstance();
   Get.lazyPut(() => sharedPreferences);
   sharedPreferences.setBool(SharedPreferenceHelper.hasNewNotificationKey, true);
@@ -31,6 +63,7 @@ Future<void> _messageHandler(RemoteMessage message) async {
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   try {
     if (Firebase.apps.isEmpty) {
       await Firebase.initializeApp(
@@ -40,6 +73,10 @@ Future<void> main() async {
   } catch (e) {
     debugPrint("Firebase init failed (likely duplicate): $e");
   }
+
+  // ✅ Added: log permission + token after Firebase init
+  await _logFcmToken();
+
   await di_service.init();
 
   // Initialize LocalizationController early
@@ -47,7 +84,6 @@ Future<void> main() async {
   Get.put(LocalizationController(sharedPreferences: sharedPreferences));
 
   FirebaseMessaging.onBackgroundMessage(_messageHandler);
-  // PushNotificationService setup moved to SplashController to optimize startup time
 
   runApp(const MyApp());
 }
